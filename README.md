@@ -19,7 +19,7 @@ The SAAR app is an android application to bring together all alumni and former f
 	- PHP
 
 ## Installing
-Clone the repo (without forking it) using the following command:
+Clone the repository using the following command:
 
 `$ git clone https://github.com/dsciitpatna/SAAR-Android-Client.git`
 
