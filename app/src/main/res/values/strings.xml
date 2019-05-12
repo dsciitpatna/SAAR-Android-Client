@@ -7,8 +7,51 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
+    <!--About Us Page-->
     <string name="about_us_fragment">About Us fragment</string>
     <string name="home_fragment">Home fragment</string>
     <string name="about_us">About Us</string>
+    <string name="background">Background</string>
+    <string name="objectives">Objectives</string>
+    <string name="missions">Missions</string>
+    <string name="initiatives">Initiatives</string>
+
+    <string name="about_us_background_details">Indian Institute of Technology Patna is an Institution of National Importance
+        and a new addition to the hallowed IIT System that has proven its worth in last 50+ years. The alumni of IIT are
+        internationally known for their caliber and contribution. Since its inception in 2008, IIT Patna- like its young as
+        well as established peers- has pursued excellence with steadfast determination. \n\n IITP has 6 Engineering Disciplines:
+        Civil and Environmental Engineering, Chemical and Biochemical Engineering, Computer Science and Engineering,
+        Electrical Engineering, Mechanical Engineering and Material Science and Engineering; 2 Science Disciplines:
+        Physics and Chemistry; Humanities and Social Sciences; Mathematics. Its faculty members are experts in their
+        respective fields. The thriving PhD, M.Tech and B.Tech programs of IITP see the students and faculty publish
+        prolifically, win competitions, come up with innovations and build societal awareness.</string>
+
+    <string name="about_us_objectives_details">Established in 2018, Students Association for Alumni Relations (SAAR),
+        has been created to maintain a life-long connection between the Institute and its alumni (more than 1500 at present).
+        The committee works in coordination with the institute to create a platform that helps in connecting the former students
+        with their alma mater \n\n Filled with extremely dedicated volunteers, SAAR works to connect alumni, support students and
+        build an unforgettable Institute experience through a diversity of events, programming and services. With the purpose of
+        creating a strong network of alumni, guiding and mentoring juniors, developing the institute, SAAR works towards
+        creating strong alumni relations.</string>
+
+    <string name="about_us_missions_details">A bond binds us to the place that guides us towards a fun-filled and fulfilling future.......
+        and that place is our college. No matter where we go, no matter how old our bones grow, bonds always remain strong. We plan
+        on bringing old ‘Partners in Crime’ back together and for that the primary mission of SAAR (Students’ Association for Alumni Relations)
+        is to create a connection with all the Alumni of IIT Patna and to strengthen that relation. We also plan on getting in touch with our
+        Alumni residing in other countries.\n\n SAAR aims at spending a defined portion of its manpower, intelligence and resources for the
+        betterment of society through: \n\n
+        Educational and other assistance to students belonging to socially/economically weaker sections. \n\n
+        Promoting, encouraging and supporting the social and cultural heritage and traditions of our society. \n\n
+        Proactive actions for well-being of the society as per the needs. \n\n
+        Incorporating sustainability in education plans, strategies and processes.</string>
+
+    <string name="about_us_initiatives_details">SAAR plans on creating a discussion forum, where students can interact with the Alumni to get their
+        doubts answered.Along with this, SAAR plans on conducting Alumni Chapter in various cities across the country to enhance the relations.\n\n
+        To further strengthen the relations between the Alumni and the institute, SAAR also conducts felicitation programs and Alumni talks. \n\n
+        SAAR is in process (via regular talks and discussions) to bring reputed industries so as to encourage them to set up research centers and
+        collaborative program through them. The proposed center is expected to be set up with a funding from these industries inside IITP campus
+        and IITP will deliver the knowledge base to give a meaningful solution to their day to day industrial challenges, problems etc.\n\n
+        Through National Service Scheme (NSS) activities SAAR is already actively working for the empowered of impoverished sections of humanity and
+        for the nearby villages around IITP campus apart from donation of books, copies and clothes to these society people IITP students are
+        also teaching them on a regular basis.</string>
 </resources>
