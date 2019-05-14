@@ -16,27 +16,27 @@ public class ShareFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_share, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_share, container, false);
 
-        ImageButton facebookButton = (ImageButton) v.findViewById(R.id.share_facebook);
+        ImageButton facebookButton = (ImageButton) rootView.findViewById(R.id.share_facebook);
         facebookButton.setOnClickListener(this);
 
-        ImageButton instagramButton = (ImageButton) v.findViewById(R.id.share_instagram);
+        ImageButton instagramButton = (ImageButton) rootView.findViewById(R.id.share_instagram);
         instagramButton.setOnClickListener(this);
 
-        ImageButton twitterButton = (ImageButton) v.findViewById(R.id.share_twitter);
+        ImageButton twitterButton = (ImageButton) rootView.findViewById(R.id.share_twitter);
         twitterButton.setOnClickListener(this);
 
-        ImageButton linkedinButton = (ImageButton) v.findViewById(R.id.share_linkedin);
+        ImageButton linkedinButton = (ImageButton) rootView.findViewById(R.id.share_linkedin);
         linkedinButton.setOnClickListener(this);
 
-        ImageButton youtubeButton = (ImageButton) v.findViewById(R.id.share_youtube);
+        ImageButton youtubeButton = (ImageButton) rootView.findViewById(R.id.share_youtube);
         youtubeButton.setOnClickListener(this);
 
-        ImageButton websiteButton = (ImageButton) v.findViewById(R.id.share_website);
+        ImageButton websiteButton = (ImageButton) rootView.findViewById(R.id.share_website);
         websiteButton.setOnClickListener(this);
 
-        return v;
+        return rootView;
     }
 
     @Override
@@ -51,27 +51,27 @@ public class ShareFragment extends Fragment implements View.OnClickListener {
         Intent browserIntent;
         switch (v.getId()) {
             case R.id.share_facebook:
-                browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/saar.iitp/"));
+                browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(Constant.FACEBOOK_LINK));
                 startActivity(browserIntent);
                 break;
             case R.id.share_instagram:
-                browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/saar.iitp/"));
+                browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(Constant.INSTAGRAM_LINK));
                 startActivity(browserIntent);
                 break;
             case R.id.share_twitter:
-                browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/saar_iitp"));
+                browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(Constant.TWITTER_LINK));
                 startActivity(browserIntent);
                 break;
             case R.id.share_linkedin:
-                browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.linkedin.com/company/saar-iitp"));
+                browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(Constant.LINKEDIN_LINK));
                 startActivity(browserIntent);
                 break;
             case R.id.share_youtube:
-                browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/channel/UCoAb1YggffbfgVxQyXaZB-g"));
+                browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(Constant.YOUTUBE_LINK));
                 startActivity(browserIntent);
                 break;
             case R.id.share_website:
-                browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://saar.iitp.ac.in/"));
+                browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(Constant.WEBSITE_LINK));
                 startActivity(browserIntent);
                 break;
         }
