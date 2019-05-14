@@ -11,4 +11,6 @@
     <string name="about_us_fragment">About Us fragment</string>
     <string name="home_fragment">Home fragment</string>
     <string name="about_us">About Us</string>
+    <string name="share_fragment">Share</string>
+    <string name="connect_with_us">Connect With Us</string>
 </resources>
