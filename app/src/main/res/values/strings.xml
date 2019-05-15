@@ -8,6 +8,7 @@
     <string name="action_settings">Settings</string>
     <string name="share_fragment">Share</string>
     <string name="connect_with_us">Connect With Us</string>
+    <string name="donate_fragment">Donate Now</string>
 
     <!--About Us Page-->
     <string name="about_us_fragment">About Us fragment</string>
@@ -57,4 +58,14 @@
         for the nearby villages around IITP campus apart from donation of books, copies and clothes to these society people IITP students are
         also teaching them on a regular basis.</string>
 
+    <!--Donate Page-->
+    <string name="how_to_donate">How To Donate ?</string>
+    <string name="donate_now">Donate Now</string>
+    <string name="donate_steps">
+        1. Click on the following button.\n\n
+        2. Accept the Terms and Conditions and proceed.\n\n
+        3. In the \"State of Institution\", select Bihar.\n\n
+        4. In the \"Type of Institution\", select Educational Institutions and Click on \"GO\".\n\n
+        5. Now, in the Name of Institution, find \"INDIAN INSTITUTE OF TECHNOLOGY PATNA\" and click on SUBMIT.\n\n
+        6. Finally in the Payment Category, Select \"Alumni Cell, IIT Patna\" to make the contribution.\n\n</string>
 </resources>
