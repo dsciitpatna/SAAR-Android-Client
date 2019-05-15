@@ -12,8 +12,8 @@
     <dimen name="margin_big">16dp</dimen>
     <dimen name="card_radius">16dp</dimen>
     <dimen name="card_elevation">16dp</dimen>
-    <dimen name="textsize_big">36sp</dimen>
-    <dimen name="textsize_medium">20sp</dimen>
+    <dimen name="textsize_big">24sp</dimen>
+    <dimen name="textsize_medium">16sp</dimen>
     <dimen name="padding_medium">8dp</dimen>
 
 </resources>

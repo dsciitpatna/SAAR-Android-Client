@@ -5,14 +5,6 @@
     <color name="colorAccent">#D81B60</color>
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
-    <color name="orange">#F86F05</color>
-    <color name="yellow">#CE9908</color>
-    <color name="light_pink">#F86CD9</color>
-    <color name="deep_pink">#F9019A</color>
-    <color name="green">#089214</color>
-    <color name="dark_yellow">#A08802</color>
-    <color name="dark_blue">#5511DC</color>
-    <color name="purple">#8356DD</color>
     <color name="about_us_background">#D0FCF9</color>
 
 </resources>
