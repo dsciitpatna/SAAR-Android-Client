@@ -95,6 +95,8 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_timeline:
             case R.id.nav_team:
             case R.id.nav_donate_now:
+                fragment = new DonateFragment();
+                break;
             case R.id.nav_share:
                 fragment = new ShareFragment();
                 break;
