@@ -21,7 +21,7 @@ Open a terminal/shell.
 
 Type
 
-`$ https://github.com/dsciitpatna/SAAR-Android-Client.git`
+`$ https://github.com/username/SAAR-Android-Client.git`
 
 where 'username' is your username.
 
