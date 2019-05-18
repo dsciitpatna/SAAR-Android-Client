@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/about_us_background"
+    android:padding="@dimen/padding_medium">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TeamCommittee"
+                android:text="CORE COMMITTEE" />
+
+            <TextView
+                style="@style/TeamDesignation"
+                android:text="General Secretary, SAAR" />
+
+            <ImageView
+                android:id="@+id/team_member_1"
+                style="@style/TeamMemberImage" />
+
+            <TextView
+                style="@style/TeamMemberName"
+                android:text="Vivek Garg" />
+
+            <TextView
+                style="@style/TeamDesignation"
+                android:text="Coordinator, Finance and Sponsorship" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    style="@style/TeamLinearLayout"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/team_member_2"
+                        style="@style/TeamMemberImage" />
+
+                    <TextView
+                        style="@style/TeamMemberName"
+                        android:text="Mohit Kishore" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/TeamLinearLayout"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/team_member_3"
+                        style="@style/TeamMemberImage" />
+
+                    <TextView
+                        style="@style/TeamMemberName"
+                        android:text="Hit Vardhan" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                style="@style/TeamDesignation"
+                android:text="Coordinator, Design" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    style="@style/TeamLinearLayout"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/team_member_4"
+                        style="@style/TeamMemberImage" />
+
+                    <TextView
+                        style="@style/TeamMemberName"
+                        android:text="Utkarsh" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/TeamLinearLayout"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/team_member_5"
+                        style="@style/TeamMemberImage" />
+
+                    <TextView
+                        style="@style/TeamMemberName"
+                        android:text="Raghu" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                style="@style/TeamDesignation"
+                android:text="Coordinator, Public and Alumni Relations" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    style="@style/TeamLinearLayout"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/team_member_6"
+                        style="@style/TeamMemberImage" />
+
+                    <TextView
+                        style="@style/TeamMemberName"
+                        android:text="Anuj Shastri" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/TeamLinearLayout"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/team_member_7"
+                        style="@style/TeamMemberImage" />
+
+                    <TextView
+                        style="@style/TeamMemberName"
+                        android:text="Saurabh Gupta" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                style="@style/TeamDesignation"
+                android:text="Coordinator, Events and Management" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    style="@style/TeamLinearLayout"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/team_member_8"
+                        style="@style/TeamMemberImage" />
+
+                    <TextView
+                        style="@style/TeamMemberName"
+                        android:text="Avinash Singh" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/TeamLinearLayout"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/team_member_9"
+                        style="@style/TeamMemberImage" />
+
+                    <TextView
+                        style="@style/TeamMemberName"
+                        android:text="Himanshu Gupta" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                style="@style/TeamDesignation"
+                android:text="Coordinator, Web and App" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    style="@style/TeamLinearLayout"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/team_member_10"
+                        style="@style/TeamMemberImage" />
+
+                    <TextView
+                        style="@style/TeamMemberName"
+                        android:text="Vatsal Singhal" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/TeamLinearLayout"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/team_member_11"
+                        style="@style/TeamMemberImage" />
+
+                    <TextView
+                        style="@style/TeamMemberName"
+                        android:text="Adarsh" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <TextView
+                style="@style/TeamCommittee"
+                android:text="EXECUTIVE COMMITTEE" />
+
+            <TextView
+                style="@style/TeamDesignation"
+                android:text="Finance and Sponsorship" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    style="@style/TeamLinearLayout"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/team_member_12"
+                        style="@style/TeamMemberImage" />
+
+                    <TextView
+                        style="@style/TeamMemberName"
+                        android:text="Lavanya Naresh" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/TeamLinearLayout"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/team_member_13"
+                        style="@style/TeamMemberImage" />
+
+                    <TextView
+                        style="@style/TeamMemberName"
+                        android:text="Gaurav Sharma" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/TeamLinearLayout"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/team_member_14"
+                        style="@style/TeamMemberImage" />
+
+                    <TextView
+                        style="@style/TeamMemberName"
+                        android:text="Rakesh Kumar" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                style="@style/TeamDesignation"
+                android:text="Design" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    style="@style/TeamLinearLayout"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/team_member_15"
+                        style="@style/TeamMemberImage" />
+
+                    <TextView
+                        style="@style/TeamMemberName"
+                        android:text="Diptanil Sarkar" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/TeamLinearLayout"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/team_member_16"
+                        style="@style/TeamMemberImage" />
+
+                    <TextView
+                        style="@style/TeamMemberName"
+                        android:text="Aman Kumar" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/TeamLinearLayout"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/team_member_17"
+                        style="@style/TeamMemberImage" />
+
+                    <TextView
+                        style="@style/TeamMemberName"
+                        android:text="Sahebjeet" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/TeamLinearLayout"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/team_member_18"
+                        style="@style/TeamMemberImage" />
+
+                    <TextView
+                        style="@style/TeamMemberName"
+                        android:text="Aarohan Panda" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                style="@style/TeamDesignation"
+                android:text="Public and Alumni Relations" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    style="@style/TeamLinearLayout"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/team_member_19"
+                        style="@style/TeamMemberImage" />
+
+                    <TextView
+                        style="@style/TeamMemberName"
+                        android:text="Akash Balaji" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    style="@style/TeamLinearLayout"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/team_member_20"
+                        style="@style/TeamMemberImage" />
+
+                    <TextView
+                        style="@style/TeamMemberName"
+                        android:text="Anuj Yadav" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/TeamLinearLayout"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/team_member_21"
+                        style="@style/TeamMemberImage" />
+
+                    <TextView
+                        style="@style/TeamMemberName"
+                        android:text="Nischal" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                style="@style/TeamDesignation"
+                android:text="Events and Management" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    style="@style/TeamLinearLayout"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/team_member_22"
+                        style="@style/TeamMemberImage" />
+
+                    <TextView
+                        style="@style/TeamMemberName"
+                        android:text="Atul Gupta" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/TeamLinearLayout"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/team_member_23"
+                        style="@style/TeamMemberImage" />
+
+                    <TextView
+                        style="@style/TeamMemberName"
+                        android:text="Rahul Verma" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/TeamLinearLayout"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/team_member_24"
+                        style="@style/TeamMemberImage" />
+
+                    <TextView
+                        style="@style/TeamMemberName"
+                        android:text="Gaurav Pratap Singh" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                style="@style/TeamDesignation"
+                android:text="Web and App" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    style="@style/TeamLinearLayout"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/team_member_25"
+                        style="@style/TeamMemberImage" />
+
+                    <TextView
+                        style="@style/TeamMemberName"
+                        android:text="Aparsh Gupta" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/TeamLinearLayout"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/team_member_26"
+                        style="@style/TeamMemberImage" />
+
+                    <TextView
+                        style="@style/TeamMemberName"
+                        android:text="Somenath Sarkar" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/TeamLinearLayout"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/team_member_27"
+                        style="@style/TeamMemberImage" />
+
+                    <TextView
+                        style="@style/TeamMemberName"
+                        android:text="Pranay" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/TeamLinearLayout"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/team_member_28"
+                        style="@style/TeamMemberImage" />
+
+                    <TextView
+                        style="@style/TeamMemberName"
+                        android:text="Amartya Mondal" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                style="@style/TeamCommittee"
+                android:text="ADVISOR" />
+
+            <ImageView
+                android:id="@+id/team_member_29"
+                style="@style/TeamMemberImage" />
+
+            <TextView
+                style="@style/TeamMemberName"
+                android:text="Abhinav Gyan" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

@@ -9,6 +9,7 @@
     <string name="share_fragment">Share</string>
     <string name="connect_with_us">Connect With Us</string>
     <string name="donate_fragment">Donate Now</string>
+    <string name="team_fragment">Team</string>
 
     <!--About Us Page-->
     <string name="about_us_fragment">About Us fragment</string>
