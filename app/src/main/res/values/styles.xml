@@ -17,4 +17,45 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="TeamCommittee">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:paddingBottom">@dimen/padding_medium</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/textsize_big</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TeamDesignation">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingBottom">@dimen/padding_medium</item>
+        <item name="android:textSize">@dimen/textsize_medium</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TeamMemberImage">
+        <item name="android:layout_width">@dimen/team_image_width</item>
+        <item name="android:layout_height">@dimen/team_image_height</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+    </style>
+
+    <style name="TeamMemberName">
+        <item name="android:padding">@dimen/padding_medium</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:lines">2</item>
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
+    <style name="TeamLinearLayout">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
 </resources>

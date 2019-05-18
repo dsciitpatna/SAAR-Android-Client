@@ -9,9 +9,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="56dp"
+        android:layout_marginBottom="@dimen/header_margin_bottom"
         android:text="@string/connect_with_us"
-        android:textSize="32sp" />
+        android:textSize="@dimen/header_textsize" />
 
     <LinearLayout
         android:layout_width="wrap_content"

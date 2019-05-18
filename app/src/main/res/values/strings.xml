@@ -9,6 +9,52 @@
     <string name="share_fragment">Share</string>
     <string name="connect_with_us">Connect With Us</string>
     <string name="donate_fragment">Donate Now</string>
+    <string name="team_fragment">Team</string>
+
+    <!--Team Page-->
+    <string name="member_1">Vivek Garg</string>
+    <string name="member_2">Mohit Kishore</string>
+    <string name="member_3">Hit Vardhan</string>
+    <string name="member_4">Utkarsh</string>
+    <string name="member_5">Raghu</string>
+    <string name="member_6">Anuj Shastri</string>
+    <string name="member_7">Saurabh Gupta</string>
+    <string name="member_8">Avinash Singh</string>
+    <string name="member_9">Himanshu Gupta</string>
+    <string name="member_10">Vatsal Singhal</string>
+    <string name="member_11">Adarsh</string>
+    <string name="member_12">Lavanya Naresh</string>
+    <string name="member_13">Gaurav Sharma</string>
+    <string name="member_14">Rakesh Kumar</string>
+    <string name="member_15">Diptanil Sarkar</string>
+    <string name="member_16">Aman Kumar</string>
+    <string name="member_17">Sahebjeet</string>
+    <string name="member_18">Aarohan Panda</string>
+    <string name="member_19">Akash Balaji</string>
+    <string name="member_20">Anuj Yadav</string>
+    <string name="member_21">Nischal</string>
+    <string name="member_22">Atul Gupta</string>
+    <string name="member_23">Rahul Verma</string>
+    <string name="member_24">Gaurav Pratap Singh</string>
+    <string name="member_25">Aparsh Gupta</string>
+    <string name="member_26">Somenath Sarkar</string>
+    <string name="member_27">Pranay</string>
+    <string name="member_28">Amartya Mondal</string>
+    <string name="member_29">Abhinav Gyan</string>
+    <string name="core_committee">CORE COMMITTEE</string>
+    <string name="executive_committee">EXECUTIVE COMMITTEE</string>
+    <string name="advisor">ADVISOR</string>
+    <string name="general_sec">General Secretary, SAAR</string>
+    <string name="coordinator_1">Coordinator, Finance and Sponsorship</string>
+    <string name="coordinator_2">Coordinator, Design</string>
+    <string name="coordinator_3">Coordinator, Public and Alumni Relations</string>
+    <string name="coordinator_4">Coordinator, Events and Management</string>
+    <string name="coordinator_5">Coordinator, Web and App</string>
+    <string name="committee_1">Finance and Sponsorship</string>
+    <string name="committee_2">Design</string>
+    <string name="committee_3">Public and Alumni Relations</string>
+    <string name="committee_4">Events and Management</string>
+    <string name="committee_5">Web and App</string>
 
     <!--About Us Page-->
     <string name="about_us_fragment">About Us fragment</string>
