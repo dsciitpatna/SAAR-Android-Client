@@ -57,4 +57,11 @@
         for the nearby villages around IITP campus apart from donation of books, copies and clothes to these society people IITP students are
         also teaching them on a regular basis.</string>
 
+    <!--Login Fragment-->
+    <string name="login">Login</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="skip_login">Skip Login</string>
+
 </resources>

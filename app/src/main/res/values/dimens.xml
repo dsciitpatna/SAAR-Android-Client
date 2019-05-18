@@ -17,4 +17,14 @@
     <dimen name="padding_medium">8dp</dimen>
     <dimen name="image_button_padding">25dp</dimen>
     <dimen name="line_width">1dp</dimen>
+
+    <!--Login Fragment-->
+    <dimen name="view_height">250dp</dimen>
+    <dimen name="card_login_radius">10dp</dimen>
+    <dimen name="card_login_elevation">10dp</dimen>
+    <dimen name="padding_login_big">20dp</dimen>
+    <dimen name="margin_50dp">50dp</dimen>
+    <dimen name="margin_5dp">5dp</dimen>
+    <dimen name="margin_10dp">10dp</dimen>
+    <dimen name="margin_30dp">30dp</dimen>
 </resources>
