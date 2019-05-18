@@ -18,6 +18,18 @@
 
             <TextView
                 style="@style/TeamCommittee"
+                android:text="@string/advisor" />
+
+            <ImageView
+                android:id="@+id/team_member_29"
+                style="@style/TeamMemberImage" />
+
+            <TextView
+                style="@style/TeamMemberName"
+                android:text="@string/member_29" />
+
+            <TextView
+                style="@style/TeamCommittee"
                 android:text="@string/core_committee" />
 
             <TextView
@@ -516,18 +528,6 @@
                 </LinearLayout>
 
             </LinearLayout>
-
-            <TextView
-                style="@style/TeamCommittee"
-                android:text="@string/advisor" />
-
-            <ImageView
-                android:id="@+id/team_member_29"
-                style="@style/TeamMemberImage" />
-
-            <TextView
-                style="@style/TeamMemberName"
-                android:text="@string/member_29" />
 
         </LinearLayout>
 
