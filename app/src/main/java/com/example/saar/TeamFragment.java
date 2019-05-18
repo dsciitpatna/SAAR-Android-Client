@@ -19,7 +19,7 @@ public class TeamFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_team, container, false);
 
-        int IMAGE_ID[] = {R.drawable.vivek_garg, R.drawable.mohit_kishore, R.drawable.hit_vardhan, R.drawable.utkarsh, R.drawable.mohit_kishore, R.drawable.anuj_shastri, R.drawable.saurabh_gupta,
+        int IMAGE_ID[] = {R.drawable.vivek_garg, R.drawable.mohit_kishore, R.drawable.hit_vardhan, R.drawable.utkarsh, R.drawable.saar_logo, R.drawable.anuj_shastri, R.drawable.saurabh_gupta,
                 R.drawable.avinash_singh, R.drawable.himanshu_gupta, R.drawable.vatsal_singhal, R.drawable.adarsh, R.drawable.lavanya_naresh, R.drawable.gaurav_sharma, R.drawable.rakesh_kumar,
                 R.drawable.diptanil_sarkar, R.drawable.aman_kumar, R.drawable.sahebjeet, R.drawable.aarohan_panda, R.drawable.akash_balaji, R.drawable.anuj_yadav, R.drawable.nischal,
                 R.drawable.atul_gupta, R.drawable.rahul_verma, R.drawable.gaurav_pratap_singh, R.drawable.aparsh_gupta, R.drawable.somenath_sarkar, R.drawable.pranay, R.drawable.amartya_mondal,

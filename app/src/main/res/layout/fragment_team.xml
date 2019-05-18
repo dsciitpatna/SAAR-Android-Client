@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -13,17 +12,17 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:orientation="vertical">
 
             <TextView
                 style="@style/TeamCommittee"
-                android:text="CORE COMMITTEE" />
+                android:text="@string/core_committee" />
 
             <TextView
                 style="@style/TeamDesignation"
-                android:text="General Secretary, SAAR" />
+                android:text="@string/general_sec" />
 
             <ImageView
                 android:id="@+id/team_member_1"
@@ -31,11 +30,11 @@
 
             <TextView
                 style="@style/TeamMemberName"
-                android:text="Vivek Garg" />
+                android:text="@string/member_1" />
 
             <TextView
                 style="@style/TeamDesignation"
-                android:text="Coordinator, Finance and Sponsorship" />
+                android:text="@string/coordinator_1" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -51,7 +50,7 @@
 
                     <TextView
                         style="@style/TeamMemberName"
-                        android:text="Mohit Kishore" />
+                        android:text="@string/member_2" />
 
                 </LinearLayout>
 
@@ -65,7 +64,7 @@
 
                     <TextView
                         style="@style/TeamMemberName"
-                        android:text="Hit Vardhan" />
+                        android:text="@string/member_3" />
 
                 </LinearLayout>
 
@@ -73,7 +72,7 @@
 
             <TextView
                 style="@style/TeamDesignation"
-                android:text="Coordinator, Design" />
+                android:text="@string/coordinator_2" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -89,7 +88,7 @@
 
                     <TextView
                         style="@style/TeamMemberName"
-                        android:text="Utkarsh" />
+                        android:text="@string/member_4" />
 
                 </LinearLayout>
 
@@ -103,7 +102,7 @@
 
                     <TextView
                         style="@style/TeamMemberName"
-                        android:text="Raghu" />
+                        android:text="@string/member_5" />
 
                 </LinearLayout>
 
@@ -111,7 +110,7 @@
 
             <TextView
                 style="@style/TeamDesignation"
-                android:text="Coordinator, Public and Alumni Relations" />
+                android:text="@string/coordinator_3" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -127,7 +126,7 @@
 
                     <TextView
                         style="@style/TeamMemberName"
-                        android:text="Anuj Shastri" />
+                        android:text="@string/member_6" />
 
                 </LinearLayout>
 
@@ -141,7 +140,7 @@
 
                     <TextView
                         style="@style/TeamMemberName"
-                        android:text="Saurabh Gupta" />
+                        android:text="@string/member_7" />
 
                 </LinearLayout>
 
@@ -149,7 +148,7 @@
 
             <TextView
                 style="@style/TeamDesignation"
-                android:text="Coordinator, Events and Management" />
+                android:text="@string/coordinator_4" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -165,7 +164,7 @@
 
                     <TextView
                         style="@style/TeamMemberName"
-                        android:text="Avinash Singh" />
+                        android:text="@string/member_8" />
 
                 </LinearLayout>
 
@@ -179,7 +178,7 @@
 
                     <TextView
                         style="@style/TeamMemberName"
-                        android:text="Himanshu Gupta" />
+                        android:text="@string/member_9" />
 
                 </LinearLayout>
 
@@ -187,7 +186,7 @@
 
             <TextView
                 style="@style/TeamDesignation"
-                android:text="Coordinator, Web and App" />
+                android:text="@string/coordinator_5" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -203,7 +202,7 @@
 
                     <TextView
                         style="@style/TeamMemberName"
-                        android:text="Vatsal Singhal" />
+                        android:text="@string/member_10" />
 
                 </LinearLayout>
 
@@ -217,7 +216,7 @@
 
                     <TextView
                         style="@style/TeamMemberName"
-                        android:text="Adarsh" />
+                        android:text="@string/member_11" />
 
                 </LinearLayout>
 
@@ -226,11 +225,11 @@
 
             <TextView
                 style="@style/TeamCommittee"
-                android:text="EXECUTIVE COMMITTEE" />
+                android:text="@string/executive_committee" />
 
             <TextView
                 style="@style/TeamDesignation"
-                android:text="Finance and Sponsorship" />
+                android:text="@string/committee_1" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -246,7 +245,7 @@
 
                     <TextView
                         style="@style/TeamMemberName"
-                        android:text="Lavanya Naresh" />
+                        android:text="@string/member_12" />
 
                 </LinearLayout>
 
@@ -260,7 +259,7 @@
 
                     <TextView
                         style="@style/TeamMemberName"
-                        android:text="Gaurav Sharma" />
+                        android:text="@string/member_13" />
 
                 </LinearLayout>
 
@@ -274,7 +273,7 @@
 
                     <TextView
                         style="@style/TeamMemberName"
-                        android:text="Rakesh Kumar" />
+                        android:text="@string/member_14" />
 
                 </LinearLayout>
 
@@ -282,7 +281,7 @@
 
             <TextView
                 style="@style/TeamDesignation"
-                android:text="Design" />
+                android:text="@string/committee_2" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -298,7 +297,7 @@
 
                     <TextView
                         style="@style/TeamMemberName"
-                        android:text="Diptanil Sarkar" />
+                        android:text="@string/member_15" />
 
                 </LinearLayout>
 
@@ -312,7 +311,7 @@
 
                     <TextView
                         style="@style/TeamMemberName"
-                        android:text="Aman Kumar" />
+                        android:text="@string/member_16" />
 
                 </LinearLayout>
 
@@ -326,7 +325,7 @@
 
                     <TextView
                         style="@style/TeamMemberName"
-                        android:text="Sahebjeet" />
+                        android:text="@string/member_17" />
 
                 </LinearLayout>
 
@@ -340,7 +339,7 @@
 
                     <TextView
                         style="@style/TeamMemberName"
-                        android:text="Aarohan Panda" />
+                        android:text="@string/member_18" />
 
                 </LinearLayout>
 
@@ -348,7 +347,7 @@
 
             <TextView
                 style="@style/TeamDesignation"
-                android:text="Public and Alumni Relations" />
+                android:text="@string/committee_3" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -364,7 +363,7 @@
 
                     <TextView
                         style="@style/TeamMemberName"
-                        android:text="Akash Balaji" />
+                        android:text="@string/member_19" />
 
                 </LinearLayout>
 
@@ -379,7 +378,7 @@
 
                     <TextView
                         style="@style/TeamMemberName"
-                        android:text="Anuj Yadav" />
+                        android:text="@string/member_20" />
 
                 </LinearLayout>
 
@@ -393,7 +392,7 @@
 
                     <TextView
                         style="@style/TeamMemberName"
-                        android:text="Nischal" />
+                        android:text="@string/member_21" />
 
                 </LinearLayout>
 
@@ -401,7 +400,7 @@
 
             <TextView
                 style="@style/TeamDesignation"
-                android:text="Events and Management" />
+                android:text="@string/committee_4" />
 
 
             <LinearLayout
@@ -418,7 +417,7 @@
 
                     <TextView
                         style="@style/TeamMemberName"
-                        android:text="Atul Gupta" />
+                        android:text="@string/member_22" />
 
                 </LinearLayout>
 
@@ -432,7 +431,7 @@
 
                     <TextView
                         style="@style/TeamMemberName"
-                        android:text="Rahul Verma" />
+                        android:text="@string/member_23" />
 
                 </LinearLayout>
 
@@ -446,7 +445,7 @@
 
                     <TextView
                         style="@style/TeamMemberName"
-                        android:text="Gaurav Pratap Singh" />
+                        android:text="@string/member_24" />
 
                 </LinearLayout>
 
@@ -454,7 +453,7 @@
 
             <TextView
                 style="@style/TeamDesignation"
-                android:text="Web and App" />
+                android:text="@string/committee_5" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -470,7 +469,7 @@
 
                     <TextView
                         style="@style/TeamMemberName"
-                        android:text="Aparsh Gupta" />
+                        android:text="@string/member_25" />
 
                 </LinearLayout>
 
@@ -484,7 +483,7 @@
 
                     <TextView
                         style="@style/TeamMemberName"
-                        android:text="Somenath Sarkar" />
+                        android:text="@string/member_26" />
 
                 </LinearLayout>
 
@@ -498,7 +497,7 @@
 
                     <TextView
                         style="@style/TeamMemberName"
-                        android:text="Pranay" />
+                        android:text="@string/member_27" />
 
                 </LinearLayout>
 
@@ -512,7 +511,7 @@
 
                     <TextView
                         style="@style/TeamMemberName"
-                        android:text="Amartya Mondal" />
+                        android:text="@string/member_28" />
 
                 </LinearLayout>
 
@@ -520,7 +519,7 @@
 
             <TextView
                 style="@style/TeamCommittee"
-                android:text="ADVISOR" />
+                android:text="@string/advisor" />
 
             <ImageView
                 android:id="@+id/team_member_29"
@@ -528,7 +527,7 @@
 
             <TextView
                 style="@style/TeamMemberName"
-                android:text="Abhinav Gyan" />
+                android:text="@string/member_29" />
 
         </LinearLayout>
 
