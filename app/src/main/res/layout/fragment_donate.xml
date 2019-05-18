@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DonateFragment"
+    android:orientation="vertical"
+    android:padding="@dimen/padding_medium">
+
+   <android.support.v7.widget.AppCompatTextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_gravity="center_horizontal"
+       android:text="@string/how_to_donate"
+       android:textSize="@dimen/textsize_big"
+       android:fontFamily="sans-serif"
+       android:textColor="@color/black"
+       android:layout_marginTop="@dimen/margin_medium"
+       android:layout_marginBottom="@dimen/margin_medium" />
+
+   <android.support.v7.widget.AppCompatTextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_gravity="center_horizontal"
+       android:text="@string/donate_steps"
+       android:textSize="@dimen/textsize_medium"
+       android:fontFamily="sans-serif"
+       android:textColor="@color/black"
+       android:layout_margin="@dimen/margin_medium"/>
+
+   <android.support.v7.widget.AppCompatButton
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_gravity="center_horizontal"
+       android:text="@string/donate_now"
+       android:textSize="@dimen/textsize_big"
+       android:background="@color/colorPrimary"
+       android:textColor="@color/white"
+       android:padding="@dimen/padding_medium"
+       android:fontFamily="sans-serif"
+       android:id="@+id/donate"/>
+
+
+</LinearLayout>
