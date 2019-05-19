@@ -26,7 +26,7 @@ Clone the repository using the following command:
 Then open in Android Studio.
 
 ## Contributing
-Please read [CONTRIBUTING.md]() for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](https://github.com/dsciitpatna/SAAR-Android-Client/blob/development/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Branch Policy
 We have the following branches:
