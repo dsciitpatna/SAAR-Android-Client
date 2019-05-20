@@ -21,6 +21,16 @@
     <dimen name="line_width">1dp</dimen>
     <dimen name="header_textsize">32sp</dimen>
     <dimen name="header_margin_bottom">56dp</dimen>
+
+    <!--Login Fragment-->
+    <dimen name="view_height">250dp</dimen>
+    <dimen name="card_login_radius">10dp</dimen>
+    <dimen name="card_login_elevation">10dp</dimen>
+    <dimen name="padding_login_big">20dp</dimen>
+    <dimen name="margin_50dp">50dp</dimen>
+    <dimen name="margin_5dp">5dp</dimen>
+    <dimen name="margin_10dp">10dp</dimen>
+    <dimen name="margin_30dp">30dp</dimen>
     
     <!--Team Page-->
     <dimen name="textview_padding">8dp</dimen>
