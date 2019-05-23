@@ -123,4 +123,7 @@
         4. In the \"Type of Institution\", select Educational Institutions and Click on \"GO\".\n\n
         5. Now, in the Name of Institution, find \"INDIAN INSTITUTE OF TECHNOLOGY PATNA\" and click on SUBMIT.\n\n
         6. Finally in the Payment Category, Select \"Alumni Cell, IIT Patna\" to make the contribution.\n\n</string>
+
+    <!--Timeline Page-->
+    <string name="timeline">Timeline</string>
 </resources>
