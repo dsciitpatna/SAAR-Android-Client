@@ -107,10 +107,11 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_map:
                 //opens map app to display IIT Patna Administration Building
                 Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
-                        Uri.parse("geo:0,0?q="+getResources().getString(R.string.admin_block)));
+                        Uri.parse("geo:0,0?q=" + getResources().getString(R.string.admin_block)));
                 startActivity(intent);
             case R.id.nav_contact_us:
-
+                fragment = new ContactFragment();
+                break;
         }
 
         //replacing the fragment

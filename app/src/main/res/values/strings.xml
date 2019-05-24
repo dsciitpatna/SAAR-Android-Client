@@ -11,6 +11,7 @@
     <string name="donate_fragment">Donate Now</string>
     <string name="team_fragment">Team</string>
     <string name="admin_block">IIT+Patna+Administration+Block</string>
+    <string name="contact_fragment">Contact Us</string>
 
     <!--Team Page-->
     <string name="member_1">Vivek Garg</string>
@@ -124,4 +125,5 @@
         4. In the \"Type of Institution\", select Educational Institutions and Click on \"GO\".\n\n
         5. Now, in the Name of Institution, find \"INDIAN INSTITUTE OF TECHNOLOGY PATNA\" and click on SUBMIT.\n\n
         6. Finally in the Payment Category, Select \"Alumni Cell, IIT Patna\" to make the contribution.\n\n</string>
+
 </resources>
