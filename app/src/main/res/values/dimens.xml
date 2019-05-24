@@ -36,4 +36,7 @@
     <dimen name="textview_padding">8dp</dimen>
     <dimen name="team_image_width">80dp</dimen>
     <dimen name="team_image_height">80dp</dimen>
+
+    <!--Contact Page-->
+    <dimen name="textsize_contact">20sp</dimen>
 </resources>
