@@ -36,4 +36,8 @@
     <dimen name="textview_padding">8dp</dimen>
     <dimen name="team_image_width">80dp</dimen>
     <dimen name="team_image_height">80dp</dimen>
+
+    <!--Timeline Page-->
+    <dimen name="timeline_line_width">3dp</dimen>
+    <dimen name="timeline_marker_size">20dp</dimen>
 </resources>
