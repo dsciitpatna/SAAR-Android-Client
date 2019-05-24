@@ -1,6 +1,7 @@
 package com.example.saar;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -105,8 +106,14 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_share:
                 fragment = new ShareFragment();
                 break;
+            case R.id.nav_map:
+                //opens map app to display IIT Patna Administration Building
+                Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
+                        Uri.parse("geo:0,0?q=" + getResources().getString(R.string.admin_block)));
+                startActivity(intent);
             case R.id.nav_contact_us:
-
+                fragment = new ContactFragment();
+                break;
         }
 
         //replacing the fragment

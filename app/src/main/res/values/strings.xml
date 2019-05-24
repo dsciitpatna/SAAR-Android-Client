@@ -10,6 +10,8 @@
     <string name="connect_with_us">Connect With Us</string>
     <string name="donate_fragment">Donate Now</string>
     <string name="team_fragment">Team</string>
+    <string name="admin_block">IIT+Patna+Administration+Block</string>
+    <string name="contact_fragment">Contact Us</string>
 
     <!--Team Page-->
     <string name="member_1">Vivek Garg</string>
@@ -112,6 +114,12 @@
     <string name="skip_login">Skip Login</string>
     <string name="saar_login">SAAR  Login</string>
     <string name="saar_signup">SAAR  Sign Up</string>
+
+    <!--Contact Page-->
+    <string name="office_admin">Office of A Dean Resource \n\nAdministrative Building, IIT Patna</string>
+    <string name="view_on_map">View On Map</string>
+    <string name="pic">Prof. In-charge: \n\nDr. Anirban Chowdhary \n\nEmail - pic_alumni@iitp.ac.in</string>
+    <string name="secretary">General Secretary: \n\nVivek Garg \n\nEmail - vivek.ch17@iitp.ac.in</string>
 
     <!--Donate Page-->
     <string name="how_to_donate">How To Donate ?</string>
