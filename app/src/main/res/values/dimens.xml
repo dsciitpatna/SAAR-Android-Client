@@ -39,4 +39,9 @@
 
     <!--Contact Page-->
     <dimen name="textsize_contact">20sp</dimen>
+
+    <!--Timeline Page-->
+    <dimen name="timeline_line_width">3dp</dimen>
+    <dimen name="timeline_marker_size">20dp</dimen>
+
 </resources>

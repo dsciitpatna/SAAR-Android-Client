@@ -87,14 +87,16 @@ public class MainActivity extends AppCompatActivity
 
         //initializing the fragment object which is selected
         switch (itemId) {
-            case R.id.nav_about_us:
-                fragment = new AboutUsFragment();
-                break;
             case R.id.nav_home:
                 fragment = new HomeFragment();
                 break;
             case R.id.nav_gallery:
+            case R.id.nav_about_us:
+                fragment = new AboutUsFragment();
+                break;
             case R.id.nav_timeline:
+                fragment = new TimelineFragment();
+                break;
             case R.id.nav_team:
                 fragment = new TeamFragment();
                 break;
