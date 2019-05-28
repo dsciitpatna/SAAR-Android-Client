@@ -3,15 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TimelineFragment"
+    tools:context=".GalleryFragment"
     android:background="@color/about_us_background">
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_view_timeline"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="@dimen/padding_medium"
-        tools:listitem="@layout/event_list_row" />
-
+        android:layout_height="wrap_content"
+        android:id="@+id/recycler_view_gallery"
+        tools:listitem="@layout/gallery_list_row" />
 
 </RelativeLayout>

@@ -91,6 +91,8 @@ public class MainActivity extends AppCompatActivity
                 fragment = new HomeFragment();
                 break;
             case R.id.nav_gallery:
+                fragment = new GalleryFragment();
+                break;
             case R.id.nav_about_us:
                 fragment = new AboutUsFragment();
                 break;

@@ -12,6 +12,7 @@
     <string name="team_fragment">Team</string>
     <string name="admin_block">IIT+Patna+Administration+Block</string>
     <string name="contact_fragment">Contact Us</string>
+    <string name="gallery_fragment">Gallery</string>
 
     <!--Team Page-->
     <string name="member_1">Vivek Garg</string>
@@ -137,4 +138,5 @@
 
     <!--Event Details Page-->
     <string name="event_details">Event Details</string>
+    
 </resources>
