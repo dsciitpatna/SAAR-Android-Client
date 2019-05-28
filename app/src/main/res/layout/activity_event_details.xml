@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/about_us_background">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/event_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_big"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/placeholder_image"
+                tools:src="@drawable/placeholder_image" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/event_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/margin_medium"
+                android:fontFamily="sans-serif"
+                android:padding="@dimen/padding_medium"
+                android:textSize="@dimen/textsize_big"
+                android:textStyle="bold"
+                tools:text="Title"
+                android:textColor="@color/black"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/event_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/margin_medium"
+                android:fontFamily="sans-serif"
+                android:padding="@dimen/padding_medium"
+                android:textSize="@dimen/textsize_medium"
+                tools:text="28-05-2019"
+                android:textColor="@color/black"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/event_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/margin_medium"
+                android:fontFamily="sans-serif"
+                android:padding="@dimen/padding_medium"
+                android:text="08:00"
+                android:textSize="@dimen/textsize_medium"
+                tools:text="08:00"
+                android:textColor="@color/black"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/event_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/margin_medium"
+                android:fontFamily="sans-serif"
+                android:padding="@dimen/padding_medium"
+                android:textSize="@dimen/textsize_medium"
+                tools:text="Kolkata"
+                android:textColor="@color/black"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/event_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:fontFamily="sans-serif"
+                android:padding="@dimen/padding_medium"
+                android:textSize="@dimen/textsize_medium"
+                tools:text="Description"
+                android:textColor="@color/black"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
