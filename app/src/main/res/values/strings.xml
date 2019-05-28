@@ -134,4 +134,7 @@
 
     <!--Timeline Page-->
     <string name="timeline">Timeline</string>
+
+    <!--Event Details Page-->
+    <string name="event_details">Event Details</string>
 </resources>
