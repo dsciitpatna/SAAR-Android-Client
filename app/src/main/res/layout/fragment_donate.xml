@@ -34,9 +34,9 @@
        android:layout_gravity="center_horizontal"
        android:text="@string/donate_now"
        android:textSize="@dimen/textsize_big"
-       android:background="@color/colorPrimary"
+       android:background="@drawable/round_button"
        android:textColor="@color/white"
-       android:padding="@dimen/padding_medium"
+       android:padding="15dp"
        android:fontFamily="sans-serif"
        android:id="@+id/donate"/>
 
