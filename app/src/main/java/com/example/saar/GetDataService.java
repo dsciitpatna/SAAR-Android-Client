@@ -9,4 +9,6 @@ import retrofit2.http.GET;
 public interface GetDataService {
     @GET("/timeline_sample.json")
     Call<List<Event>> getAllEvents();
+    @GET("/gallery_sample.json")
+    Call<List<Gallery>> getAllPhotos();
 }
