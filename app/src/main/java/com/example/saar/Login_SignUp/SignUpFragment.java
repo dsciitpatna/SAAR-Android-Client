@@ -22,7 +22,12 @@ import java.util.Calendar;
 public class SignUpFragment extends Fragment {
 
     EditText dobEditText;
+    Spinner spinnerGraduationYear;
+    Spinner spinnerDegree;
+    Spinner spinnerDepartment;
+    Spinner spinnerEmploymentType;
     DatePickerDialog.OnDateSetListener setListener;
+    int year, month, day;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -30,10 +35,10 @@ public class SignUpFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_sign_up, container, false);
 
-        Spinner spinnerGraduationYear = (Spinner) rootView.findViewById(R.id.spinner_graduation_year);
-        Spinner spinnerDegree = (Spinner) rootView.findViewById(R.id.spinner_degree);
-        Spinner spinnerDepartment = (Spinner) rootView.findViewById(R.id.spinner_department);
-        Spinner spinnerEmploymentType = (Spinner) rootView.findViewById(R.id.spinner_employment_type);
+        spinnerGraduationYear = (Spinner) rootView.findViewById(R.id.spinner_graduation_year);
+        spinnerDegree = (Spinner) rootView.findViewById(R.id.spinner_degree);
+        spinnerDepartment = (Spinner) rootView.findViewById(R.id.spinner_department);
+        spinnerEmploymentType = (Spinner) rootView.findViewById(R.id.spinner_employment_type);
 
         // Initializing ArrayAdapter
         ArrayAdapter<CharSequence> spinnerGraduationYearArrayAdapter = ArrayAdapter.createFromResource(getContext(), R.array.graduation_year_array, android.R.layout.simple_spinner_item);
@@ -51,6 +56,21 @@ public class SignUpFragment extends Fragment {
         spinnerDepartment.setAdapter(spinnerDepartmentArrayAdapter);
         spinnerEmploymentType.setAdapter(spinnerEmploymentTypeArrayAdapter);
 
+        dobEditText = (EditText) rootView.findViewById(R.id.dob_edit);
+        Calendar calendar = Calendar.getInstance();
+        year = calendar.get(Calendar.YEAR);
+        month = calendar.get(Calendar.MONTH);
+        day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        return rootView;
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        //you can set the title for your toolbar here for different fragments different titles
+        getActivity().setTitle(R.string.saar_signup);
+
         spinnerGraduationYear.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -60,6 +80,7 @@ public class SignUpFragment extends Fragment {
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
+
         spinnerDegree.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -88,12 +109,6 @@ public class SignUpFragment extends Fragment {
             }
         });
 
-        dobEditText = (EditText) rootView.findViewById(R.id.dob_edit);
-        Calendar calendar = Calendar.getInstance();
-        final int year = calendar.get(Calendar.YEAR);
-        final int month = calendar.get(Calendar.MONTH);
-        final int day = calendar.get(Calendar.DAY_OF_MONTH);
-
         dobEditText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -111,14 +126,5 @@ public class SignUpFragment extends Fragment {
                 dobEditText.setText(date);
             }
         };
-
-        return rootView;
-    }
-
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        //you can set the title for your toolbar here for different fragments different titles
-        getActivity().setTitle(R.string.saar_signup);
     }
 }
