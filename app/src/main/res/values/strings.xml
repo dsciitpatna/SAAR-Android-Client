@@ -116,6 +116,60 @@
     <string name="saar_login">SAAR  Login</string>
     <string name="saar_signup">SAAR  Sign Up</string>
 
+    <!--Sign Up Fragment-->
+    <string name="college_roll_number">College Roll Number</string>
+    <string name="name">Name</string>
+    <string name="contact_no">Contact No.</string>
+    <string name="fb_profile_link">Fb Profile Link (optional)</string>
+    <string name="linkedin_profile_link">LinkedIn Profile Link (optional)</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="dob">Date of Birth</string>
+    <string name="present_employer_educational_inst">Present Employer/ Educational Inst.</string>
+    <string name="designation">Designation</string>
+    <string name="address">Address</string>
+    <string name="country">Country</string>
+    <string name="state">State</string>
+    <string name="city">City</string>
+    <string name="achievements">Achievements after Graduation</string>
+    <string-array name="graduation_year_array">
+        <item>Graduation Year</item>
+        <item>2012</item>
+        <item>2013</item>
+        <item>2014</item>
+        <item>2015</item>
+        <item>2016</item>
+        <item>2017</item>
+        <item>2018</item>
+        <item>2019</item>
+    </string-array>
+    <string-array name="degree_array">
+        <item>Degree</item>
+        <item>B.Tech.</item>
+        <item>M.Tech.</item>
+        <item>M.Sc.</item>
+        <item>Ph.D.</item>
+    </string-array>
+    <string-array name="department_array">
+        <item>Department</item>
+        <item>Computer Science and Engineering</item>
+        <item>Electrical Engineering</item>
+        <item>Mechanical Engineering</item>
+        <item>Civil and Environmental Engineering</item>
+        <item>Chemical and Biochemical Engineering</item>
+        <item>Metallurgical and Materials Engineering</item>
+        <item>Chemistry</item>
+        <item>Mathematics</item>
+        <item>Physics</item>
+        <item>Humanities and Social Sciences</item>
+    </string-array>
+    <string-array name="employment_type_array">
+        <item>Employment Type</item>
+        <item>Salaried</item>
+        <item>Entrepreneur</item>
+        <item>Higher Studies</item>
+        <item>Civil Services</item>
+    </string-array>
+
     <!--Contact Page-->
     <string name="office_admin">Office of A Dean Resource \n\nAdministrative Building, IIT Patna</string>
     <string name="view_on_map">View On Map</string>
