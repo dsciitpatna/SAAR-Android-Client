@@ -1,4 +1,4 @@
-package com.example.saar;
+package com.example.saar.Timeline_Events;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.saar.R;
 import com.squareup.picasso.Picasso;
 
 public class EventDetails extends AppCompatActivity {

@@ -1,4 +1,4 @@
-package com.example.saar;
+package com.example.saar.Gallery;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.example.saar.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

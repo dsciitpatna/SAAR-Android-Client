@@ -1,4 +1,4 @@
-package com.example.saar;
+package com.example.saar.Gallery;
 
 import com.google.gson.annotations.SerializedName;
 

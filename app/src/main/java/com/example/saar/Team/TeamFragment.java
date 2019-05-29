@@ -1,4 +1,4 @@
-package com.example.saar;
+package com.example.saar.Team;
 
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
+import com.example.saar.R;
 
 public class TeamFragment extends Fragment {
 
