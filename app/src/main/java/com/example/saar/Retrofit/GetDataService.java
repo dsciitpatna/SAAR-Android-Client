@@ -1,4 +1,7 @@
-package com.example.saar;
+package com.example.saar.Retrofit;
+
+import com.example.saar.Timeline_Events.Event;
+import com.example.saar.Gallery.Gallery;
 
 import java.util.List;
 import retrofit2.Call;

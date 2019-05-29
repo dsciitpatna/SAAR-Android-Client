@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/about_us_background"
     android:orientation="vertical"
-    tools:context=".ContactFragment">
+    tools:context=".Contact.ContactFragment">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"

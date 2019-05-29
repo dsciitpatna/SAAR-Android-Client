@@ -1,4 +1,4 @@
-package com.example.saar;
+package com.example.saar.Timeline_Events;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.saar.R;
 import com.github.vipulasri.timelineview.TimelineView;
 
 import java.util.List;

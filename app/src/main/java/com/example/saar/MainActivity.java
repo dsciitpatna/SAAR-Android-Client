@@ -3,11 +3,8 @@ package com.example.saar;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -16,6 +13,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.example.saar.About.AboutUsFragment;
+import com.example.saar.Contact.ContactFragment;
+import com.example.saar.Donate.DonateFragment;
+import com.example.saar.Gallery.GalleryFragment;
+import com.example.saar.Home.HomeFragment;
+import com.example.saar.Login_SignUp.LoginSignupActivity;
+import com.example.saar.Share.ShareFragment;
+import com.example.saar.Team.TeamFragment;
+import com.example.saar.Timeline_Events.TimelineFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {

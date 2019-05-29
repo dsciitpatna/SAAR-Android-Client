@@ -1,4 +1,4 @@
-package com.example.saar;
+package com.example.saar.Donate;
 
 import android.content.Context;
 import android.net.Uri;
@@ -11,6 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
+
+import com.example.saar.Constant;
+import com.example.saar.R;
 
 public class DonateFragment extends Fragment implements View.OnClickListener {
 
