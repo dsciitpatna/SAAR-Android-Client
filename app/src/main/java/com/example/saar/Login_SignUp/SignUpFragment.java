@@ -21,7 +21,7 @@ import java.util.Calendar;
 
 public class SignUpFragment extends Fragment {
 
-    EditText edittext;
+    EditText dobEditText;
     DatePickerDialog.OnDateSetListener setListener;
 
     @Override
@@ -88,13 +88,13 @@ public class SignUpFragment extends Fragment {
             }
         });
 
-        edittext = (EditText) rootView.findViewById(R.id.dob_edit);
+        dobEditText = (EditText) rootView.findViewById(R.id.dob_edit);
         Calendar calendar = Calendar.getInstance();
         final int year = calendar.get(Calendar.YEAR);
         final int month = calendar.get(Calendar.MONTH);
         final int day = calendar.get(Calendar.DAY_OF_MONTH);
 
-        edittext.setOnClickListener(new View.OnClickListener() {
+        dobEditText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(), android.R.style.Theme_Holo_Light_Dialog_MinWidth, setListener, year, month, day);
@@ -108,7 +108,7 @@ public class SignUpFragment extends Fragment {
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 month++;
                 String date = day + "/" + month + "/" + year;
-                edittext.setText(date);
+                dobEditText.setText(date);
             }
         };
 
