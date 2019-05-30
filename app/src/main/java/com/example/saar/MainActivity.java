@@ -3,6 +3,7 @@ package com.example.saar;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.design.widget.NavigationView;
@@ -13,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.saar.About.AboutUsFragment;
 import com.example.saar.Contact.ContactFragment;
@@ -23,6 +25,9 @@ import com.example.saar.Login_SignUp.LoginSignupActivity;
 import com.example.saar.Share.ShareFragment;
 import com.example.saar.Team.TeamFragment;
 import com.example.saar.Timeline_Events.TimelineFragment;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -45,6 +50,21 @@ public class MainActivity extends AppCompatActivity
 
         //Initially HomeFragment will be displayed
         displaySelectedScreen(R.id.nav_home);
+        subscribeForNotification();
+    }
+
+    private void subscribeForNotification() {
+        FirebaseMessaging.getInstance().subscribeToTopic("alumnus")
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        String msg = getString(R.string.msg_subscribed);
+                        if (!task.isSuccessful()) {
+                            msg = getString(R.string.msg_subscribe_failed);
+                        }
+                        Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 
     @Override

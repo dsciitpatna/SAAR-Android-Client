@@ -192,5 +192,7 @@
 
     <!--Event Details Page-->
     <string name="event_details">Event Details</string>
-    
+    <string name="msg_subscribed">You have been subscribed to receive notifications.</string>
+    <string name="msg_subscribe_failed">Subscription for notification service failed.</string>
+
 </resources>
