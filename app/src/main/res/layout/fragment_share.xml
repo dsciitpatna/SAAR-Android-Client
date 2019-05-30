@@ -1,119 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="@dimen/header_margin_bottom"
-        android:text="@string/connect_with_us"
-        android:textSize="@dimen/header_textsize" />
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:orientation="horizontal">
-
-        <ImageButton
-            android:id="@+id/share_facebook"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackground"
-            android:padding="@dimen/image_button_padding"
-            android:scaleType="fitCenter"
-            android:src="@drawable/social_facebook" />
-
-        <View
-            android:layout_width="@dimen/line_width"
-            android:layout_height="match_parent"
-            android:background="@color/colorLine" />
-
-        <ImageButton
-            android:id="@+id/share_instagram"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackground"
-            android:padding="@dimen/image_button_padding"
-            android:scaleType="fitCenter"
-            android:src="@drawable/social_instagram" />
-
-    </LinearLayout>
-
-    <View
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/line_width"
-        android:background="@color/colorLine" />
+        android:layout_height="match_parent"
+        >
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:orientation="horizontal">
-
-        <ImageButton
-            android:id="@+id/share_twitter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackground"
-            android:padding="@dimen/image_button_padding"
-            android:scaleType="fitCenter"
-            android:src="@drawable/social_twitter" />
-
-        <View
-            android:layout_width="@dimen/line_width"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/colorLine" />
+            android:orientation="vertical">
 
-        <ImageButton
-            android:id="@+id/share_linkedin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackground"
-            android:padding="@dimen/image_button_padding"
-            android:scaleType="fitCenter"
-            android:src="@drawable/social_linkedin" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/header_margin_bottom"
+                android:text="@string/connect_with_us"
+                android:textSize="@dimen/header_textsize" />
 
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/line_width"
-        android:background="@color/colorLine" />
+                <ImageButton
+                    android:id="@+id/share_facebook"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:padding="@dimen/image_button_padding"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/social_facebook" />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:orientation="horizontal">
+                <View
+                    android:layout_width="@dimen/line_width"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorLine" />
 
-        <ImageButton
-            android:id="@+id/share_youtube"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackground"
-            android:padding="@dimen/image_button_padding"
-            android:scaleType="fitCenter"
-            android:src="@drawable/social_youtube" />
+                <ImageButton
+                    android:id="@+id/share_instagram"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:padding="@dimen/image_button_padding"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/social_instagram" />
 
-        <View
-            android:layout_width="@dimen/line_width"
-            android:layout_height="match_parent"
-            android:background="@color/colorLine" />
+            </LinearLayout>
 
-        <ImageButton
-            android:id="@+id/share_website"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackground"
-            android:padding="@dimen/image_button_padding"
-            android:scaleType="fitCenter"
-            android:src="@drawable/social_website" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_width"
+                android:background="@color/colorLine" />
 
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal">
 
+                <ImageButton
+                    android:id="@+id/share_twitter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:padding="@dimen/image_button_padding"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/social_twitter" />
+
+                <View
+                    android:layout_width="@dimen/line_width"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorLine" />
+
+                <ImageButton
+                    android:id="@+id/share_linkedin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:padding="@dimen/image_button_padding"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/social_linkedin" />
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_width"
+                android:background="@color/colorLine" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/share_youtube"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:padding="@dimen/image_button_padding"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/social_youtube" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorLine" />
+
+                <ImageButton
+                    android:id="@+id/share_website"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:padding="@dimen/image_button_padding"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/social_website" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
