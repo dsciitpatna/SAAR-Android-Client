@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "338095627868",
+    "firebase_url": "https://saar-android-client.firebaseio.com",
+    "project_id": "saar-android-client",
+    "storage_bucket": "saar-android-client.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:338095627868:android:41e42cbb149c9719",
+        "android_client_info": {
+          "package_name": "com.example.saar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "338095627868-skpg11sm9up6nnu6e2sel3n7pb1sjrv7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.saar",
+            "certificate_hash": "a4e596ad083ab0612562d7c919334540da64ab7c"
+          }
+        },
+        {
+          "client_id": "338095627868-ghk6si705lkjuai6veb24l46j7qdfduh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRKgk_m96aRj6acFMcRgokSBLCEqK6ilI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "338095627868-ghk6si705lkjuai6veb24l46j7qdfduh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
