@@ -49,7 +49,6 @@ public class FcmMessagingService extends FirebaseMessagingService {
                 notificationChannel.enableVibration(true);
 
 
-
                 notificationManager.createNotificationChannel(notificationChannel);
             }
 
@@ -57,7 +56,7 @@ public class FcmMessagingService extends FirebaseMessagingService {
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT);
 
-            long[] pattern = {500,500,500,500,500,500,500,500,500};
+            long[] pattern = {500, 500, 500, 500, 500, 500, 500, 500, 500};
             final NotificationCompat.Builder builder = new NotificationCompat.Builder(this, notification_channel_id);
             builder.setAutoCancel(true);
             builder.setContentTitle(title);
@@ -67,21 +66,25 @@ public class FcmMessagingService extends FirebaseMessagingService {
             builder.setVibrate(pattern);
             builder.setSmallIcon(R.drawable.saar_logo);
 
-            ImageRequest imageRequest = new ImageRequest(img_url, new Response.Listener<Bitmap>() {
-                @Override
-                public void onResponse(Bitmap response) {
-                    builder.setStyle(new NotificationCompat.BigPictureStyle().bigPicture(response));
-                    NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                    notificationManager.notify(1, builder.build());
+            if (img_url.length() > 0) {
+                ImageRequest imageRequest = new ImageRequest(img_url, new Response.Listener<Bitmap>() {
+                    @Override
+                    public void onResponse(Bitmap response) {
+                        builder.setStyle(new NotificationCompat.BigPictureStyle().bigPicture(response));
+                        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                        notificationManager.notify(1, builder.build());
 
 
-                }
-            }, 0, 0, null, Bitmap.Config.RGB_565, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                }
-            });
-            MySingleton.getmInstance(this).addToRequestQue(imageRequest);
+                    }
+                }, 0, 0, null, Bitmap.Config.RGB_565, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                    }
+                });
+                MySingleton.getmInstance(this).addToRequestQue(imageRequest);
+            } else {
+                notificationManager.notify(1, builder.build());
+            }
         }
     }
 
