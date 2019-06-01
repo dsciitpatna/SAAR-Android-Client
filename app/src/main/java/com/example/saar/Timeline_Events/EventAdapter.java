@@ -52,7 +52,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.TimeLineView
     }
 
     @Override
-    public void onBindViewHolder(final TimeLineViewHolder holder, final int position) {
+    public void onBindViewHolder(final TimeLineViewHolder holder, int position) {
         holder.title.setText(dataList.get(position).getTitle());
         holder.date.setText(dataList.get(position).getDate());
         holder.location.setText(dataList.get(position).getLocation());
@@ -61,12 +61,12 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.TimeLineView
             public void onClick(View v) {
                 Context context = holder.parent_layout.getContext();
                 Intent intent = new Intent(context, EventDetails.class);
-                intent.putExtra("title", dataList.get(position).getTitle());
-                intent.putExtra("description", dataList.get(position).getDescription());
-                intent.putExtra("location", dataList.get(position).getLocation());
-                intent.putExtra("date", dataList.get(position).getDate());
-                intent.putExtra("time", dataList.get(position).getTime());
-                intent.putExtra("image_url", dataList.get(position).getImage_url());
+                intent.putExtra("title", dataList.get(holder.getAdapterPosition()).getTitle());
+                intent.putExtra("description", dataList.get(holder.getAdapterPosition()).getDescription());
+                intent.putExtra("location", dataList.get(holder.getAdapterPosition()).getLocation());
+                intent.putExtra("date", dataList.get(holder.getAdapterPosition()).getDate());
+                intent.putExtra("time", dataList.get(holder.getAdapterPosition()).getTime());
+                intent.putExtra("image_url", dataList.get(holder.getAdapterPosition()).getImage_url());
                 context.startActivity(intent);
             }
         });
