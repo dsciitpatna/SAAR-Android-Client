@@ -32,6 +32,9 @@ import com.google.firebase.messaging.FirebaseMessaging;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    //creating fragment object
+    Fragment fragment = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +50,7 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        showHomeFragment();
 
         //Initially HomeFragment will be displayed
         displaySelectedScreen(R.id.nav_home);
@@ -67,13 +71,22 @@ public class MainActivity extends AppCompatActivity
                 });
     }
 
+    private void showHomeFragment() {
+        fragment = new HomeFragment();
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.content_frame, fragment);
+        ft.commit();
+    }
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else {
+        } else if (fragment instanceof HomeFragment) {
             super.onBackPressed();
+        } else {
+            showHomeFragment();
         }
     }
 
@@ -108,9 +121,6 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void displaySelectedScreen(int itemId) {
-
-        //creating fragment object
-        Fragment fragment = null;
 
         //initializing the fragment object which is selected
         switch (itemId) {
