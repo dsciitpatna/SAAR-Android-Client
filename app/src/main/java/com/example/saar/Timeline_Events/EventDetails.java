@@ -6,8 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.saar.R;
-import com.squareup.picasso.Picasso;
 
 public class EventDetails extends AppCompatActivity {
     ImageView event_image;
@@ -44,8 +44,9 @@ public class EventDetails extends AppCompatActivity {
         String time = getIntent().getStringExtra("time");
         this.time.setText(time);
         String image_url = getIntent().getStringExtra("image_url");
-        Picasso.get()
+        Glide.with(this)
                 .load(image_url)
+                .centerCrop()
                 .placeholder(R.drawable.placeholder_image)
                 .into(event_image);
     }
