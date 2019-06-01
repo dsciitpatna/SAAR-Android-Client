@@ -46,6 +46,44 @@
 
             <TextView
                 style="@style/TeamDesignation"
+                android:text="@string/coordinator_5" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    style="@style/TeamLinearLayout"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/team_member_10"
+                        style="@style/TeamMemberImage" />
+
+                    <TextView
+                        style="@style/TeamMemberName"
+                        android:text="@string/member_10" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/TeamLinearLayout"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/team_member_11"
+                        style="@style/TeamMemberImage" />
+
+                    <TextView
+                        style="@style/TeamMemberName"
+                        android:text="@string/member_11" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                style="@style/TeamDesignation"
                 android:text="@string/coordinator_1" />
 
             <LinearLayout
@@ -197,8 +235,12 @@
             </LinearLayout>
 
             <TextView
+                style="@style/TeamCommittee"
+                android:text="@string/executive_committee" />
+
+            <TextView
                 style="@style/TeamDesignation"
-                android:text="@string/coordinator_5" />
+                android:text="@string/committee_5" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -209,12 +251,12 @@
                     android:layout_weight="1">
 
                     <ImageView
-                        android:id="@+id/team_member_10"
+                        android:id="@+id/team_member_25"
                         style="@style/TeamMemberImage" />
 
                     <TextView
                         style="@style/TeamMemberName"
-                        android:text="@string/member_10" />
+                        android:text="@string/member_25" />
 
                 </LinearLayout>
 
@@ -223,21 +265,45 @@
                     android:layout_weight="1">
 
                     <ImageView
-                        android:id="@+id/team_member_11"
+                        android:id="@+id/team_member_26"
                         style="@style/TeamMemberImage" />
 
                     <TextView
                         style="@style/TeamMemberName"
-                        android:text="@string/member_11" />
+                        android:text="@string/member_26" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/TeamLinearLayout"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/team_member_27"
+                        style="@style/TeamMemberImage" />
+
+                    <TextView
+                        style="@style/TeamMemberName"
+                        android:text="@string/member_27" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/TeamLinearLayout"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/team_member_28"
+                        style="@style/TeamMemberImage" />
+
+                    <TextView
+                        style="@style/TeamMemberName"
+                        android:text="@string/member_28" />
 
                 </LinearLayout>
 
             </LinearLayout>
 
-
-            <TextView
-                style="@style/TeamCommittee"
-                android:text="@string/executive_committee" />
 
             <TextView
                 style="@style/TeamDesignation"
@@ -458,72 +524,6 @@
                     <TextView
                         style="@style/TeamMemberName"
                         android:text="@string/member_24" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <TextView
-                style="@style/TeamDesignation"
-                android:text="@string/committee_5" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    style="@style/TeamLinearLayout"
-                    android:layout_weight="1">
-
-                    <ImageView
-                        android:id="@+id/team_member_25"
-                        style="@style/TeamMemberImage" />
-
-                    <TextView
-                        style="@style/TeamMemberName"
-                        android:text="@string/member_25" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    style="@style/TeamLinearLayout"
-                    android:layout_weight="1">
-
-                    <ImageView
-                        android:id="@+id/team_member_26"
-                        style="@style/TeamMemberImage" />
-
-                    <TextView
-                        style="@style/TeamMemberName"
-                        android:text="@string/member_26" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    style="@style/TeamLinearLayout"
-                    android:layout_weight="1">
-
-                    <ImageView
-                        android:id="@+id/team_member_27"
-                        style="@style/TeamMemberImage" />
-
-                    <TextView
-                        style="@style/TeamMemberName"
-                        android:text="@string/member_27" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    style="@style/TeamLinearLayout"
-                    android:layout_weight="1">
-
-                    <ImageView
-                        android:id="@+id/team_member_28"
-                        style="@style/TeamMemberImage" />
-
-                    <TextView
-                        style="@style/TeamMemberName"
-                        android:text="@string/member_28" />
 
                 </LinearLayout>
 
