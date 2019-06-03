@@ -45,4 +45,10 @@
     <dimen name="timeline_line_width">3dp</dimen>
     <dimen name="timeline_marker_size">20dp</dimen>
 
+    <!--Home Page-->
+    <dimen name="card_height">200dp</dimen>
+    <dimen name="circular_image_dimension">150dp</dimen>
+    <dimen name="margin_xl">40dp</dimen>
+    <dimen name="border_width">2dp</dimen>
+
 </resources>
