@@ -25,6 +25,7 @@
             android:name=".Login_SignUp.LoginSignupActivity"
             android:windowSoftInputMode="adjustPan" />
         <activity android:name=".Timeline_Events.EventDetails" />
+        <activity android:name=".OtpActivity"/>
         <service android:name=".Notifications.FcmMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />

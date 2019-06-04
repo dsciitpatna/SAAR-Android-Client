@@ -211,4 +211,10 @@
     <string name="speech">\"We make a living by what we get, we make a life by what we give\"</string>
     <string name="Winston_Churchill">\~Winston Churchill</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="verification">Verification</string>
+    <string name="otp_text">Please type the verification code sent on your registered email id</string>
+    <string name="otp_resend">Didn\'t receive the otp?</string>
+    <string name="resend">Resend otp</string>
+
 </resources>
