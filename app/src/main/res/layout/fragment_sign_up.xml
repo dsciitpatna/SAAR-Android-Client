@@ -41,6 +41,16 @@
                     android:paddingStart="@dimen/padding_medium"
                     android:paddingEnd="@dimen/padding_medium">
 
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorAccent"
+                        android:textAlignment="center"
+                        android:id="@+id/signup_errors"
+                        android:padding="@dimen/padding_medium"
+                        android:visibility="gone"
+                        android:text="Errors"/>
+
                     <android.support.design.widget.TextInputLayout
                         android:id="@+id/college_roll_number_input"
                         android:layout_width="match_parent"
