@@ -1,6 +1,7 @@
 package com.example.saar.Login_SignUp;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -25,6 +26,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.saar.OtpActivity;
 import com.example.saar.R;
 
 import org.json.JSONArray;
@@ -46,6 +48,7 @@ public class SignUpFragment extends Fragment {
     Spinner spinnerDegree;
     Spinner spinnerDepartment;
     Spinner spinnerEmploymentType;
+    Button signUp;
     DatePickerDialog.OnDateSetListener setListener;
     Button signupButton;
     int year, month, day;
@@ -58,6 +61,8 @@ public class SignUpFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_sign_up, container, false);
+
+        signUp = (Button) rootView.findViewById(R.id.signup_button);
 
         spinnerGraduationYear = (Spinner) rootView.findViewById(R.id.spinner_graduation_year);
         spinnerDegree = (Spinner) rootView.findViewById(R.id.spinner_degree);
@@ -116,6 +121,14 @@ public class SignUpFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         //you can set the title for your toolbar here for different fragments different titles
         getActivity().setTitle(R.string.saar_signup);
+
+        signUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(), OtpActivity.class);
+                startActivity(intent);
+            }
+        });
 
         spinnerGraduationYear.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

@@ -3,6 +3,8 @@
     package="com.example.saar">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
 
     <application
         android:allowBackup="true"
@@ -25,6 +27,7 @@
             android:name=".Login_SignUp.LoginSignupActivity"
             android:windowSoftInputMode="adjustPan" />
         <activity android:name=".Timeline_Events.EventDetails" />
+        <activity android:name=".OtpActivity"/>
         <service android:name=".Notifications.FcmMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
