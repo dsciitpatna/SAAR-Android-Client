@@ -7,4 +7,5 @@
     <color name="black">#000000</color>
     <color name="fragments_activities_background_color">#ffffff</color>
     <color name="colorLine">#d9dfe2</color>
+    <color name="light_grey">#f4f4f4</color>
 </resources>

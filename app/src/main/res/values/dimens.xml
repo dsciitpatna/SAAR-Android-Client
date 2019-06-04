@@ -15,6 +15,7 @@
     <dimen name="textsize_big">24sp</dimen>
     <dimen name="textsize_medium">16sp</dimen>
     <dimen name="padding_medium">8dp</dimen>
+    <dimen name="padding_big">16dp</dimen>
 
     <!--Share Page-->
     <dimen name="image_button_padding">25dp</dimen>
@@ -43,5 +44,11 @@
     <!--Timeline Page-->
     <dimen name="timeline_line_width">3dp</dimen>
     <dimen name="timeline_marker_size">20dp</dimen>
+
+    <!--Home Page-->
+    <dimen name="card_height">200dp</dimen>
+    <dimen name="circular_image_dimension">150dp</dimen>
+    <dimen name="margin_xl">40dp</dimen>
+    <dimen name="border_width">2dp</dimen>
 
 </resources>

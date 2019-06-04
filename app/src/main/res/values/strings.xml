@@ -195,4 +195,20 @@
     <string name="msg_subscribed">You have been subscribed to receive notifications.</string>
     <string name="msg_subscribe_failed">Subscription for notification service failed.</string>
 
+    <!--Home Page-->
+    <string name="home_about">Indian Institute of Technology Patna is an Institution of National Importance and a new
+        addition to the hallowed IIT System that has proven its worth in last 50+ years. The alumni of IIT are internationally
+        known for their caliber and contribution. Since its inception in 2008, IIT Patna- like its young as well as established
+        peers- has pursued excellence with steadfast determination. IITP has 6 Engineering Disciplines: Civil and Environmental
+        Engineering, Chemical and Biochemical Engineering, Computer Science and Engineering, Electrical Engineering, Mechanical
+        Engineering and Material Science and Engineering; 2 Science Disciplines: Physics and Chemistry; Humanities and Social
+        Sciences; Mathematics. Its faculty members are experts in their respective fields. The thriving PhD, M.Tech and B.Tech
+        programs of IITP see the students and faculty publish prolifically, win competitions, come up with innovations and
+        build societal awareness.</string>
+    <string name="continue_reading">Continue Reading...</string>
+    <string name="view_full_gallery">View Full Gallery</string>
+    <string name="see_full_saar_team">See Full SAAR Team...</string>
+    <string name="speech">\"We make a living by what we get, we make a life by what we give\"</string>
+    <string name="Winston_Churchill">\~Winston Churchill</string>
+
 </resources>
