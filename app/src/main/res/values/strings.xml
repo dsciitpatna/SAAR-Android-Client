@@ -13,6 +13,8 @@
     <string name="admin_block">IIT+Patna+Administration+Block</string>
     <string name="contact_fragment">Contact Us</string>
     <string name="gallery_fragment">Gallery</string>
+    <string name="no_internet">No Internet Connection Found\n\n
+    Check Your Connection</string>
 
     <!--Team Page-->
     <string name="member_1">Vivek Garg</string>
