@@ -5,6 +5,7 @@
     <color name="colorAccent">#D81B60</color>
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
-    <color name="about_us_background">#D0FCF9</color>
+    <color name="fragments_activities_background_color">#ffffff</color>
     <color name="colorLine">#d9dfe2</color>
+    <color name="light_grey">#f4f4f4</color>
 </resources>

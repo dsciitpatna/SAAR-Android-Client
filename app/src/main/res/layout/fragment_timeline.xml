@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fragments_activities_background_color"
+    android:orientation="vertical"
+    tools:context=".Timeline_Events.TimelineFragment">
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/no_internet_text_timeline"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/no_internet"
+        android:textColor="@color/black"
+        android:textSize="@dimen/textsize_big"
+        android:visibility="gone" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view_timeline"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/padding_medium"
+        tools:listitem="@layout/event_list_row" />
+
+
+</LinearLayout>

@@ -15,6 +15,43 @@
     <dimen name="textsize_big">24sp</dimen>
     <dimen name="textsize_medium">16sp</dimen>
     <dimen name="padding_medium">8dp</dimen>
+    <dimen name="padding_big">16dp</dimen>
+
+    <!--Share Page-->
     <dimen name="image_button_padding">25dp</dimen>
     <dimen name="line_width">1dp</dimen>
+    <dimen name="header_textsize">32sp</dimen>
+    <dimen name="header_margin_bottom">56dp</dimen>
+
+    <!--Login Fragment-->
+    <dimen name="view_height">250dp</dimen>
+    <dimen name="card_login_radius">10dp</dimen>
+    <dimen name="card_login_elevation">10dp</dimen>
+    <dimen name="padding_login_big">20dp</dimen>
+    <dimen name="margin_50dp">50dp</dimen>
+    <dimen name="margin_5dp">5dp</dimen>
+    <dimen name="margin_10dp">10dp</dimen>
+    <dimen name="margin_30dp">30dp</dimen>
+    
+    <!--Team Page-->
+    <dimen name="textview_padding">8dp</dimen>
+    <dimen name="team_image_width">80dp</dimen>
+    <dimen name="team_image_height">80dp</dimen>
+
+    <!--Contact Page-->
+    <dimen name="textsize_contact">20sp</dimen>
+
+    <!--Timeline Page-->
+    <dimen name="timeline_line_width">3dp</dimen>
+    <dimen name="timeline_marker_size">20dp</dimen>
+
+    <!--Home Page-->
+    <dimen name="card_height">200dp</dimen>
+    <dimen name="circular_image_dimension">150dp</dimen>
+    <dimen name="margin_xl">40dp</dimen>
+    <dimen name="border_width">2dp</dimen>
+
+    <!--Otp Page-->
+    <dimen name="otp_header_textsize">32sp</dimen>
+
 </resources>
