@@ -15,8 +15,10 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
@@ -44,11 +46,8 @@ public class SignUpFragment extends Fragment {
     EditText dobEditText, first_name_text, last_name_text, rollno_text, email_text, phone_text, fb_link_text, linkedin_link_text, password_text;
     EditText confirm_password_text, present_employer_text, designation_text, address_text, country_text, state_text, city_text, achievements_text;
     TextView errorsDisplay;
-    Spinner spinnerGraduationYear;
-    Spinner spinnerDegree;
-    Spinner spinnerDepartment;
-    Spinner spinnerEmploymentType;
-    Button signUp;
+    Spinner spinnerGraduationYear, spinnerEmploymentType, spinnerDegree, spinnerDepartment;
+    ProgressBar signupProgress;
     DatePickerDialog.OnDateSetListener setListener;
     Button signupButton;
     int year, month, day;
@@ -62,7 +61,8 @@ public class SignUpFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_sign_up, container, false);
 
-        signUp = (Button) rootView.findViewById(R.id.signup_button);
+        signupProgress = rootView.findViewById(R.id.signup_progress);
+        signupProgress.setVisibility(View.GONE);
 
         spinnerGraduationYear = (Spinner) rootView.findViewById(R.id.spinner_graduation_year);
         spinnerDegree = (Spinner) rootView.findViewById(R.id.spinner_degree);
@@ -111,7 +111,7 @@ public class SignUpFragment extends Fragment {
         achievements_text = rootView.findViewById(R.id.achievements_edit);
 
         errorsDisplay = rootView.findViewById(R.id.signup_errors);
-        errorsDisplay.setVisibility(View.INVISIBLE);
+        errorsDisplay.setVisibility(View.GONE);
 
         return rootView;
     }
@@ -121,14 +121,6 @@ public class SignUpFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         //you can set the title for your toolbar here for different fragments different titles
         getActivity().setTitle(R.string.saar_signup);
-
-        signUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(getActivity(), OtpActivity.class);
-                startActivity(intent);
-            }
-        });
 
         spinnerGraduationYear.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -194,6 +186,7 @@ public class SignUpFragment extends Fragment {
         signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                signupProgress.setVisibility(View.VISIBLE);
                 getDatas();
             }
         });
@@ -227,18 +220,25 @@ public class SignUpFragment extends Fragment {
 
             @Override
             public void onResponse(String response) {
+                signupProgress.setVisibility(View.GONE);
                 Timber.d(response);
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     int status = Integer.parseInt(jsonObject.getString("status"));
                     if (status == 200) {
-                        Timber.d("Registered succesfully");
+                        Timber.d(getString(R.string.signup_successfull));
+                        Toast.makeText(getContext(), getString(R.string.signup_successfull), Toast.LENGTH_LONG).show();
                         // Should redirect to OTP page.
                         // Put rollno value as a parameter in the intent. This value will be useful in verifying the otp.
+                        Intent intent = new Intent(getActivity(), OtpActivity.class);
+                        intent.putExtra("rollno", rollno);
+                        startActivity(intent);
 
                     } else {
 
                         JSONArray jsonArray = jsonObject.getJSONArray("messages");
+                        Timber.d(getString(R.string.signup_failed));
+                        Toast.makeText(getContext(), getString(R.string.signup_failed), Toast.LENGTH_LONG).show();
                         errorsDisplay.setVisibility(View.VISIBLE);
                         errorsDisplay.setText(jsonArray.toString());
                     }
@@ -252,6 +252,7 @@ public class SignUpFragment extends Fragment {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                signupProgress.setVisibility(View.GONE);
                 Timber.d(error.toString());
             }
 
