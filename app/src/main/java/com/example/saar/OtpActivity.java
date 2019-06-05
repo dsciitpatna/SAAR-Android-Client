@@ -74,7 +74,7 @@ public class OtpActivity extends AppCompatActivity {
         if (getIntent().hasExtra("rollno")) {
             rollno = getIntent().getStringExtra("rollno");
             getIntent().removeExtra("rollno");
-            otpRollNo.setVisibility(View.GONE);
+            otpRollNo.setVisibility(View.INVISIBLE);
             otpRollNo.setText(rollno);
         } else {
             otpRollNo.setVisibility(View.VISIBLE);
@@ -86,9 +86,7 @@ public class OtpActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (otpValue.length() != 0) {
-                    if (rollno.isEmpty()) {
-                        rollno = otpRollNo.getText().toString();
-                    }
+                    rollno = otpRollNo.getText().toString();
                     otp_progress.setVisibility(View.VISIBLE);
                     verifyOTP();
                 } else {
