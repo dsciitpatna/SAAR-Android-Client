@@ -23,7 +23,7 @@
         android:text="@string/otp_text" />
 
     <com.goodiebag.pinview.Pinview
-        android:id="@+id/mypinview"
+        android:id="@+id/otpView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cursorVisible="false"
@@ -34,9 +34,17 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/email"
+        android:hint="@string/college_roll_number"
         android:layout_margin="@dimen/margin_big"
+        android:id="@+id/otp_rollno"
         android:inputType="textEmailAddress"/>
+
+    <ProgressBar
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:id="@+id/otp_progress"
+        />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/otp_next"
