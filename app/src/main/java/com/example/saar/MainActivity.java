@@ -14,6 +14,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.saar.About.AboutUsFragment;
@@ -22,6 +24,7 @@ import com.example.saar.Donate.DonateFragment;
 import com.example.saar.Gallery.GalleryFragment;
 import com.example.saar.Home.HomeFragment;
 import com.example.saar.Login_SignUp.LoginSignupActivity;
+import com.example.saar.Profile.ProfileActivity;
 import com.example.saar.Share.ShareFragment;
 import com.example.saar.Team.TeamFragment;
 import com.example.saar.Timeline_Events.TimelineFragment;
@@ -52,9 +55,22 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         showHomeFragment();
 
+        View headerview = navigationView.getHeaderView(0);
+
         //Initially HomeFragment will be displayed
         displaySelectedScreen(R.id.nav_home);
         subscribeForNotification();
+
+        LinearLayout header = (LinearLayout) headerview.findViewById(R.id.nav_layout);
+        header.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentProfile = new Intent(MainActivity.this, ProfileActivity.class);
+                MainActivity.this.startActivity(intentProfile);
+                DrawerLayout drawer = findViewById(R.id.drawer_layout);
+                drawer.closeDrawer(GravityCompat.START);
+            }
+        });
     }
 
     private void subscribeForNotification() {
@@ -107,6 +123,8 @@ public class MainActivity extends AppCompatActivity
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_login_signup) {
             startActivity(new Intent(this, LoginSignupActivity.class));
+        } else if (id == R.id.action_logout) {
+            //TODO add logout action
         }
 
         return super.onOptionsItemSelected(item);
@@ -152,6 +170,10 @@ public class MainActivity extends AppCompatActivity
                 startActivity(intent);
             case R.id.nav_contact_us:
                 fragment = new ContactFragment();
+                break;
+            case R.id.nav_profile:
+                Intent intentProfile = new Intent(MainActivity.this, ProfileActivity.class);
+                startActivity(intentProfile);
                 break;
         }
 

@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/fragments_activities_background_color"
+    android:focusableInTouchMode="true">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/padding_medium">
+
+            <View
+                android:id="@+id/profile_linear_layout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/view_profile_height"
+                android:background="@drawable/gradient_bottom"
+                android:orientation="vertical" />
+
+            <ImageView
+                android:id="@+id/profile_picture"
+                android:layout_width="@dimen/profile_photo_dimen"
+                android:layout_height="@dimen/profile_photo_dimen"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/margin_50dp"
+                android:background="@drawable/profile_photo_circle"
+                android:src="@drawable/ic_account_circle_black_48dp" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/profile_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/profile_picture"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:text="@string/name"
+                android:textColor="@color/white"
+                android:textSize="@dimen/otp_header_textsize" />
+
+            <LinearLayout
+                android:id="@+id/profile_degree_year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/profile_name"
+                android:layout_centerHorizontal="true">
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/profile_degree"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="B.Tech."
+                    android:textColor="@color/white" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=", "
+                    android:textColor="@color/white" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/profile_graduation_year"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2018"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/profile_degree_year"
+                android:layout_centerHorizontal="true"
+                android:text="Electrical Engineering"
+                android:textColor="@color/white"
+                android:textSize="@dimen/textsize_contact" />
+
+            <LinearLayout
+                android:id="@+id/profile_details_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/profile_linear_layout"
+                android:layout_marginStart="@dimen/margin_30dp"
+                android:layout_marginTop="@dimen/margin_30dp"
+                android:layout_marginEnd="@dimen/margin_30dp"
+                android:layout_marginBottom="@dimen/margin_big"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_big"
+                    android:layout_marginBottom="@dimen/margin_big"
+                    android:orientation="vertical">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/email"
+                        android:textColor="@color/colorPrimaryDark" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/email"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textsize_profile_details" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/line_width"
+                    android:background="@color/colorLine" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_big"
+                    android:layout_marginBottom="@dimen/margin_big"
+                    android:orientation="vertical">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/college_roll_number"
+                        android:textColor="@color/colorPrimaryDark" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/college_roll_number"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textsize_profile_details" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/line_width"
+                    android:background="@color/colorLine" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_big"
+                    android:layout_marginBottom="@dimen/margin_big"
+                    android:orientation="vertical">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/contact_no"
+                        android:textColor="@color/colorPrimaryDark" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/contact_no"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textsize_profile_details" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/line_width"
+                    android:background="@color/colorLine" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_big"
+                    android:layout_marginBottom="@dimen/margin_big"
+                    android:orientation="vertical">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fb_profile"
+                        android:textColor="@color/colorPrimaryDark" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fb_profile"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textsize_profile_details" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/line_width"
+                    android:background="@color/colorLine" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_big"
+                    android:layout_marginBottom="@dimen/margin_big"
+                    android:orientation="vertical">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/linkedin_profile"
+                        android:textColor="@color/colorPrimaryDark" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/linkedin_profile"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textsize_profile_details" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/line_width"
+                    android:background="@color/colorLine" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_big"
+                    android:layout_marginBottom="@dimen/margin_big"
+                    android:orientation="vertical">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/present_employer_educational_inst"
+                        android:textColor="@color/colorPrimaryDark" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/present_employer_educational_inst"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textsize_profile_details" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/line_width"
+                    android:background="@color/colorLine" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_big"
+                    android:layout_marginBottom="@dimen/margin_big"
+                    android:orientation="vertical">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/designation"
+                        android:textColor="@color/colorPrimaryDark" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/designation"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textsize_profile_details" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/line_width"
+                    android:background="@color/colorLine" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_big"
+                    android:layout_marginBottom="@dimen/margin_big"
+                    android:orientation="vertical">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/address"
+                        android:textColor="@color/colorPrimaryDark" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/address"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textsize_profile_details" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/line_width"
+                    android:background="@color/colorLine" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_big"
+                    android:layout_marginBottom="@dimen/margin_big"
+                    android:orientation="vertical">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/country"
+                        android:textColor="@color/colorPrimaryDark" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/country"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textsize_profile_details" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/line_width"
+                    android:background="@color/colorLine" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_big"
+                    android:layout_marginBottom="@dimen/margin_big"
+                    android:orientation="vertical">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/state"
+                        android:textColor="@color/colorPrimaryDark" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/state"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textsize_profile_details" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/line_width"
+                    android:background="@color/colorLine" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_big"
+                    android:layout_marginBottom="@dimen/margin_big"
+                    android:orientation="vertical">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/city"
+                        android:textColor="@color/colorPrimaryDark" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/city"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textsize_profile_details" />
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

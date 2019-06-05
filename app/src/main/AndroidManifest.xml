@@ -26,6 +26,10 @@
         <activity
             android:name=".Login_SignUp.LoginSignupActivity"
             android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".Profile.ProfileActivity"
+            android:windowSoftInputMode="adjustPan"
+            android:parentActivityName=".MainActivity"/>
         <activity android:name=".Timeline_Events.EventDetails" />
         <activity android:name=".OtpActivity"/>
         <service android:name=".Notifications.FcmMessagingService">
