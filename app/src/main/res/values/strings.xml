@@ -222,4 +222,9 @@
     <string name="signup_successfull">Succesfully registered your account. Please verify your email by enterign the OTP send in email.</string>
     <string name="signup_failed">Failed to register you. Please correct the errors and try again.</string>
 
+    <!--Change Email Fragment-->
+    <string name="change_email">Change Email</string>
+    <string name="old_email">Old Email</string>
+    <string name="new_email">New Email</string>
+
 </resources>
