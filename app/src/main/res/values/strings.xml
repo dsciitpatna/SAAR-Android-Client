@@ -118,6 +118,9 @@
     <string name="saar_login">SAAR  Login</string>
     <string name="saar_signup">SAAR  Sign Up</string>
     <string name="verify_email">Verify your Email ID</string>
+    <string name="credential_empty">Email or password field cannot be empty.</string>
+    <string name="loggedin">You have succesfully logged in.</string>
+    <string name="error_loggingin">Failed to log in.</string>
 
     <!--Sign Up Fragment-->
     <string name="college_roll_number">College Roll Number</string>
