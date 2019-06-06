@@ -225,9 +225,9 @@
     <string name="otp_resend">Didn\'t receive the otp?</string>
     <string name="resend">Resend otp</string>
     <string name="error_entering_otp">Please enter the otp properly.</string>
-    <string name="otp_verified">OTP Succesfully verified. You can now login with your email and password.</string>
-    <string name="otp_verification_failed">Falied to verify otp. Please retry again.</string>
-    <string name="signup_successfull">Succesfully registered your account. Please verify your email by enterign the OTP send in email.</string>
+    <string name="otp_verified">OTP Successfully verified. You can now login with your email and password.</string>
+    <string name="otp_verification_failed">Failed to verify otp. Please retry.</string>
+    <string name="signup_successfull">Successfully registered your account. Please verify your email by entering the OTP send in email.</string>
     <string name="signup_failed">Failed to register you. Please correct the errors and try again.</string>
 
     <!--Profile Page-->
@@ -241,5 +241,10 @@
     <string name="change_email">Change Email</string>
     <string name="old_email">Old Email</string>
     <string name="new_email">New Email</string>
+
+    <!--Forgot Password Fragment-->
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="forgot_password_details">We just need your registered email id and college roll number to send you password reset instructions</string>
+    <string name="reset_password">Reset Password</string>
 
 </resources>

@@ -65,4 +65,8 @@
     <dimen name="spinner_height">44dp</dimen>
     <dimen name="edittext_radius">10dp</dimen>
 
+    <!--Forgot Password Page-->
+    <dimen name="margin_card">125dp</dimen>
+    <dimen name="lock_icon_size">60dp</dimen>
+
 </resources>
