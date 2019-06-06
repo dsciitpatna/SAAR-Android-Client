@@ -46,5 +46,10 @@
             android:icon="@drawable/ic_call_black_24dp"
             android:title="Contact Us" />
 
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_account_circle_black_48dp"
+            android:title="View Profile" />
+
     </group>
 </menu>
