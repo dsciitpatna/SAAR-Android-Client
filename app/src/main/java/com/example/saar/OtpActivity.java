@@ -44,7 +44,6 @@ public class OtpActivity extends AppCompatActivity {
     ProgressBar otp_progress;
     FloatingActionButton sendOTP;
     String otpValue, rollno;
-    String url = "http://192.168.0.101:8888/SAAR-Server/functions/verifySignup.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,7 +125,7 @@ public class OtpActivity extends AppCompatActivity {
 
     private void verifyOTP() {
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, Constant.OTP_URL, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {

@@ -66,7 +66,7 @@ public class ShareFragment extends Fragment implements View.OnClickListener {
                 startActivity(browserIntent);
                 break;
             case R.id.share_linkedin:
-                browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(Constant.LINKEDIN_LINK));
+                browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(Constant.SAAR_LINKEDIN_LINK));
                 startActivity(browserIntent);
                 break;
             case R.id.share_youtube:

@@ -122,6 +122,9 @@
     <string name="saar_login">SAAR  Login</string>
     <string name="saar_signup">SAAR  Sign Up</string>
     <string name="verify_email">Verify your Email ID</string>
+    <string name="credential_empty">Email or password field cannot be empty.</string>
+    <string name="loggedin">You have succesfully logged in.</string>
+    <string name="error_loggingin">Failed to log in.</string>
 
     <!--Sign Up Fragment-->
     <string name="college_roll_number">College Roll Number</string>
@@ -233,5 +236,10 @@
     <string name="save">Save changes</string>
     <string name="fb_profile">Fb Profile Link</string>
     <string name="linkedin_profile">LinkedIn Profile Link</string>
+
+    <!--Change Email Fragment-->
+    <string name="change_email">Change Email</string>
+    <string name="old_email">Old Email</string>
+    <string name="new_email">New Email</string>
 
 </resources>
