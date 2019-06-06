@@ -65,52 +65,8 @@
                     android:layout_marginTop="@dimen/margin_big"
                     android:layout_marginBottom="@dimen/margin_big"
                     android:background="@drawable/edittext_box"
-                    android:hint="@string/email"
-                    android:inputType="textEmailAddress"
-                    android:padding="@dimen/padding_medium"
-                    android:textSize="@dimen/textsize_contact" />
-
-                <android.support.v7.widget.AppCompatEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_big"
-                    android:layout_marginBottom="@dimen/margin_big"
-                    android:background="@drawable/edittext_box"
                     android:hint="@string/contact_no"
                     android:inputType="phone"
-                    android:padding="@dimen/padding_medium"
-                    android:textSize="@dimen/textsize_contact" />
-
-                <android.support.v7.widget.AppCompatEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_big"
-                    android:layout_marginBottom="@dimen/margin_big"
-                    android:background="@drawable/edittext_box"
-                    android:hint="@string/old_password"
-                    android:inputType="textPassword"
-                    android:padding="@dimen/padding_medium"
-                    android:textSize="@dimen/textsize_contact" />
-
-                <android.support.v7.widget.AppCompatEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_big"
-                    android:layout_marginBottom="@dimen/margin_big"
-                    android:background="@drawable/edittext_box"
-                    android:hint="@string/new_password"
-                    android:inputType="textPassword"
-                    android:padding="@dimen/padding_medium"
-                    android:textSize="@dimen/textsize_contact" />
-
-                <android.support.v7.widget.AppCompatEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_big"
-                    android:layout_marginBottom="@dimen/margin_big"
-                    android:background="@drawable/edittext_box"
-                    android:hint="@string/confirm_password"
-                    android:inputType="textPassword"
                     android:padding="@dimen/padding_medium"
                     android:textSize="@dimen/textsize_contact" />
 
@@ -146,6 +102,26 @@
                     android:layout_marginBottom="@dimen/margin_big"
                     android:background="@drawable/edittext_box"
                     android:hint="@string/designation"
+                    android:padding="@dimen/padding_medium"
+                    android:textSize="@dimen/textsize_contact" />
+
+                <android.support.v7.widget.AppCompatEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_big"
+                    android:layout_marginBottom="@dimen/margin_big"
+                    android:background="@drawable/edittext_box"
+                    android:hint="@string/fb_profile_link"
+                    android:padding="@dimen/padding_medium"
+                    android:textSize="@dimen/textsize_contact" />
+
+                <android.support.v7.widget.AppCompatEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_big"
+                    android:layout_marginBottom="@dimen/margin_big"
+                    android:background="@drawable/edittext_box"
+                    android:hint="@string/linkedin_profile_link"
                     android:padding="@dimen/padding_medium"
                     android:textSize="@dimen/textsize_contact" />
 
