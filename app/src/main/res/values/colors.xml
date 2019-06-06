@@ -8,4 +8,6 @@
     <color name="fragments_activities_background_color">#ffffff</color>
     <color name="colorLine">#d9dfe2</color>
     <color name="light_grey">#f4f4f4</color>
+    <color name="profile_gradient_start">#00edff</color>
+    <color name="profile_gradient_end">#006fff</color>
 </resources>

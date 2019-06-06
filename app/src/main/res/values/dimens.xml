@@ -63,5 +63,6 @@
     <!--Edit Profile Page-->
     <dimen name="edit_profile_height">180dp</dimen>
     <dimen name="spinner_height">44dp</dimen>
+    <dimen name="edittext_radius">10dp</dimen>
 
 </resources>

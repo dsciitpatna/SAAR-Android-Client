@@ -3,8 +3,8 @@
     <item>
         <shape android:shape="oval">
             <stroke
-                android:width="1dp"
-                android:color="#00edff" />
+                android:width="@dimen/line_width"
+                android:color="@color/profile_gradient_start" />
         </shape>
     </item>
 </layer-list>
