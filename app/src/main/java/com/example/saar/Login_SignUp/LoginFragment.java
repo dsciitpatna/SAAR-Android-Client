@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +25,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.saar.Constant;
+import com.example.saar.ForgotPasswordFragment;
 import com.example.saar.MainActivity;
 import com.example.saar.OtpActivity;
 import com.example.saar.R;
@@ -39,7 +41,7 @@ import timber.log.Timber;
 
 public class LoginFragment extends Fragment {
 
-    TextView verifyOTP;
+    TextView verifyOTP, forgotPassword;
     EditText emailText, passwordText;
     Button loginButton;
     String email, password;
@@ -51,6 +53,7 @@ public class LoginFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_login, container, false);
         verifyOTP = rootView.findViewById(R.id.verify_otp);
+        forgotPassword = rootView.findViewById(R.id.forgot_password);
         emailText = rootView.findViewById(R.id.username_text);
         passwordText = rootView.findViewById(R.id.password_text);
         loginButton = rootView.findViewById(R.id.login_button);
@@ -77,6 +80,15 @@ public class LoginFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 getDatas();
+            }
+        });
+
+        forgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.fragment_container, new ForgotPasswordFragment());
+                ft.commit();
             }
         });
     }

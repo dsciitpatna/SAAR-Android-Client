@@ -130,4 +130,17 @@
         android:id="@+id/skip_login"
         android:textSize="@dimen/textsize_medium"/>
 
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/forgot_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_big"
+        android:padding="@dimen/padding_medium"
+        android:text="@string/forgot_password"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/textsize_medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/skip_login" />
+
 </android.support.constraint.ConstraintLayout>
