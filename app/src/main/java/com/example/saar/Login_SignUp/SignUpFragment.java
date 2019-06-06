@@ -28,6 +28,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.saar.Constant;
 import com.example.saar.OtpActivity;
 import com.example.saar.R;
 
@@ -53,7 +54,6 @@ public class SignUpFragment extends Fragment {
     int year, month, day;
     String rollno, first_name, last_name, email, phone, fb_link, linkedin_link, password, confirm_password, dob, graduation_year, degree, department;
     String employment_type, present_employer, designation, address, country, state, city, achievements;
-    String url = "http://192.168.0.101:8888/SAAR-Server/functions/signup.php";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -216,7 +216,7 @@ public class SignUpFragment extends Fragment {
     }
 
     private void registerUser() {
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, Constant.SIGNUP_URL, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
