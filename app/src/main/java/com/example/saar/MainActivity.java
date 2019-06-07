@@ -115,6 +115,18 @@ public class MainActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+        preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        MenuItem login = menu.findItem(R.id.action_login_signup);
+        MenuItem logout = menu.findItem(R.id.action_logout);
+        if (preferences.getBoolean(Constant.LOGIN_STATUS, false)) {
+            //user is logged in
+            login.setVisible(false);
+            logout.setVisible(true);
+        } else {
+            //user is not logged in
+            login.setVisible(true);
+            logout.setVisible(false);
+        }
         return true;
     }
 
@@ -129,7 +141,6 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.action_login_signup) {
             startActivity(new Intent(this, LoginSignupActivity.class));
         } else if (id == R.id.action_logout) {
-
             preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
             editor = preferences.edit();
             if (preferences.getBoolean(Constant.LOGIN_STATUS, false)) {
@@ -158,7 +169,6 @@ public class MainActivity extends AppCompatActivity
                 Toast.makeText(this, "Logged Out", Toast.LENGTH_LONG).show();
             } else
                 Toast.makeText(this, "Not Logged In", Toast.LENGTH_LONG).show();
-
         } else if (id == R.id.action_change_email) {
             Intent intent = new Intent(this, ChangeCredentialsActivity.class);
             intent.putExtra("EXTRA", "openChangeEmail");
