@@ -22,6 +22,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.saar.Constant;
 import com.example.saar.MainActivity;
 import com.example.saar.R;
@@ -119,6 +120,12 @@ public class ViewProfileFragment extends Fragment {
             city.setText(preferences.getString(Constant.CITY,""));
             state.setText(preferences.getString(Constant.STATE,""));
             achievements.setText(preferences.getString(Constant.ACHIEVEMENTS,""));
+
+            Glide.with(getActivity())
+                    .load(preferences.getString(Constant.IMG_URL,""))
+                    .centerCrop()
+                    .placeholder(R.drawable.placeholder_image)
+                    .into(profileImage);
         }
     }
 }

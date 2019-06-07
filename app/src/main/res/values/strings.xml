@@ -238,6 +238,8 @@
     <string name="save">Save changes</string>
     <string name="fb_profile">Fb Profile Link</string>
     <string name="linkedin_profile">LinkedIn Profile Link</string>
+    <string name="profile_update_success">Succesfully updated your profile information</string>
+    <string name="profile_update_failue">Failed to update your profile</string>
 
     <!--Change Email Fragment-->
     <string name="change_email">Change Email</string>
