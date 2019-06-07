@@ -1,5 +1,6 @@
 package com.example.saar.Login_SignUp;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -46,6 +47,7 @@ public class LoginFragment extends Fragment {
     Button loginButton;
     String email, password;
     SharedPreferences.Editor sharedPreferenceEditor;
+    ProgressDialog progressDialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -63,7 +65,7 @@ public class LoginFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         //you can set the title for your toolbar here for different fragments different titles
         getActivity().setTitle(R.string.saar_login);
@@ -106,6 +108,9 @@ public class LoginFragment extends Fragment {
     }
 
     private void login() {
+        progressDialog = new ProgressDialog(getContext());
+        progressDialog.setMessage("Logging in....");
+        progressDialog.show();
         StringRequest stringRequest = new StringRequest(Request.Method.POST, Constant.LOGIN_URL, new Response.Listener<String>() {
 
             @Override
@@ -113,6 +118,7 @@ public class LoginFragment extends Fragment {
                 Timber.d(response);
                 Log.d("KHANKI", response);
                 // otp_progress.setVisibility(View.GONE);
+                progressDialog.dismiss();
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     int status = Integer.parseInt(jsonObject.getString("status"));
@@ -142,6 +148,8 @@ public class LoginFragment extends Fragment {
             @Override
             public void onErrorResponse(VolleyError error) {
                 //otp_progress.setVisibility(View.GONE);
+                progressDialog.dismiss();
+                Toast.makeText(getContext(), error.getLocalizedMessage(), Toast.LENGTH_LONG).show();
                 Timber.d(error.toString());
             }
 
