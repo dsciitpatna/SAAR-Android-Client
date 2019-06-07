@@ -67,6 +67,7 @@
                     android:background="@drawable/edittext_box"
                     android:hint="@string/contact_no"
                     android:inputType="phone"
+                    android:id="@+id/edit_phone"
                     android:padding="@dimen/padding_medium"
                     android:textSize="@dimen/textsize_contact" />
 
@@ -90,6 +91,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_big"
                     android:layout_marginBottom="@dimen/margin_big"
+                    android:id="@+id/edit_present_employer"
                     android:background="@drawable/edittext_box"
                     android:hint="@string/present_employer_educational_inst"
                     android:padding="@dimen/padding_medium"
@@ -103,6 +105,7 @@
                     android:background="@drawable/edittext_box"
                     android:hint="@string/designation"
                     android:padding="@dimen/padding_medium"
+                    android:id="@+id/edit_designation"
                     android:textSize="@dimen/textsize_contact" />
 
                 <android.support.v7.widget.AppCompatEditText
@@ -110,6 +113,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_big"
                     android:layout_marginBottom="@dimen/margin_big"
+                    android:id="@+id/edit_fb_link"
                     android:background="@drawable/edittext_box"
                     android:hint="@string/fb_profile_link"
                     android:padding="@dimen/padding_medium"
@@ -120,6 +124,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_big"
                     android:layout_marginBottom="@dimen/margin_big"
+                    android:id="@+id/edit_linkedin_link"
                     android:background="@drawable/edittext_box"
                     android:hint="@string/linkedin_profile_link"
                     android:padding="@dimen/padding_medium"
@@ -132,6 +137,7 @@
                     android:layout_marginBottom="@dimen/margin_big"
                     android:background="@drawable/edittext_box"
                     android:hint="@string/address"
+                    android:id="@+id/edit_address"
                     android:padding="@dimen/padding_medium"
                     android:textSize="@dimen/textsize_contact" />
 
@@ -142,6 +148,7 @@
                     android:layout_marginBottom="@dimen/margin_big"
                     android:background="@drawable/edittext_box"
                     android:hint="@string/country"
+                    android:id="@+id/edit_country"
                     android:padding="@dimen/padding_medium"
                     android:textSize="@dimen/textsize_contact" />
 
@@ -153,6 +160,7 @@
                     android:background="@drawable/edittext_box"
                     android:hint="@string/state"
                     android:padding="@dimen/padding_medium"
+                    android:id="@+id/edit_state"
                     android:textSize="@dimen/textsize_contact" />
 
                 <android.support.v7.widget.AppCompatEditText
@@ -160,6 +168,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_big"
                     android:layout_marginBottom="@dimen/margin_big"
+                    android:id="@+id/edit_city"
                     android:background="@drawable/edittext_box"
                     android:hint="@string/city"
                     android:padding="@dimen/padding_medium"
@@ -173,6 +182,7 @@
                     android:background="@drawable/edittext_box"
                     android:hint="@string/achievements"
                     android:maxLines="5"
+                    android:id="@+id/edit_achievements"
                     android:padding="@dimen/padding_medium"
                     android:textSize="@dimen/textsize_contact" />
 
