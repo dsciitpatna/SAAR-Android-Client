@@ -134,8 +134,26 @@ public class MainActivity extends AppCompatActivity
             editor = preferences.edit();
             if (preferences.getBoolean(Constant.LOGIN_STATUS, false)) {
                 //user is logged in and wants to log out
-                editor.clear();
                 editor.putBoolean(Constant.LOGIN_STATUS, false);
+                editor.putString(Constant.ROLLNO, "");
+                editor.putString(Constant.FIRST_NAME, "");
+                editor.putString(Constant.LAST_NAME, "");
+                editor.putString(Constant.EMAIL, "");
+                editor.putString(Constant.PHONE, "");
+                editor.putString(Constant.FB_LINK, "");
+                editor.putString(Constant.LINKEDIN_LINK, "");
+                editor.putString(Constant.DOB, "");
+                editor.putString(Constant.GRADUATION_YEAR, "");
+                editor.putString(Constant.DEGREE, "");
+                editor.putString(Constant.DEPARTMENT, "");
+                editor.putString(Constant.EMPLOYEMENT_TYPE, "");
+                editor.putString(Constant.PRESENT_EMPLOYER, "");
+                editor.putString(Constant.DESIGNATION, "");
+                editor.putString(Constant.ADDRESS, "");
+                editor.putString(Constant.COUNTRY, "");
+                editor.putString(Constant.CITY, "");
+                editor.putString(Constant.STATE, "");
+                editor.putString(Constant.ACHIEVEMENTS, "");
                 editor.apply();
                 Toast.makeText(this, "Logged Out", Toast.LENGTH_LONG).show();
             } else
