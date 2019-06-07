@@ -17,6 +17,7 @@
     <string name="gallery_fragment">Gallery</string>
     <string name="view_profile_fragment">View Profile</string>
     <string name="edit_profile_fragment">Edit Profile</string>
+    <string name="change_password_fragment">Change Password</string>
     <string name="no_internet">No Internet Connection Found\n\n
     Check Your Connection</string>
 

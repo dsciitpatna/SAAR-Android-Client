@@ -24,8 +24,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.saar.ChangeCredentials.ChangeCredentialsActivity;
 import com.example.saar.Constant;
-import com.example.saar.ForgotPasswordFragment;
 import com.example.saar.MainActivity;
 import com.example.saar.OtpActivity;
 import com.example.saar.R;
@@ -86,9 +86,9 @@ public class LoginFragment extends Fragment {
         forgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.fragment_container, new ForgotPasswordFragment());
-                ft.commit();
+                Intent intent = new Intent (getActivity(), ChangeCredentialsActivity.class);
+                intent.putExtra("EXTRA", "openFragment");
+                startActivity(intent);
             }
         });
     }
