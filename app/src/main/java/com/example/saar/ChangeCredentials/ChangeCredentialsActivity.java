@@ -12,9 +12,14 @@ public class ChangeCredentialsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_credentials);
 
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+
         if (getIntent().getStringExtra("EXTRA").equals("openFragment")) {
-            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+
             ft.replace(R.id.fragment_credentials_container, new ForgotPasswordFragment());
+            ft.commit();
+        }else if (getIntent().getStringExtra("EXTRA").equals("openChangeEmail")){
+            ft.replace(R.id.fragment_credentials_container, new ChangeEmailFragment());
             ft.commit();
         }
     }

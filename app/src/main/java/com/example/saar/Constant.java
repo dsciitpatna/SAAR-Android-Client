@@ -12,6 +12,7 @@ public class Constant {
     public static final String LOGIN_URL = "https://saar-server.000webhostapp.com/functions/login.php";
     public static final String OTP_URL = "https://saar-server.000webhostapp.com/functions/verifyOTP.php";
     public static final String SIGNUP_URL = "https://saar-server.000webhostapp.com/functions/signup.php";
+    public static final String CHANGE_EMAIL_URL = "https://saar-server.000webhostapp.com/functions/changeEmail.php";
 
     //Store user profile data
     public static final String LOGIN_STATUS = "login_status";

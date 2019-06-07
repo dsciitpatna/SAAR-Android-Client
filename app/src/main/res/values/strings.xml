@@ -8,6 +8,7 @@
     <string name="action_login_signup">Login/SignUp</string>
     <string name="action_profile">Profile</string>
     <string name="action_logout">Logout</string>
+    <string name="action_change_email">Change Email</string>
     <string name="share_fragment">Share</string>
     <string name="connect_with_us">Connect With Us</string>
     <string name="donate_fragment">Donate Now</string>
@@ -242,6 +243,8 @@
     <string name="change_email">Change Email</string>
     <string name="old_email">Old Email</string>
     <string name="new_email">New Email</string>
+    <string name="change_email_success">Chnage email request has succesfully been sent.</string>
+    <string name="change_email_failure">Change email request has failed to sent.</string>
 
     <!--Forgot Password Fragment-->
     <string name="forgot_password">Forgot Password?</string>

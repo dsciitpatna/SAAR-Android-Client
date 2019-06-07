@@ -19,6 +19,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.saar.About.AboutUsFragment;
+import com.example.saar.ChangeCredentials.ChangeCredentialsActivity;
 import com.example.saar.Contact.ContactFragment;
 import com.example.saar.Donate.DonateFragment;
 import com.example.saar.Gallery.GalleryFragment;
@@ -125,6 +126,10 @@ public class MainActivity extends AppCompatActivity
             startActivity(new Intent(this, LoginSignupActivity.class));
         } else if (id == R.id.action_logout) {
             //TODO add logout action
+        }else if(id==R.id.action_change_email){
+            Intent intent = new Intent(this, ChangeCredentialsActivity.class);
+            intent.putExtra("EXTRA","openChangeEmail");
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);
