@@ -1,8 +1,10 @@
 package com.example.saar;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -38,6 +40,7 @@ public class MainActivity extends AppCompatActivity
 
     //creating fragment object
     Fragment fragment = null;
+    SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,6 +114,18 @@ public class MainActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+        preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        MenuItem login = menu.findItem(R.id.action_login_signup);
+        MenuItem logout = menu.findItem(R.id.action_logout);
+        if (preferences.getBoolean(Constant.LOGIN_STATUS, false)) {
+            //user is logged in
+            login.setVisible(false);
+            logout.setVisible(true);
+        } else {
+            //user is not logged in
+            login.setVisible(true);
+            logout.setVisible(false);
+        }
         return true;
     }
 
@@ -126,9 +141,9 @@ public class MainActivity extends AppCompatActivity
             startActivity(new Intent(this, LoginSignupActivity.class));
         } else if (id == R.id.action_logout) {
             //TODO add logout action
-        }else if(id==R.id.action_change_email){
+        } else if (id == R.id.action_change_email) {
             Intent intent = new Intent(this, ChangeCredentialsActivity.class);
-            intent.putExtra("EXTRA","openChangeEmail");
+            intent.putExtra("EXTRA", "openChangeEmail");
             startActivity(intent);
         }
 
