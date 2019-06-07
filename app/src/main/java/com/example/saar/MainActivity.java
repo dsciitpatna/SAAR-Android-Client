@@ -1,8 +1,10 @@
 package com.example.saar;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -38,6 +40,8 @@ public class MainActivity extends AppCompatActivity
 
     //creating fragment object
     Fragment fragment = null;
+    SharedPreferences preferences;
+    SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -125,10 +129,21 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.action_login_signup) {
             startActivity(new Intent(this, LoginSignupActivity.class));
         } else if (id == R.id.action_logout) {
-            //TODO add logout action
-        }else if(id==R.id.action_change_email){
+
+            preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+            editor = preferences.edit();
+            if (preferences.getBoolean(Constant.LOGIN_STATUS, false)) {
+                //user is logged in and wants to log out
+                editor.clear();
+                editor.putBoolean(Constant.LOGIN_STATUS, false);
+                editor.apply();
+                Toast.makeText(this, "Logged Out", Toast.LENGTH_LONG).show();
+            } else
+                Toast.makeText(this, "Not Logged In", Toast.LENGTH_LONG).show();
+
+        } else if (id == R.id.action_change_email) {
             Intent intent = new Intent(this, ChangeCredentialsActivity.class);
-            intent.putExtra("EXTRA","openChangeEmail");
+            intent.putExtra("EXTRA", "openChangeEmail");
             startActivity(intent);
         }
 
