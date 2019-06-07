@@ -9,9 +9,9 @@ public class Constant {
     public static final String WEBSITE_LINK = "https://saar.iitp.ac.in/";
     public static final String DONATE_LINK = "https://www.onlinesbi.com/sbicollect/icollecthome.htm";
     public static final String BASE_URL = "https://atm1504.in";
-    public static final String LOGIN_URL = "http://192.168.0.100:8888/SAAR-Server/functions/login.php";
-    public static final String OTP_URL = "http://192.168.0.100:8888/SAAR-Server/functions/verifySignup.php";
-    public static final String SIGNUP_URL = "http://192.168.0.100:8888/SAAR-Server/functions/signup.php";
+    public static final String LOGIN_URL = "https://saar-server.000webhostapp.com/functions/login.php";
+    public static final String OTP_URL = "https://saar-server.000webhostapp.com/functions/verifyOTP.php";
+    public static final String SIGNUP_URL = "https://saar-server.000webhostapp.com/functions/signup.php";
 
     //Store user profile data
     public static final String LOGIN_STATUS = "login_status";
