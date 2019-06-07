@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -57,6 +58,11 @@ public class MainActivity extends AppCompatActivity
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        Menu nav_item = navigationView.getMenu();
+        if (preferences.getBoolean(Constant.LOGIN_STATUS, false))
+            nav_item.findItem(R.id.nav_profile).setVisible(true);
+        else
+            nav_item.findItem(R.id.nav_profile).setVisible(false);
         navigationView.setNavigationItemSelectedListener(this);
         showHomeFragment();
 
@@ -70,8 +76,15 @@ public class MainActivity extends AppCompatActivity
         header.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentProfile = new Intent(MainActivity.this, ProfileActivity.class);
-                MainActivity.this.startActivity(intentProfile);
+                if (preferences.getBoolean(Constant.LOGIN_STATUS, false)) {
+                    //user is logged in
+                    Intent intentProfile = new Intent(MainActivity.this, ProfileActivity.class);
+                    MainActivity.this.startActivity(intentProfile);
+                } else {
+                    //user not logged in
+                    Intent intentLogin = new Intent(MainActivity.this, LoginSignupActivity.class);
+                    MainActivity.this.startActivity(intentLogin);
+                }
                 DrawerLayout drawer = findViewById(R.id.drawer_layout);
                 drawer.closeDrawer(GravityCompat.START);
             }
@@ -115,7 +128,6 @@ public class MainActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
-        preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         MenuItem login = menu.findItem(R.id.action_login_signup);
         MenuItem logout = menu.findItem(R.id.action_logout);
         if (preferences.getBoolean(Constant.LOGIN_STATUS, false)) {
@@ -141,7 +153,6 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.action_login_signup) {
             startActivity(new Intent(this, LoginSignupActivity.class));
         } else if (id == R.id.action_logout) {
-            preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
             editor = preferences.edit();
             if (preferences.getBoolean(Constant.LOGIN_STATUS, false)) {
                 //user is logged in and wants to log out
