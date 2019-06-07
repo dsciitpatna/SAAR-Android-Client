@@ -42,7 +42,7 @@ import timber.log.Timber;
 
 public class LoginFragment extends Fragment {
 
-    TextView verifyOTP, forgotPassword;
+    TextView verifyOTP, forgotPassword,skipLogin;
     EditText emailText, passwordText;
     Button loginButton;
     String email, password;
@@ -58,6 +58,7 @@ public class LoginFragment extends Fragment {
         forgotPassword = rootView.findViewById(R.id.forgot_password);
         emailText = rootView.findViewById(R.id.username_text);
         passwordText = rootView.findViewById(R.id.password_text);
+        skipLogin = rootView.findViewById(R.id.skip_login);
         loginButton = rootView.findViewById(R.id.login_button);
         sharedPreferenceEditor = PreferenceManager.getDefaultSharedPreferences(getContext()).edit();
 
@@ -82,6 +83,14 @@ public class LoginFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 getDatas();
+            }
+        });
+
+        skipLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(),MainActivity.class);
+                startActivity(intent);
             }
         });
 
