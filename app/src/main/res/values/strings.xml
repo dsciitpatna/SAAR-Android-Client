@@ -240,6 +240,12 @@
     <string name="linkedin_profile">LinkedIn Profile Link</string>
     <string name="profile_update_success">Succesfully updated your profile information</string>
     <string name="profile_update_failue">Failed to update your profile</string>
+    <string name="profile_img_alert_title">Update Profile Image</string>
+    <string name="profile_img_alert_message">Select the method to get the Photo</string>
+    <string name="gallery">GALLERY</string>
+    <string name="camera">CAMERA</string>
+    <string name="img_upload_success">Succesfully updated your profile picture</string>
+    <string name="img_upload_failure">Failed to upload your profile picture</string>
 
     <!--Change Email Fragment-->
     <string name="change_email">Change Email</string>
