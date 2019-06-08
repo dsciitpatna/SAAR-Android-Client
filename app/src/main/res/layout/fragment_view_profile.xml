@@ -23,7 +23,7 @@
                 android:background="@drawable/gradient_bottom"
                 android:orientation="vertical" />
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/profile_picture"
                 android:layout_width="@dimen/profile_photo_dimen"
                 android:layout_height="@dimen/profile_photo_dimen"

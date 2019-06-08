@@ -51,6 +51,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import timber.log.Timber;
 
 public class EditProfileFragment extends Fragment {
@@ -60,7 +61,7 @@ public class EditProfileFragment extends Fragment {
     FloatingActionButton change_photo_button;
     SharedPreferences preferences;
     SharedPreferences.Editor sharedPreferenceEditor;
-    ImageView profile_image_view;
+    CircleImageView profile_image_view;
     TextView phone_view, fb_link_view, linkedin_link_view;
     TextView present_employer_view, designation_view, address_view, country_view, city_view, state_view, achievements_view;
     private static Integer GALLERY = 1;
