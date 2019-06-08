@@ -41,7 +41,7 @@ import timber.log.Timber;
 
 public class LoginFragment extends Fragment {
 
-    TextView verifyOTP, forgotPassword,skipLogin;
+    TextView verifyOTP, forgotPassword, skipLogin;
     EditText emailText, passwordText;
     Button loginButton;
     String email, password;
@@ -60,7 +60,6 @@ public class LoginFragment extends Fragment {
         skipLogin = rootView.findViewById(R.id.skip_login);
         loginButton = rootView.findViewById(R.id.login_button);
         sharedPreferenceEditor = PreferenceManager.getDefaultSharedPreferences(getContext()).edit();
-
         return rootView;
     }
 
@@ -88,15 +87,17 @@ public class LoginFragment extends Fragment {
         skipLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(),MainActivity.class);
+                Intent intent = new Intent(getActivity(), MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
+                getActivity().finish();
             }
         });
 
         forgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent (getActivity(), ChangeCredentialsActivity.class);
+                Intent intent = new Intent(getActivity(), ChangeCredentialsActivity.class);
                 intent.putExtra("EXTRA", "openFragment");
                 startActivity(intent);
             }
@@ -138,6 +139,7 @@ public class LoginFragment extends Fragment {
                         Intent intent = new Intent(getContext(), MainActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
+                        getActivity().finish();
 
                     } else {
                         Timber.d(getString(R.string.error_loggingin));
@@ -199,7 +201,7 @@ public class LoginFragment extends Fragment {
         sharedPreferenceEditor.putString(Constant.CITY, mJsonObject.getString(Constant.CITY));
         sharedPreferenceEditor.putString(Constant.STATE, mJsonObject.getString(Constant.STATE));
         sharedPreferenceEditor.putString(Constant.ACHIEVEMENTS, mJsonObject.getString(Constant.ACHIEVEMENTS));
-        sharedPreferenceEditor.putString(Constant.IMG_URL,mJsonObject.getString(Constant.IMG_URL));
+        sharedPreferenceEditor.putString(Constant.IMG_URL, mJsonObject.getString(Constant.IMG_URL));
         sharedPreferenceEditor.apply();
     }
 }
