@@ -28,9 +28,11 @@ import com.example.saar.Constant;
 import com.example.saar.MainActivity;
 import com.example.saar.R;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class ViewProfileFragment extends Fragment {
 
-    ImageView profileImage;
+    CircleImageView profileImage;
     TextView name, degree, graduation_year, branch, email, rollno, phone, fb_link, linkedin_link;
     TextView present_employer, designation, address, country, city, state, achievements;
     SharedPreferences preferences;
