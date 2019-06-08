@@ -1,5 +1,7 @@
 package com.example.saar;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -153,33 +155,25 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.action_login_signup) {
             startActivity(new Intent(this, LoginSignupActivity.class));
         } else if (id == R.id.action_logout) {
-            editor = preferences.edit();
-            if (preferences.getBoolean(Constant.LOGIN_STATUS, false)) {
-                //user is logged in and wants to log out
-                editor.putBoolean(Constant.LOGIN_STATUS, false);
-                editor.putString(Constant.ROLLNO, "");
-                editor.putString(Constant.FIRST_NAME, "");
-                editor.putString(Constant.LAST_NAME, "");
-                editor.putString(Constant.EMAIL, "");
-                editor.putString(Constant.PHONE, "");
-                editor.putString(Constant.FB_LINK, "");
-                editor.putString(Constant.LINKEDIN_LINK, "");
-                editor.putString(Constant.DOB, "");
-                editor.putString(Constant.GRADUATION_YEAR, "");
-                editor.putString(Constant.DEGREE, "");
-                editor.putString(Constant.DEPARTMENT, "");
-                editor.putString(Constant.EMPLOYEMENT_TYPE, "");
-                editor.putString(Constant.PRESENT_EMPLOYER, "");
-                editor.putString(Constant.DESIGNATION, "");
-                editor.putString(Constant.ADDRESS, "");
-                editor.putString(Constant.COUNTRY, "");
-                editor.putString(Constant.CITY, "");
-                editor.putString(Constant.STATE, "");
-                editor.putString(Constant.ACHIEVEMENTS, "");
-                editor.apply();
-                Toast.makeText(this, "Logged Out", Toast.LENGTH_LONG).show();
-            } else
-                Toast.makeText(this, "Not Logged In", Toast.LENGTH_LONG).show();
+
+            AlertDialog.Builder alert = new AlertDialog.Builder(this);
+            alert.setMessage("Are you sure you want to logout?").setCancelable(true)
+                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            clearData();
+                            //Refreshing MainActivity
+                            finish();
+                            startActivity(getIntent());
+                        }
+                    })
+                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        }
+                    }).show();
+
         } else if (id == R.id.action_change_email) {
             Intent intent = new Intent(this, ChangeCredentialsActivity.class);
             intent.putExtra("EXTRA", "openChangeEmail");
@@ -244,5 +238,35 @@ public class MainActivity extends AppCompatActivity
         }
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+    }
+
+    private void clearData() {
+        editor = preferences.edit();
+        if (preferences.getBoolean(Constant.LOGIN_STATUS, false)) {
+            //user is logged in and wants to log out
+            editor.putBoolean(Constant.LOGIN_STATUS, false);
+            editor.putString(Constant.ROLLNO, "");
+            editor.putString(Constant.FIRST_NAME, "");
+            editor.putString(Constant.LAST_NAME, "");
+            editor.putString(Constant.EMAIL, "");
+            editor.putString(Constant.PHONE, "");
+            editor.putString(Constant.FB_LINK, "");
+            editor.putString(Constant.LINKEDIN_LINK, "");
+            editor.putString(Constant.DOB, "");
+            editor.putString(Constant.GRADUATION_YEAR, "");
+            editor.putString(Constant.DEGREE, "");
+            editor.putString(Constant.DEPARTMENT, "");
+            editor.putString(Constant.EMPLOYEMENT_TYPE, "");
+            editor.putString(Constant.PRESENT_EMPLOYER, "");
+            editor.putString(Constant.DESIGNATION, "");
+            editor.putString(Constant.ADDRESS, "");
+            editor.putString(Constant.COUNTRY, "");
+            editor.putString(Constant.CITY, "");
+            editor.putString(Constant.STATE, "");
+            editor.putString(Constant.ACHIEVEMENTS, "");
+            editor.apply();
+            Toast.makeText(this, "Logged Out", Toast.LENGTH_LONG).show();
+        } else
+            Toast.makeText(this, "Not Logged In", Toast.LENGTH_LONG).show();
     }
 }
