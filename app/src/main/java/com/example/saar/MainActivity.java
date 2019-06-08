@@ -18,8 +18,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.saar.About.AboutUsFragment;
 import com.example.saar.ChangeCredentials.ChangeCredentialsActivity;
 import com.example.saar.Contact.ContactFragment;
@@ -35,6 +38,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.messaging.FirebaseMessaging;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -42,6 +47,8 @@ public class MainActivity extends AppCompatActivity
     Fragment fragment = null;
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
+    TextView name, email;
+    CircleImageView circleImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +80,10 @@ public class MainActivity extends AppCompatActivity
         subscribeForNotification();
 
         LinearLayout header = (LinearLayout) headerview.findViewById(R.id.nav_layout);
+        name = headerview.findViewById(R.id.nav_header_name);
+        email = headerview.findViewById(R.id.nav_header_email);
+        circleImageView = headerview.findViewById(R.id.nav_header_image);
+        setHeaderData();
         header.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -244,5 +255,25 @@ public class MainActivity extends AppCompatActivity
         }
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+    }
+
+    private void setHeaderData() {
+        if (preferences.getBoolean(Constant.LOGIN_STATUS, false)) {
+            //logged in
+            String full_name = preferences.getString(Constant.FIRST_NAME, "") + " " + preferences.getString(Constant.LAST_NAME, "");
+            name.setText(full_name);
+            email.setText(preferences.getString(Constant.EMAIL, ""));
+            Glide.with(this)
+                    .load(preferences.getString(Constant.IMG_URL, ""))
+                    .centerCrop()
+                    .placeholder(R.drawable.ic_account_circle_black_48dp)
+                    .into(circleImageView);
+
+        } else {
+            //Not logged in
+            name.setText(getResources().getString(R.string.app_name));
+            email.setText(getResources().getString(R.string.saar_email));
+            circleImageView.setImageResource(R.drawable.ic_account_circle_black_48dp);
+        }
     }
 }

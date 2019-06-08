@@ -69,4 +69,7 @@
     <dimen name="margin_card">125dp</dimen>
     <dimen name="lock_icon_size">60dp</dimen>
 
+    <!--Nav Header-->
+    <dimen name="nav_header_profile_image_dimen">80dp</dimen>
+
 </resources>
