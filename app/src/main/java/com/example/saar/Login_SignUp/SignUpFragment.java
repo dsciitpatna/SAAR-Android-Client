@@ -1,6 +1,7 @@
 package com.example.saar.Login_SignUp;
 
 import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -48,21 +49,18 @@ public class SignUpFragment extends Fragment {
     EditText confirm_password_text, present_employer_text, designation_text, address_text, country_text, state_text, city_text, achievements_text;
     TextView errorsDisplay;
     Spinner spinnerGraduationYear, spinnerEmploymentType, spinnerDegree, spinnerDepartment;
-    ProgressBar signupProgress;
     DatePickerDialog.OnDateSetListener setListener;
     Button signupButton;
     int year, month, day;
     String rollno, first_name, last_name, email, phone, fb_link, linkedin_link, password, confirm_password, dob, graduation_year, degree, department;
     String employment_type, present_employer, designation, address, country, state, city, achievements;
+    ProgressDialog progressDialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_sign_up, container, false);
-
-        signupProgress = rootView.findViewById(R.id.signup_progress);
-        signupProgress.setVisibility(View.GONE);
 
         spinnerGraduationYear = (Spinner) rootView.findViewById(R.id.spinner_graduation_year);
         spinnerDegree = (Spinner) rootView.findViewById(R.id.spinner_degree);
@@ -186,7 +184,9 @@ public class SignUpFragment extends Fragment {
         signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                signupProgress.setVisibility(View.VISIBLE);
+                progressDialog = new ProgressDialog(getContext());
+                progressDialog.setMessage("Registering....");
+                progressDialog.show();
                 getDatas();
             }
         });
@@ -216,12 +216,13 @@ public class SignUpFragment extends Fragment {
     }
 
     private void registerUser() {
+
         StringRequest stringRequest = new StringRequest(Request.Method.POST, Constant.SIGNUP_URL, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
-                signupProgress.setVisibility(View.GONE);
                 Timber.d(response);
+                progressDialog.dismiss();
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     int status = Integer.parseInt(jsonObject.getString("status"));
@@ -252,7 +253,7 @@ public class SignUpFragment extends Fragment {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                signupProgress.setVisibility(View.GONE);
+                progressDialog.dismiss();
                 Timber.d(error.toString());
             }
 
