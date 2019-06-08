@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -68,6 +69,7 @@ public class EditProfileFragment extends Fragment {
     private static Integer CAMERA = 2;
     private static Integer RECORD_REQUEST_CODE = 101;
     Bitmap myBitmap;
+    ProgressDialog progressDialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -182,10 +184,14 @@ public class EditProfileFragment extends Fragment {
 
     //Upload the datas to the server
     private void updateDatas() {
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage("Updating profile info....");
+        progressDialog.show();
         StringRequest stringRequest = new StringRequest(Request.Method.POST, Constant.UPDATE_PROFILE_URL, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
+                progressDialog.dismiss();
                 Timber.d(response);
                 try {
                     JSONObject jsonObject = new JSONObject(response);
@@ -216,6 +222,7 @@ public class EditProfileFragment extends Fragment {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                progressDialog.dismiss();
                 Timber.d(error.toString());
             }
 
@@ -345,10 +352,14 @@ public class EditProfileFragment extends Fragment {
 
     private void uploadFile() {
 
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage("Uploading image....");
+        progressDialog.show();
         StringRequest stringRequest = new StringRequest(Request.Method.POST, Constant.UPDATE_PROFILE_IMAGE, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
+                progressDialog.dismiss();
                 Toast.makeText(getActivity(), response, Toast.LENGTH_LONG).show();
 
                 try {
@@ -383,6 +394,7 @@ public class EditProfileFragment extends Fragment {
 
             @Override
             public void onErrorResponse(VolleyError error) {
+                progressDialog.dismiss();
                 Toast.makeText(getActivity(), error.toString(), Toast.LENGTH_LONG).show();
             }
 

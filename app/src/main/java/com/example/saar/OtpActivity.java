@@ -1,5 +1,6 @@
 package com.example.saar;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -41,9 +42,9 @@ public class OtpActivity extends AppCompatActivity {
     EditText otpRollNo;
     private int counter;
     Pinview pinview;
-    ProgressBar otp_progress;
     FloatingActionButton sendOTP;
     String otpValue, rollno;
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,8 +62,6 @@ public class OtpActivity extends AppCompatActivity {
         });
 
         otpRollNo = (EditText) findViewById(R.id.otp_rollno);
-        otp_progress=(ProgressBar) findViewById(R.id.otp_progress);
-        otp_progress.setVisibility(View.GONE);
 
         timer = (TextView) findViewById(R.id.timer);
         resend = (Button) findViewById(R.id.resend_button);
@@ -86,7 +85,6 @@ public class OtpActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (otpValue.length() != 0) {
                     rollno = otpRollNo.getText().toString();
-                    otp_progress.setVisibility(View.VISIBLE);
                     verifyOTP();
                 } else {
                     Toast.makeText(getApplicationContext(), getString(R.string.error_entering_otp), Toast.LENGTH_SHORT).show();
@@ -124,13 +122,15 @@ public class OtpActivity extends AppCompatActivity {
     }
 
     private void verifyOTP() {
-
+        progressDialog = new ProgressDialog(getBaseContext());
+        progressDialog.setMessage("Verifying....");
+        progressDialog.show();
         StringRequest stringRequest = new StringRequest(Request.Method.POST, Constant.OTP_URL, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
                 Timber.d(response);
-                otp_progress.setVisibility(View.GONE);
+                progressDialog.dismiss();
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     int status = Integer.parseInt(jsonObject.getString("status"));
@@ -155,7 +155,7 @@ public class OtpActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                otp_progress.setVisibility(View.GONE);
+                progressDialog.dismiss();
                 Timber.d(error.toString());
             }
 
