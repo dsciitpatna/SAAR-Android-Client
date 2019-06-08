@@ -21,6 +21,7 @@
     <string name="change_password_fragment">Change Password</string>
     <string name="no_internet">No Internet Connection Found\n\n
     Check Your Connection</string>
+    <string name="saar_email">saar@iitp.ac.in</string>
 
     <!--Team Page-->
     <string name="member_1">Vivek Garg</string>
