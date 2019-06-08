@@ -143,14 +143,17 @@ public class MainActivity extends AppCompatActivity
         getMenuInflater().inflate(R.menu.main, menu);
         MenuItem login = menu.findItem(R.id.action_login_signup);
         MenuItem logout = menu.findItem(R.id.action_logout);
+        MenuItem change_email=menu.findItem(R.id.action_change_email);
         if (preferences.getBoolean(Constant.LOGIN_STATUS, false)) {
             //user is logged in
             login.setVisible(false);
             logout.setVisible(true);
+            change_email.setVisible(true);
         } else {
             //user is not logged in
             login.setVisible(true);
             logout.setVisible(false);
+            change_email.setVisible(false);
         }
         return true;
     }
