@@ -23,6 +23,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.saar.Constant;
 import com.example.saar.MainActivity;
 import com.example.saar.R;
@@ -124,7 +125,9 @@ public class ViewProfileFragment extends Fragment {
             Glide.with(getActivity())
                     .load(preferences.getString(Constant.IMG_URL,""))
                     .centerCrop()
-                    .placeholder(R.drawable.placeholder_image)
+                    .diskCacheStrategy(DiskCacheStrategy.NONE)
+                    .skipMemoryCache(true)
+                    .placeholder(R.drawable.ic_account_circle_black_48dp)
                     .into(profileImage);
         }
     }

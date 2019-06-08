@@ -124,8 +124,6 @@ public class LoginFragment extends Fragment {
             @Override
             public void onResponse(String response) {
                 Timber.d(response);
-                Log.d("KHANKI", response);
-                // otp_progress.setVisibility(View.GONE);
                 progressDialog.dismiss();
                 try {
                     JSONObject jsonObject = new JSONObject(response);
