@@ -51,6 +51,7 @@
     <dimen name="circular_image_dimension">150dp</dimen>
     <dimen name="margin_xl">40dp</dimen>
     <dimen name="border_width">2dp</dimen>
+    <dimen name="card_elevation_home">5dp</dimen>
 
     <!--Otp Page-->
     <dimen name="otp_header_textsize">32sp</dimen>

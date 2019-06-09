@@ -1,5 +1,6 @@
 package com.example.saar.ChangeCredentials;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -38,6 +39,7 @@ public class ChangeEmailFragment extends Fragment {
 
     EditText old_email, new_email, password, rollno;
     Button emailChangeButton;
+    ProgressDialog progressDialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -66,10 +68,14 @@ public class ChangeEmailFragment extends Fragment {
     }
 
     private void requestEmailChange() {
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage("Sending request....");
+        progressDialog.show();
         StringRequest stringRequest = new StringRequest(Request.Method.POST, Constant.CHANGE_EMAIL_URL, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
+                progressDialog.dismiss();
                 Timber.d(response);
                 Log.d("KHANKI","Response - " +response);
                 try {
@@ -99,6 +105,7 @@ public class ChangeEmailFragment extends Fragment {
             @Override
             public void onErrorResponse(VolleyError error) {
 //                signupProgress.setVisibility(View.GONE);
+                progressDialog.dismiss();
                 Timber.d(error.toString());
             }
 
