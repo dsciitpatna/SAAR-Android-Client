@@ -1,38 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_layout"
     android:layout_width="match_parent"
     android:layout_height="@dimen/nav_header_height"
     android:background="@drawable/saar_logo"
+    android:clickable="true"
     android:gravity="bottom"
     android:orientation="vertical"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/nav_header_desc"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/nav_header_image"
+        android:layout_width="@dimen/nav_header_profile_image_dimen"
+        android:layout_height="@dimen/nav_header_profile_image_dimen"
+        android:duplicateParentState="true"
+        android:scaleType="centerCrop"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        app:srcCompat="@drawable/ic_account_circle_black_48dp" />
+        android:src="@drawable/ic_account_circle_black_48dp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:duplicateParentState="true"
+        android:id="@+id/nav_header_name"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:text="SAAR"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="@color/black"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+        android:paddingStart="@dimen/padding_medium"/>
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/nav_header_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:duplicateParentState="true"
         android:text="saar@iitp.ac.in"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"
+        android:paddingStart="@dimen/padding_medium"
+        android:paddingBottom="@dimen/padding_medium"/>
 
 </LinearLayout>

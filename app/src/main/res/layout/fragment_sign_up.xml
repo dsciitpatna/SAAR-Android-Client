@@ -36,20 +36,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:paddingTop="@dimen/padding_login_big"
-                    android:paddingBottom="@dimen/padding_login_big"
                     android:paddingStart="@dimen/padding_medium"
-                    android:paddingEnd="@dimen/padding_medium">
+                    android:paddingTop="@dimen/padding_login_big"
+                    android:paddingEnd="@dimen/padding_medium"
+                    android:paddingBottom="@dimen/padding_login_big">
 
-                    <android.support.v7.widget.AppCompatTextView
+                    <TextView
+                        android:id="@+id/signup_errors"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/colorAccent"
-                        android:textAlignment="center"
-                        android:id="@+id/signup_errors"
                         android:padding="@dimen/padding_medium"
-                        android:visibility="gone"
-                        android:text="Errors"/>
+                        android:text="Errors"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorAccent"
+                        android:visibility="gone" />
 
                     <android.support.design.widget.TextInputLayout
                         android:id="@+id/college_roll_number_input"
@@ -233,30 +233,30 @@
                             android:id="@+id/dob_edit"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:clickable="true"
                             android:ems="10"
+                            android:focusable="false"
                             android:hint="@string/dob"
                             android:maxLines="1"
                             android:padding="@dimen/padding_medium"
-                            android:textColorHint="@android:color/black"
-                            android:clickable="true"
-                            android:focusable="false" />
+                            android:textColorHint="@android:color/black" />
                     </android.support.design.widget.TextInputLayout>
 
                     <android.support.v7.widget.AppCompatSpinner
-                        style="@style/SignUpSpinner"
-                        android:id="@+id/spinner_graduation_year"/>
+                        android:id="@+id/spinner_graduation_year"
+                        style="@style/SignUpSpinner" />
 
                     <android.support.v7.widget.AppCompatSpinner
-                        style="@style/SignUpSpinner"
-                        android:id="@+id/spinner_degree"/>
+                        android:id="@+id/spinner_degree"
+                        style="@style/SignUpSpinner" />
 
                     <android.support.v7.widget.AppCompatSpinner
-                        style="@style/SignUpSpinner"
-                        android:id="@+id/spinner_department"/>
+                        android:id="@+id/spinner_department"
+                        style="@style/SignUpSpinner" />
 
                     <android.support.v7.widget.AppCompatSpinner
-                        style="@style/SignUpSpinner"
-                        android:id="@+id/spinner_employment_type"/>
+                        android:id="@+id/spinner_employment_type"
+                        style="@style/SignUpSpinner" />
 
                     <android.support.design.widget.TextInputLayout
                         android:id="@+id/present_employer_educational_inst_input"

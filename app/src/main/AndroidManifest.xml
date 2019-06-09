@@ -3,8 +3,11 @@
     package="com.example.saar">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -16,7 +19,10 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Login_SignUp.LoginSignupActivity"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,10 +30,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Login_SignUp.LoginSignupActivity"
+            android:name=".Profile.ProfileActivity"
+            android:parentActivityName=".MainActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ChangeCredentials.ChangeCredentialsActivity"
+            android:parentActivityName=".Login_SignUp.LoginSignupActivity"
             android:windowSoftInputMode="adjustPan" />
         <activity android:name=".Timeline_Events.EventDetails" />
-        <activity android:name=".OtpActivity"/>
+        <activity android:name=".OtpActivity" />
+
         <service android:name=".Notifications.FcmMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />

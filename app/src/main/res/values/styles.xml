@@ -42,6 +42,7 @@
         <item name="android:layout_width">@dimen/team_image_width</item>
         <item name="android:layout_height">@dimen/team_image_height</item>
         <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:scaleType">centerCrop</item>
     </style>
 
     <style name="TeamMemberName">
@@ -51,6 +52,7 @@
         <item name="android:layout_gravity">center_horizontal</item>
         <item name="android:lines">2</item>
         <item name="android:gravity">center_horizontal</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="TeamLinearLayout">

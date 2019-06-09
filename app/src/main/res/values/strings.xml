@@ -6,6 +6,9 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_login_signup">Login/SignUp</string>
+    <string name="action_profile">Profile</string>
+    <string name="action_logout">Logout</string>
+    <string name="action_change_email">Change Email</string>
     <string name="share_fragment">Share</string>
     <string name="connect_with_us">Connect With Us</string>
     <string name="donate_fragment">Donate Now</string>
@@ -13,8 +16,12 @@
     <string name="admin_block">IIT+Patna+Administration+Block</string>
     <string name="contact_fragment">Contact Us</string>
     <string name="gallery_fragment">Gallery</string>
+    <string name="view_profile_fragment">View Profile</string>
+    <string name="edit_profile_fragment">Edit Profile</string>
+    <string name="change_password_fragment">Change Password</string>
     <string name="no_internet">No Internet Connection Found\n\n
     Check Your Connection</string>
+    <string name="saar_email">saar@iitp.ac.in</string>
 
     <!--Team Page-->
     <string name="member_1">Vivek Garg</string>
@@ -117,6 +124,10 @@
     <string name="skip_login">Skip Login</string>
     <string name="saar_login">SAAR  Login</string>
     <string name="saar_signup">SAAR  Sign Up</string>
+    <string name="verify_email">Verify your Email ID</string>
+    <string name="credential_empty">Email or password field cannot be empty.</string>
+    <string name="loggedin">You have succesfully logged in.</string>
+    <string name="error_loggingin">Failed to log in.</string>
 
     <!--Sign Up Fragment-->
     <string name="college_roll_number">College Roll Number</string>
@@ -210,11 +221,44 @@
     <string name="see_full_saar_team">See Full SAAR Team...</string>
     <string name="speech">\"We make a living by what we get, we make a life by what we give\"</string>
     <string name="Winston_Churchill">\~Winston Churchill</string>
+    <string name="office_admin_home">Office of A Dean Resource\nAdministrative Building, IIT Patna</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
+    <!--Otp Page-->
     <string name="verification">Verification</string>
     <string name="otp_text">Please type the verification code sent on your registered email id</string>
     <string name="otp_resend">Didn\'t receive the otp?</string>
     <string name="resend">Resend otp</string>
+    <string name="error_entering_otp">Please enter the otp properly.</string>
+    <string name="otp_verified">OTP Successfully verified. You can now login with your email and password.</string>
+    <string name="otp_verification_failed">Failed to verify otp. Please retry.</string>
+    <string name="signup_successfull">Successfully registered your account. Please verify your email by entering the OTP send in email.</string>
+    <string name="signup_failed">Failed to register you. Please correct the errors and try again.</string>
+
+    <!--Profile Page-->
+    <string name="old_password">Old Password</string>
+    <string name="new_password">New Password</string>
+    <string name="save">Save changes</string>
+    <string name="fb_profile">Fb Profile Link</string>
+    <string name="linkedin_profile">LinkedIn Profile Link</string>
+    <string name="profile_update_success">Succesfully updated your profile information</string>
+    <string name="profile_update_failue">Failed to update your profile</string>
+    <string name="profile_img_alert_title">Update Profile Image</string>
+    <string name="profile_img_alert_message">Select the method to get the Photo</string>
+    <string name="gallery">GALLERY</string>
+    <string name="camera">CAMERA</string>
+    <string name="img_upload_success">Succesfully updated your profile picture</string>
+    <string name="img_upload_failure">Failed to upload your profile picture</string>
+
+    <!--Change Email Fragment-->
+    <string name="change_email">Change Email</string>
+    <string name="old_email">Old Email</string>
+    <string name="new_email">New Email</string>
+    <string name="change_email_success">Chnage email request has succesfully been sent.</string>
+    <string name="change_email_failure">Change email request has failed to sent.</string>
+
+    <!--Forgot Password Fragment-->
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="forgot_password_details">We just need your registered email id and college roll number to send you password reset instructions</string>
+    <string name="reset_password">Reset Password</string>
 
 </resources>

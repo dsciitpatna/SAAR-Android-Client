@@ -37,6 +37,7 @@
     <dimen name="textview_padding">8dp</dimen>
     <dimen name="team_image_width">80dp</dimen>
     <dimen name="team_image_height">80dp</dimen>
+    <dimen name="circular_image_big">110dp</dimen>
 
     <!--Contact Page-->
     <dimen name="textsize_contact">20sp</dimen>
@@ -50,8 +51,27 @@
     <dimen name="circular_image_dimension">150dp</dimen>
     <dimen name="margin_xl">40dp</dimen>
     <dimen name="border_width">2dp</dimen>
+    <dimen name="card_elevation_home">5dp</dimen>
 
     <!--Otp Page-->
     <dimen name="otp_header_textsize">32sp</dimen>
+
+    <!--View Profile Page-->
+    <dimen name="profile_photo_dimen">130dp</dimen>
+    <dimen name="profile_photo_margin">56dp</dimen>
+    <dimen name="view_profile_height">300dp</dimen>
+    <dimen name="textsize_profile_details">22sp</dimen>
+
+    <!--Edit Profile Page-->
+    <dimen name="edit_profile_height">180dp</dimen>
+    <dimen name="spinner_height">44dp</dimen>
+    <dimen name="edittext_radius">10dp</dimen>
+
+    <!--Forgot Password Page-->
+    <dimen name="margin_card">125dp</dimen>
+    <dimen name="lock_icon_size">60dp</dimen>
+
+    <!--Nav Header-->
+    <dimen name="nav_header_profile_image_dimen">80dp</dimen>
 
 </resources>

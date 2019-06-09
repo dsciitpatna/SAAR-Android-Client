@@ -1,6 +1,7 @@
 package com.example.saar.Login_SignUp;
 
 import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -15,8 +16,10 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
@@ -26,6 +29,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.saar.Constant;
 import com.example.saar.OtpActivity;
 import com.example.saar.R;
 
@@ -44,25 +48,19 @@ public class SignUpFragment extends Fragment {
     EditText dobEditText, first_name_text, last_name_text, rollno_text, email_text, phone_text, fb_link_text, linkedin_link_text, password_text;
     EditText confirm_password_text, present_employer_text, designation_text, address_text, country_text, state_text, city_text, achievements_text;
     TextView errorsDisplay;
-    Spinner spinnerGraduationYear;
-    Spinner spinnerDegree;
-    Spinner spinnerDepartment;
-    Spinner spinnerEmploymentType;
-    Button signUp;
+    Spinner spinnerGraduationYear, spinnerEmploymentType, spinnerDegree, spinnerDepartment;
     DatePickerDialog.OnDateSetListener setListener;
     Button signupButton;
     int year, month, day;
     String rollno, first_name, last_name, email, phone, fb_link, linkedin_link, password, confirm_password, dob, graduation_year, degree, department;
     String employment_type, present_employer, designation, address, country, state, city, achievements;
-    String url = "http://192.168.0.101:8888/SAAR-Server/functions/signup.php";
+    ProgressDialog progressDialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_sign_up, container, false);
-
-        signUp = (Button) rootView.findViewById(R.id.signup_button);
 
         spinnerGraduationYear = (Spinner) rootView.findViewById(R.id.spinner_graduation_year);
         spinnerDegree = (Spinner) rootView.findViewById(R.id.spinner_degree);
@@ -111,7 +109,7 @@ public class SignUpFragment extends Fragment {
         achievements_text = rootView.findViewById(R.id.achievements_edit);
 
         errorsDisplay = rootView.findViewById(R.id.signup_errors);
-        errorsDisplay.setVisibility(View.INVISIBLE);
+        errorsDisplay.setVisibility(View.GONE);
 
         return rootView;
     }
@@ -121,14 +119,6 @@ public class SignUpFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         //you can set the title for your toolbar here for different fragments different titles
         getActivity().setTitle(R.string.saar_signup);
-
-        signUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(getActivity(), OtpActivity.class);
-                startActivity(intent);
-            }
-        });
 
         spinnerGraduationYear.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -194,6 +184,9 @@ public class SignUpFragment extends Fragment {
         signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressDialog = new ProgressDialog(getContext());
+                progressDialog.setMessage("Registering....");
+                progressDialog.show();
                 getDatas();
             }
         });
@@ -223,22 +216,30 @@ public class SignUpFragment extends Fragment {
     }
 
     private void registerUser() {
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, Constant.SIGNUP_URL, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
                 Timber.d(response);
+                progressDialog.dismiss();
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     int status = Integer.parseInt(jsonObject.getString("status"));
                     if (status == 200) {
-                        Timber.d("Registered succesfully");
+                        Timber.d(getString(R.string.signup_successfull));
+                        Toast.makeText(getContext(), getString(R.string.signup_successfull), Toast.LENGTH_LONG).show();
                         // Should redirect to OTP page.
                         // Put rollno value as a parameter in the intent. This value will be useful in verifying the otp.
+                        Intent intent = new Intent(getActivity(), OtpActivity.class);
+                        intent.putExtra("rollno", rollno);
+                        startActivity(intent);
 
                     } else {
 
                         JSONArray jsonArray = jsonObject.getJSONArray("messages");
+                        Timber.d(getString(R.string.signup_failed));
+                        Toast.makeText(getContext(), getString(R.string.signup_failed), Toast.LENGTH_LONG).show();
                         errorsDisplay.setVisibility(View.VISIBLE);
                         errorsDisplay.setText(jsonArray.toString());
                     }
@@ -252,6 +253,7 @@ public class SignUpFragment extends Fragment {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                progressDialog.dismiss();
                 Timber.d(error.toString());
             }
 

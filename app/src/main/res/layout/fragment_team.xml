@@ -2,9 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/fragments_activities_background_color"
-    android:padding="@dimen/padding_medium">
+    android:orientation="vertical">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -13,32 +12,54 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
             android:layout_gravity="center_horizontal"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="@dimen/padding_medium">
 
             <TextView
                 style="@style/TeamCommittee"
                 android:text="@string/advisor" />
 
-            <ImageView
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/border_width"
+                android:background="@color/black"
+                android:layout_marginBottom="@dimen/margin_medium"/>
+
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/team_member_29"
-                style="@style/TeamMemberImage" />
+                style="@style/TeamMemberImage"
+                android:layout_width="@dimen/circular_image_big"
+                android:layout_height="@dimen/circular_image_big" />
 
             <TextView
                 style="@style/TeamMemberName"
                 android:text="@string/member_29" />
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/border_width"
+                android:background="@color/black" />
+
             <TextView
                 style="@style/TeamCommittee"
                 android:text="@string/core_committee" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/border_width"
+                android:background="@color/black" />
 
             <TextView
                 style="@style/TeamDesignation"
                 android:text="@string/general_sec" />
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/team_member_1"
-                style="@style/TeamMemberImage" />
+                style="@style/TeamMemberImage"
+                android:layout_width="@dimen/circular_image_big"
+                android:layout_height="@dimen/circular_image_big" />
 
             <TextView
                 style="@style/TeamMemberName"
@@ -56,7 +77,7 @@
                     style="@style/TeamLinearLayout"
                     android:layout_weight="1">
 
-                    <ImageView
+                    <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/team_member_10"
                         style="@style/TeamMemberImage" />
 
@@ -70,7 +91,7 @@
                     style="@style/TeamLinearLayout"
                     android:layout_weight="1">
 
-                    <ImageView
+                    <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/team_member_11"
                         style="@style/TeamMemberImage" />
 
@@ -94,7 +115,7 @@
                     style="@style/TeamLinearLayout"
                     android:layout_weight="1">
 
-                    <ImageView
+                    <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/team_member_2"
                         style="@style/TeamMemberImage" />
 
@@ -108,7 +129,7 @@
                     style="@style/TeamLinearLayout"
                     android:layout_weight="1">
 
-                    <ImageView
+                    <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/team_member_3"
                         style="@style/TeamMemberImage" />
 
@@ -132,7 +153,7 @@
                     style="@style/TeamLinearLayout"
                     android:layout_weight="1">
 
-                    <ImageView
+                    <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/team_member_4"
                         style="@style/TeamMemberImage" />
 
@@ -146,7 +167,7 @@
                     style="@style/TeamLinearLayout"
                     android:layout_weight="1">
 
-                    <ImageView
+                    <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/team_member_5"
                         style="@style/TeamMemberImage" />
 
@@ -170,7 +191,7 @@
                     style="@style/TeamLinearLayout"
                     android:layout_weight="1">
 
-                    <ImageView
+                    <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/team_member_6"
                         style="@style/TeamMemberImage" />
 
@@ -184,7 +205,7 @@
                     style="@style/TeamLinearLayout"
                     android:layout_weight="1">
 
-                    <ImageView
+                    <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/team_member_7"
                         style="@style/TeamMemberImage" />
 
@@ -208,7 +229,7 @@
                     style="@style/TeamLinearLayout"
                     android:layout_weight="1">
 
-                    <ImageView
+                    <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/team_member_8"
                         style="@style/TeamMemberImage" />
 
@@ -222,7 +243,7 @@
                     style="@style/TeamLinearLayout"
                     android:layout_weight="1">
 
-                    <ImageView
+                    <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/team_member_9"
                         style="@style/TeamMemberImage" />
 
@@ -234,9 +255,19 @@
 
             </LinearLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/border_width"
+                android:background="@color/black" />
+
             <TextView
                 style="@style/TeamCommittee"
                 android:text="@string/executive_committee" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/border_width"
+                android:background="@color/black" />
 
             <TextView
                 style="@style/TeamDesignation"
@@ -250,7 +281,7 @@
                     style="@style/TeamLinearLayout"
                     android:layout_weight="1">
 
-                    <ImageView
+                    <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/team_member_25"
                         style="@style/TeamMemberImage" />
 
@@ -264,7 +295,7 @@
                     style="@style/TeamLinearLayout"
                     android:layout_weight="1">
 
-                    <ImageView
+                    <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/team_member_26"
                         style="@style/TeamMemberImage" />
 
@@ -278,7 +309,7 @@
                     style="@style/TeamLinearLayout"
                     android:layout_weight="1">
 
-                    <ImageView
+                    <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/team_member_27"
                         style="@style/TeamMemberImage" />
 
@@ -292,7 +323,7 @@
                     style="@style/TeamLinearLayout"
                     android:layout_weight="1">
 
-                    <ImageView
+                    <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/team_member_28"
                         style="@style/TeamMemberImage" />
 
@@ -317,7 +348,7 @@
                     style="@style/TeamLinearLayout"
                     android:layout_weight="1">
 
-                    <ImageView
+                    <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/team_member_12"
                         style="@style/TeamMemberImage" />
 
@@ -331,7 +362,7 @@
                     style="@style/TeamLinearLayout"
                     android:layout_weight="1">
 
-                    <ImageView
+                    <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/team_member_13"
                         style="@style/TeamMemberImage" />
 
@@ -345,7 +376,7 @@
                     style="@style/TeamLinearLayout"
                     android:layout_weight="1">
 
-                    <ImageView
+                    <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/team_member_14"
                         style="@style/TeamMemberImage" />
 
@@ -369,7 +400,7 @@
                     style="@style/TeamLinearLayout"
                     android:layout_weight="1">
 
-                    <ImageView
+                    <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/team_member_15"
                         style="@style/TeamMemberImage" />
 
@@ -383,7 +414,7 @@
                     style="@style/TeamLinearLayout"
                     android:layout_weight="1">
 
-                    <ImageView
+                    <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/team_member_16"
                         style="@style/TeamMemberImage" />
 
@@ -397,7 +428,7 @@
                     style="@style/TeamLinearLayout"
                     android:layout_weight="1">
 
-                    <ImageView
+                    <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/team_member_17"
                         style="@style/TeamMemberImage" />
 
@@ -411,7 +442,7 @@
                     style="@style/TeamLinearLayout"
                     android:layout_weight="1">
 
-                    <ImageView
+                    <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/team_member_18"
                         style="@style/TeamMemberImage" />
 
@@ -435,7 +466,7 @@
                     style="@style/TeamLinearLayout"
                     android:layout_weight="1">
 
-                    <ImageView
+                    <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/team_member_19"
                         style="@style/TeamMemberImage" />
 
@@ -450,7 +481,7 @@
                     style="@style/TeamLinearLayout"
                     android:layout_weight="1">
 
-                    <ImageView
+                    <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/team_member_20"
                         style="@style/TeamMemberImage" />
 
@@ -464,7 +495,7 @@
                     style="@style/TeamLinearLayout"
                     android:layout_weight="1">
 
-                    <ImageView
+                    <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/team_member_21"
                         style="@style/TeamMemberImage" />
 
@@ -489,7 +520,7 @@
                     style="@style/TeamLinearLayout"
                     android:layout_weight="1">
 
-                    <ImageView
+                    <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/team_member_22"
                         style="@style/TeamMemberImage" />
 
@@ -503,7 +534,7 @@
                     style="@style/TeamLinearLayout"
                     android:layout_weight="1">
 
-                    <ImageView
+                    <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/team_member_23"
                         style="@style/TeamMemberImage" />
 
@@ -517,7 +548,7 @@
                     style="@style/TeamLinearLayout"
                     android:layout_weight="1">
 
-                    <ImageView
+                    <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/team_member_24"
                         style="@style/TeamMemberImage" />
 
