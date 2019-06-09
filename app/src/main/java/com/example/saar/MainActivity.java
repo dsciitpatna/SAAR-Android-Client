@@ -176,9 +176,8 @@ public class MainActivity extends AppCompatActivity
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             clearData();
-                            //Refreshing MainActivity
                             finish();
-                            startActivity(getIntent());
+                            startActivity(new Intent(MainActivity.this,LoginSignupActivity.class));
                         }
                     })
                     .setNegativeButton("No", new DialogInterface.OnClickListener() {
