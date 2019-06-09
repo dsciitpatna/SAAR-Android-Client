@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android" >
-
-  <solid android:color="@color/white" />
-    <stroke
-        android:width="@dimen/line_width"
-        android:color="@color/colorPrimary" />
-    <corners
-        android:radius="@dimen/edittext_radius" />
-  
-</shape>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:top="2dp">
+        <shape>
+            <solid android:color="@color/white" />
+            <stroke
+                android:width="@dimen/line_width"
+                android:color="@color/colorPrimary" />
+            <corners android:radius="@dimen/edittext_radius" />
+        </shape>
+    </item>
+</layer-list>

@@ -53,138 +53,189 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/profile_picture_edit_layout"
-                android:layout_marginTop="@dimen/margin_50dp"
                 android:layout_marginStart="@dimen/margin_30dp"
+                android:layout_marginTop="@dimen/margin_50dp"
                 android:layout_marginEnd="@dimen/margin_30dp"
                 android:layout_marginBottom="@dimen/margin_big"
                 android:orientation="vertical">
 
-                <android.support.v7.widget.AppCompatEditText
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_big"
-                    android:layout_marginBottom="@dimen/margin_big"
-                    android:background="@drawable/edittext_box"
-                    android:hint="@string/contact_no"
-                    android:inputType="phone"
-                    android:id="@+id/edit_phone"
-                    android:padding="@dimen/padding_medium"
-                    android:textSize="@dimen/textsize_contact" />
+                    android:layout_marginBottom="@dimen/margin_big">
 
-            <LinearLayout
-                android:id="@+id/employment_type_value"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/spinner_height"
-                android:layout_marginTop="@dimen/margin_big"
-                android:layout_marginBottom="@dimen/margin_big"
-                android:background="@drawable/edittext_box">
+                    <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/edit_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edittext_box"
+                        android:hint="@string/contact_no"
+                        android:inputType="phone"
+                        android:padding="@dimen/padding_medium"
+                        android:textSize="@dimen/textsize_contact" />
 
-                <android.support.v7.widget.AppCompatSpinner
-                    android:id="@+id/spinner_profile_employment"
+                </android.support.design.widget.TextInputLayout>
+
+                <LinearLayout
+                    android:id="@+id/employment_type_value"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/spinner_height"
-                    android:padding="@dimen/margin_5dp" />
-            </LinearLayout>
+                    android:layout_marginTop="@dimen/margin_big"
+                    android:layout_marginBottom="@dimen/margin_big"
+                    android:background="@drawable/edittext_box">
 
-                <android.support.v7.widget.AppCompatEditText
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:id="@+id/spinner_profile_employment"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/spinner_height"
+                        android:padding="@dimen/margin_5dp" />
+                </LinearLayout>
+
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_big"
-                    android:layout_marginBottom="@dimen/margin_big"
-                    android:id="@+id/edit_present_employer"
-                    android:background="@drawable/edittext_box"
-                    android:hint="@string/present_employer_educational_inst"
-                    android:padding="@dimen/padding_medium"
-                    android:textSize="@dimen/textsize_contact" />
+                    android:layout_marginBottom="@dimen/margin_big">
 
-                <android.support.v7.widget.AppCompatEditText
+                    <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/edit_present_employer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edittext_box"
+                        android:hint="@string/present_employer_educational_inst"
+                        android:padding="@dimen/padding_medium"
+                        android:textSize="@dimen/textsize_contact" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_big"
-                    android:layout_marginBottom="@dimen/margin_big"
-                    android:background="@drawable/edittext_box"
-                    android:hint="@string/designation"
-                    android:padding="@dimen/padding_medium"
-                    android:id="@+id/edit_designation"
-                    android:textSize="@dimen/textsize_contact" />
+                    android:layout_marginBottom="@dimen/margin_big">
 
-                <android.support.v7.widget.AppCompatEditText
+                    <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/edit_designation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edittext_box"
+                        android:hint="@string/designation"
+                        android:padding="@dimen/padding_medium"
+                        android:textSize="@dimen/textsize_contact" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_big"
-                    android:layout_marginBottom="@dimen/margin_big"
-                    android:id="@+id/edit_fb_link"
-                    android:background="@drawable/edittext_box"
-                    android:hint="@string/fb_profile_link"
-                    android:padding="@dimen/padding_medium"
-                    android:textSize="@dimen/textsize_contact" />
+                    android:layout_marginBottom="@dimen/margin_big">
 
-                <android.support.v7.widget.AppCompatEditText
+                    <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/edit_fb_link"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edittext_box"
+                        android:hint="@string/fb_profile_link"
+                        android:padding="@dimen/padding_medium"
+                        android:textSize="@dimen/textsize_contact" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_big"
-                    android:layout_marginBottom="@dimen/margin_big"
-                    android:id="@+id/edit_linkedin_link"
-                    android:background="@drawable/edittext_box"
-                    android:hint="@string/linkedin_profile_link"
-                    android:padding="@dimen/padding_medium"
-                    android:textSize="@dimen/textsize_contact" />
+                    android:layout_marginBottom="@dimen/margin_big">
 
-                <android.support.v7.widget.AppCompatEditText
+                    <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/edit_linkedin_link"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edittext_box"
+                        android:hint="@string/linkedin_profile_link"
+                        android:padding="@dimen/padding_medium"
+                        android:textSize="@dimen/textsize_contact" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_big"
-                    android:layout_marginBottom="@dimen/margin_big"
-                    android:background="@drawable/edittext_box"
-                    android:hint="@string/address"
-                    android:id="@+id/edit_address"
-                    android:padding="@dimen/padding_medium"
-                    android:textSize="@dimen/textsize_contact" />
+                    android:layout_marginBottom="@dimen/margin_big">
 
-                <android.support.v7.widget.AppCompatEditText
+                    <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/edit_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edittext_box"
+                        android:hint="@string/address"
+                        android:padding="@dimen/padding_medium"
+                        android:textSize="@dimen/textsize_contact" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_big"
-                    android:layout_marginBottom="@dimen/margin_big"
-                    android:background="@drawable/edittext_box"
-                    android:hint="@string/country"
-                    android:id="@+id/edit_country"
-                    android:padding="@dimen/padding_medium"
-                    android:textSize="@dimen/textsize_contact" />
+                    android:layout_marginBottom="@dimen/margin_big">
 
-                <android.support.v7.widget.AppCompatEditText
+                    <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/edit_country"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edittext_box"
+                        android:hint="@string/country"
+                        android:padding="@dimen/padding_medium"
+                        android:textSize="@dimen/textsize_contact" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_big"
-                    android:layout_marginBottom="@dimen/margin_big"
-                    android:background="@drawable/edittext_box"
-                    android:hint="@string/state"
-                    android:padding="@dimen/padding_medium"
-                    android:id="@+id/edit_state"
-                    android:textSize="@dimen/textsize_contact" />
+                    android:layout_marginBottom="@dimen/margin_big">
 
-                <android.support.v7.widget.AppCompatEditText
+                    <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/edit_state"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edittext_box"
+                        android:hint="@string/state"
+                        android:padding="@dimen/padding_medium"
+                        android:textSize="@dimen/textsize_contact" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_big"
-                    android:layout_marginBottom="@dimen/margin_big"
-                    android:id="@+id/edit_city"
-                    android:background="@drawable/edittext_box"
-                    android:hint="@string/city"
-                    android:padding="@dimen/padding_medium"
-                    android:textSize="@dimen/textsize_contact" />
+                    android:layout_marginBottom="@dimen/margin_big">
 
-                <android.support.v7.widget.AppCompatEditText
+                    <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/edit_city"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edittext_box"
+                        android:hint="@string/city"
+                        android:padding="@dimen/padding_medium"
+                        android:textSize="@dimen/textsize_contact" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_big"
-                    android:layout_marginBottom="@dimen/margin_big"
-                    android:background="@drawable/edittext_box"
-                    android:hint="@string/achievements"
-                    android:maxLines="5"
-                    android:id="@+id/edit_achievements"
-                    android:padding="@dimen/padding_medium"
-                    android:textSize="@dimen/textsize_contact" />
+                    android:layout_marginBottom="@dimen/margin_big">
+
+                    <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/edit_achievements"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edittext_box"
+                        android:hint="@string/achievements"
+                        android:maxLines="5"
+                        android:padding="@dimen/padding_medium"
+                        android:textSize="@dimen/textsize_contact" />
+                </android.support.design.widget.TextInputLayout>
 
                 <android.support.v7.widget.AppCompatButton
                     android:id="@+id/save_button"
