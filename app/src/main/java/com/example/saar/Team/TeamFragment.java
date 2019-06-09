@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.saar.R;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class TeamFragment extends Fragment {
 
@@ -37,9 +38,9 @@ public class TeamFragment extends Fragment {
                 R.id.team_member_28, R.id.team_member_29};
 
         for (int position = 0; position < IMAGE_ID.length; position++) {
-            ((ImageView) rootView.findViewById(IMAGE_VIEW_ID[position])).setImageBitmap(decodeSampledBitmapFromResource(getResources(), IMAGE_ID[position], 70, 70));
+            CircleImageView circleImageView = rootView.findViewById(IMAGE_VIEW_ID[position]);
+            circleImageView.setImageResource(IMAGE_ID[position]);
         }
-
 
 
         rootView.findViewById(IMAGE_VIEW_ID[0]).setOnClickListener(new View.OnClickListener() {
@@ -153,7 +154,8 @@ public class TeamFragment extends Fragment {
                 go_to_fb("https://www.facebook.com/100007750481987");
             }
 
-        });rootView.findViewById(IMAGE_VIEW_ID[16]).setOnClickListener(new View.OnClickListener() {
+        });
+        rootView.findViewById(IMAGE_VIEW_ID[16]).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 go_to_fb("https://www.facebook.com/100005452056853");
@@ -219,7 +221,7 @@ public class TeamFragment extends Fragment {
         rootView.findViewById(IMAGE_VIEW_ID[25]).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                go_to_fb("");
+                go_to_fb("https://www.facebook.com/100003569846355");
             }
         });
 
@@ -282,13 +284,13 @@ public class TeamFragment extends Fragment {
         options.inJustDecodeBounds = false;
         return BitmapFactory.decodeResource(res, resId, options);
     }
-    private void go_to_fb(String id)
-    {
-        try{
+
+    private void go_to_fb(String id) {
+        try {
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(id));
             startActivity(intent);
         } catch (ActivityNotFoundException e) {
-            Toast.makeText(getActivity(),"Something Went Wrong.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "Something Went Wrong.", Toast.LENGTH_SHORT).show();
         }
     }
 }
