@@ -321,10 +321,7 @@ public class MainActivity extends AppCompatActivity
         editor = preferences.edit();
         //method to reset shared preferences
         Utils.resetSharedPreferences(preferences, editor);
-        if (preferences.getBoolean(Constant.LOGIN_STATUS, false)) {
-            //user is logged in and wants to log out
-            Toast.makeText(this, "Logged Out", Toast.LENGTH_LONG).show();
-        } else
-            Toast.makeText(this, "Not Logged In", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Logged Out", Toast.LENGTH_LONG).show();
+
     }
 }
