@@ -46,10 +46,10 @@ public class ChangePasswordFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_change_password, container, false);
-        old_password=rootView.findViewById(R.id.chng_old_password);
-        new_password=rootView.findViewById(R.id.chng_new_password);
-        confirm_new_password=rootView.findViewById(R.id.chng_confirm_new_password);
-        reset_password=rootView.findViewById(R.id.password_reset_button);
+        old_password = rootView.findViewById(R.id.chng_old_password);
+        new_password = rootView.findViewById(R.id.chng_new_password);
+        confirm_new_password = rootView.findViewById(R.id.chng_confirm_new_password);
+        reset_password = rootView.findViewById(R.id.password_reset_button);
         preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
         return rootView;
     }
@@ -104,10 +104,10 @@ public class ChangePasswordFragment extends Fragment {
         }) {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("rollno",preferences.getString(Constant.ROLLNO,"") );
+                params.put("rollno", preferences.getString(Constant.ROLLNO, ""));
                 params.put("old_password", old_password.getText().toString());
-                params.put("new_password",new_password.getText().toString());
-                params.put("confirm_password",confirm_new_password.getText().toString());
+                params.put("new_password", new_password.getText().toString());
+                params.put("confirm_password", confirm_new_password.getText().toString());
                 return params;
             }
         };
