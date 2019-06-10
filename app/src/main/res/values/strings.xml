@@ -9,6 +9,7 @@
     <string name="action_profile">Profile</string>
     <string name="action_logout">Logout</string>
     <string name="action_change_email">Change Email</string>
+    <string name="action_change_password">Change Password</string>
     <string name="share_fragment">Share</string>
     <string name="connect_with_us">Connect With Us</string>
     <string name="donate_fragment">Donate Now</string>
@@ -260,5 +261,9 @@
     <string name="forgot_password">Forgot Password?</string>
     <string name="forgot_password_details">We just need your registered email id and college roll number to send you password reset instructions</string>
     <string name="reset_password">Reset Password</string>
+
+    <!-- Change Password -->
+    <string name="change_password_succesfull">Succesfully changed the password.</string>
+    <string name="change_password_failure">Failed to change the password. Please try again later.</string>
 
 </resources>

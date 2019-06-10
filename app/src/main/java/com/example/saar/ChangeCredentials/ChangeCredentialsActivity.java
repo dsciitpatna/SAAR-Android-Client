@@ -21,6 +21,9 @@ public class ChangeCredentialsActivity extends AppCompatActivity {
         }else if (getIntent().getStringExtra("EXTRA").equals("openChangeEmail")){
             ft.replace(R.id.fragment_credentials_container, new ChangeEmailFragment());
             ft.commit();
+        } else if (getIntent().getStringExtra("EXTRA").equals("openChangePassword")){
+            ft.replace(R.id.fragment_credentials_container, new ChangePasswordFragment());
+            ft.commit();
         }
     }
 
