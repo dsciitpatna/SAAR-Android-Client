@@ -62,12 +62,12 @@ public class ChangePasswordFragment extends Fragment {
         reset_password.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                restPassword();
+                resetPassword();
             }
         });
     }
 
-    private void restPassword() {
+    private void resetPassword() {
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage("Resetting....");
         progressDialog.show();
