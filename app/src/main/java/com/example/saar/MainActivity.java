@@ -7,7 +7,6 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.design.widget.NavigationView;
@@ -37,8 +36,6 @@ import com.example.saar.Share.ShareFragment;
 import com.example.saar.Team.TeamFragment;
 import com.example.saar.Timeline_Events.TimelineFragment;
 import com.example.saar.Utils.Utils;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -109,55 +106,21 @@ public class MainActivity extends AppCompatActivity
     private void subscribeForNotification() {
         notifications = PreferenceManager.getDefaultSharedPreferences(this).edit();
         if (!preferences.getBoolean(Constant.SUBSCRIBE_NOTIFICATION, false)) {
-            FirebaseMessaging.getInstance().subscribeToTopic("alumnus")
-                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            String msg = getString(R.string.msg_subscribed);
-                            if (!task.isSuccessful()) {
-                                msg = getString(R.string.msg_subscribe_failed);
-                            }
-                            Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
-                        }
-                    });
+            FirebaseMessaging.getInstance().subscribeToTopic("alumnus");
             if (preferences.getBoolean(Constant.LOGIN_STATUS, false)) {
                 String rollno = preferences.getString(Constant.ROLLNO, "");
 
-                String batch = getBatch(rollno);
-                String department = getDepartment(rollno);
+                String batch = Utils.getBatch(rollno);
+                String department = Utils.getDepartment(rollno);
                 FirebaseMessaging.getInstance().subscribeToTopic(batch);
                 FirebaseMessaging.getInstance().subscribeToTopic(department);
             }
+
+            notifications.putBoolean(Constant.SUBSCRIBE_NOTIFICATION, true);
+            notifications.apply();
+            Toast.makeText(MainActivity.this, getString(R.string.msg_subscribed), Toast.LENGTH_SHORT).show();
+            Timber.d("Subscribed to notification.");
         }
-        notifications.putBoolean(Constant.SUBSCRIBE_NOTIFICATION, true);
-        notifications.apply();
-        Toast.makeText(MainActivity.this, getString(R.string.msg_subscribed), Toast.LENGTH_SHORT).show();
-        Timber.d("Subscribed to notification.");
-    }
-
-    private String getDepartment(String rollno) {
-        String year = rollno.substring(0, 2);
-        String dept = rollno.substring(4, 6);
-        return dept + year;
-    }
-
-    private String getBatch(String rollno) {
-        String year = rollno.substring(0, 2);
-        String category = rollno.substring(2, 4);
-        String value = null;
-
-        if (category.equals("01")) {
-            value = "btech" + year;
-        } else if (category.equals("21")) {
-            value = "phd" + year;
-        } else if (category.equals("11")) {
-            value = "mtech" + year;
-        } else if (category.equals("12")) {
-            value = "msc" + year;
-        } else {
-            value = "unknown";
-        }
-        return value;
     }
 
     private void showHomeFragment() {
@@ -220,9 +183,11 @@ public class MainActivity extends AppCompatActivity
                     .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            clearData();
+                            editor = preferences.edit();
+                            Utils.unsuscribeFromNotification(preferences.getString(Constant.ROLLNO, ""));
+                            Utils.logout(editor, MainActivity.this);
                             finish();
-                            startActivity(new Intent(MainActivity.this, LoginSignupActivity.class));
+
                         }
                     })
                     .setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -236,7 +201,7 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(this, ChangeCredentialsActivity.class);
             intent.putExtra("EXTRA", "openChangeEmail");
             startActivity(intent);
-        } else if (id == R.id.action_change_password){
+        } else if (id == R.id.action_change_password) {
             Intent intent = new Intent(this, ChangeCredentialsActivity.class);
             intent.putExtra("EXTRA", "openChangePassword");
             startActivity(intent);
@@ -322,13 +287,5 @@ public class MainActivity extends AppCompatActivity
             email.setText(getResources().getString(R.string.saar_email));
             circleImageView.setImageResource(R.drawable.ic_account_circle_black_48dp);
         }
-    }
-
-    private void clearData() {
-        editor = preferences.edit();
-        //method to reset shared preferences
-        Utils.resetSharedPreferences(preferences, editor);
-        Toast.makeText(this, "Logged Out", Toast.LENGTH_LONG).show();
-
     }
 }
