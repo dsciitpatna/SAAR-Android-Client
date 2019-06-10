@@ -24,6 +24,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.saar.Constant;
 import com.example.saar.R;
+import com.example.saar.Utils.Utils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -40,6 +41,7 @@ public class ChangePasswordFragment extends Fragment {
     Button reset_password;
     ProgressDialog progressDialog;
     SharedPreferences preferences;
+    SharedPreferences.Editor editor;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -51,6 +53,7 @@ public class ChangePasswordFragment extends Fragment {
         confirm_new_password = rootView.findViewById(R.id.chng_confirm_new_password);
         reset_password = rootView.findViewById(R.id.password_reset_button);
         preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        editor=PreferenceManager.getDefaultSharedPreferences(getContext()).edit();
         return rootView;
     }
 
@@ -82,7 +85,8 @@ public class ChangePasswordFragment extends Fragment {
                     int status = Integer.parseInt(jsonObject.getString("status"));
                     if (status == 207) {
                         Toast.makeText(getContext(), getString(R.string.change_password_succesfull), Toast.LENGTH_LONG).show();
-                        //Implement callback to logout function
+                        Utils.unsuscribeFromNotification(preferences.getString(Constant.ROLLNO,""));
+                        Utils.logout(editor,getContext());
                     } else {
 
                         JSONArray jsonArray = jsonObject.getJSONArray("messages");

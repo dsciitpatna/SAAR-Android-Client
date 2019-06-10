@@ -1,11 +1,16 @@
 package com.example.saar.Utils;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Toast;
 
 import com.example.saar.Constant;
+import com.example.saar.Login_SignUp.LoginSignupActivity;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 public class Utils {
 
@@ -15,7 +20,7 @@ public class Utils {
             inputManager.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.SHOW_FORCED);
     }
 
-    public static void resetSharedPreferences(SharedPreferences preferences, SharedPreferences.Editor editor) {
+    public static void logout(SharedPreferences.Editor editor, Context context) {
         //setting all values of shared preferences to empty string
         //login status is set to false
         editor.putBoolean(Constant.LOGIN_STATUS, false);
@@ -39,6 +44,39 @@ public class Utils {
         editor.putString(Constant.STATE, "");
         editor.putString(Constant.ACHIEVEMENTS, "");
         editor.apply();
+        Toast.makeText(context, "Logged Out", Toast.LENGTH_LONG).show();
+        context.startActivity(new Intent(context, LoginSignupActivity.class));
     }
 
+    public static String getDepartment(String rollno) {
+        String year = rollno.substring(0, 2);
+        String dept = rollno.substring(4, 6);
+        return dept + year;
+    }
+
+    public static String getBatch(String rollno) {
+        String year = rollno.substring(0, 2);
+        String category = rollno.substring(2, 4);
+        String value = null;
+
+        if (category.equals("01")) {
+            value = "btech" + year;
+        } else if (category.equals("21")) {
+            value = "phd" + year;
+        } else if (category.equals("11")) {
+            value = "mtech" + year;
+        } else if (category.equals("12")) {
+            value = "msc" + year;
+        } else {
+            value = "unknown";
+        }
+        return value;
+    }
+
+    public static void unsuscribeFromNotification(String rollno){
+        if(rollno.length()==8){
+            FirebaseMessaging.getInstance().unsubscribeFromTopic(getBatch(rollno));
+            FirebaseMessaging.getInstance().unsubscribeFromTopic(getDepartment(rollno));
+        }
+    }
 }
