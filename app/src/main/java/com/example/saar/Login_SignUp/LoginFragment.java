@@ -29,6 +29,7 @@ import com.example.saar.Constant;
 import com.example.saar.MainActivity;
 import com.example.saar.OtpActivity;
 import com.example.saar.R;
+import com.example.saar.Utils.Utils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -117,6 +118,8 @@ public class LoginFragment extends Fragment {
     }
 
     private void login() {
+        //closing soft Keyboard using Utils class method
+        Utils.closeKeyboard(getView(), getContext());
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage("Logging in....");
         progressDialog.show();

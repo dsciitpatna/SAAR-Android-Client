@@ -36,6 +36,7 @@ import com.example.saar.Profile.ProfileActivity;
 import com.example.saar.Share.ShareFragment;
 import com.example.saar.Team.TeamFragment;
 import com.example.saar.Timeline_Events.TimelineFragment;
+import com.example.saar.Utils.Utils;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.messaging.FirebaseMessaging;
@@ -106,7 +107,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void subscribeForNotification() {
-        notifications= PreferenceManager.getDefaultSharedPreferences(this).edit();
+        notifications = PreferenceManager.getDefaultSharedPreferences(this).edit();
         if (!preferences.getBoolean(Constant.SUBSCRIBE_NOTIFICATION, false)) {
             FirebaseMessaging.getInstance().subscribeToTopic("alumnus")
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -128,7 +129,7 @@ public class MainActivity extends AppCompatActivity
                 FirebaseMessaging.getInstance().subscribeToTopic(department);
             }
         }
-        notifications.putBoolean(Constant.SUBSCRIBE_NOTIFICATION,true);
+        notifications.putBoolean(Constant.SUBSCRIBE_NOTIFICATION, true);
         notifications.apply();
         Toast.makeText(MainActivity.this, getString(R.string.msg_subscribed), Toast.LENGTH_SHORT).show();
         Timber.d("Subscribed to notification.");
@@ -143,18 +144,18 @@ public class MainActivity extends AppCompatActivity
     private String getBatch(String rollno) {
         String year = rollno.substring(0, 2);
         String category = rollno.substring(2, 4);
-        String value= null;
+        String value = null;
 
         if (category.equals("01")) {
-            value= "btech" + year;
+            value = "btech" + year;
         } else if (category.equals("21")) {
-            value= "phd" + year;
+            value = "phd" + year;
         } else if (category.equals("11")) {
-            value= "mtech" + year;
+            value = "mtech" + year;
         } else if (category.equals("12")) {
-            value= "msc" + year;
-        }else {
-            value="unknown";
+            value = "msc" + year;
+        } else {
+            value = "unknown";
         }
         return value;
     }
@@ -325,31 +326,9 @@ public class MainActivity extends AppCompatActivity
 
     private void clearData() {
         editor = preferences.edit();
-        if (preferences.getBoolean(Constant.LOGIN_STATUS, false)) {
-            //user is logged in and wants to log out
-            editor.putBoolean(Constant.LOGIN_STATUS, false);
-            editor.putString(Constant.ROLLNO, "");
-            editor.putString(Constant.FIRST_NAME, "");
-            editor.putString(Constant.LAST_NAME, "");
-            editor.putString(Constant.EMAIL, "");
-            editor.putString(Constant.PHONE, "");
-            editor.putString(Constant.FB_LINK, "");
-            editor.putString(Constant.LINKEDIN_LINK, "");
-            editor.putString(Constant.DOB, "");
-            editor.putString(Constant.GRADUATION_YEAR, "");
-            editor.putString(Constant.DEGREE, "");
-            editor.putString(Constant.DEPARTMENT, "");
-            editor.putString(Constant.EMPLOYEMENT_TYPE, "");
-            editor.putString(Constant.PRESENT_EMPLOYER, "");
-            editor.putString(Constant.DESIGNATION, "");
-            editor.putString(Constant.ADDRESS, "");
-            editor.putString(Constant.COUNTRY, "");
-            editor.putString(Constant.CITY, "");
-            editor.putString(Constant.STATE, "");
-            editor.putString(Constant.ACHIEVEMENTS, "");
-            editor.apply();
-            Toast.makeText(this, "Logged Out", Toast.LENGTH_LONG).show();
-        } else
-            Toast.makeText(this, "Not Logged In", Toast.LENGTH_LONG).show();
+        //method to reset shared preferences
+        Utils.resetSharedPreferences(preferences, editor);
+        Toast.makeText(this, "Logged Out", Toast.LENGTH_LONG).show();
+
     }
 }
