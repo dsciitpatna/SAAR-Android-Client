@@ -2,7 +2,6 @@ package com.example.saar.Profile;
 
 import android.Manifest;
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
@@ -18,7 +17,6 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.util.Base64;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,7 +24,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -43,7 +40,6 @@ import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.saar.Constant;
-import com.example.saar.OtpActivity;
 import com.example.saar.R;
 
 import org.json.JSONArray;
@@ -388,7 +384,7 @@ public class EditProfileFragment extends Fragment {
     private void uploadFile() {
         progressBar.setVisibility(View.VISIBLE);
         change_photo_button.hide();
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, Constant.UPDATE_PROFILE_IMAGE, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, Constant.UPDATE_PROFILE_IMAGE_URL, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
