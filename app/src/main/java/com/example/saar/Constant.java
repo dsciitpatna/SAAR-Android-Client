@@ -39,4 +39,7 @@ public class Constant {
     public static final String ACHIEVEMENTS = "achievements";
     public static final String IMG_URL = "img_url";
 
+    //Notification service
+    public static final String SUBSCRIBE_NOTIFICATION="subscribe_notification";
+
 }
