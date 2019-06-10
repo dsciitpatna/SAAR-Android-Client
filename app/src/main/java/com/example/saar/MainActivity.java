@@ -37,6 +37,7 @@ import com.example.saar.Team.TeamFragment;
 import com.example.saar.Timeline_Events.TimelineFragment;
 import com.example.saar.Utils.Utils;
 import com.google.firebase.messaging.FirebaseMessaging;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 import timber.log.Timber;
 
@@ -183,8 +184,8 @@ public class MainActivity extends AppCompatActivity
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             editor = preferences.edit();
-                            Utils.unsuscribeFromNotification(preferences.getString(Constant.ROLLNO,""));
-                            Utils.logout(editor,MainActivity.this);
+                            Utils.unsuscribeFromNotification(preferences.getString(Constant.ROLLNO, ""));
+                            Utils.logout(editor, MainActivity.this);
                             finish();
 
                         }
@@ -200,7 +201,7 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(this, ChangeCredentialsActivity.class);
             intent.putExtra("EXTRA", "openChangeEmail");
             startActivity(intent);
-        } else if (id == R.id.action_change_password){
+        } else if (id == R.id.action_change_password) {
             Intent intent = new Intent(this, ChangeCredentialsActivity.class);
             intent.putExtra("EXTRA", "openChangePassword");
             startActivity(intent);

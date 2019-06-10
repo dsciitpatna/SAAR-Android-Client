@@ -73,8 +73,8 @@ public class Utils {
         return value;
     }
 
-    public static void unsuscribeFromNotification(String rollno){
-        if(rollno.length()==8){
+    public static void unsuscribeFromNotification(String rollno) {
+        if (rollno.length() == 8) {
             FirebaseMessaging.getInstance().unsubscribeFromTopic(getBatch(rollno));
             FirebaseMessaging.getInstance().unsubscribeFromTopic(getDepartment(rollno));
         }
