@@ -41,6 +41,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import timber.log.Timber;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -48,7 +49,7 @@ public class MainActivity extends AppCompatActivity
     //creating fragment object
     Fragment fragment = null;
     SharedPreferences preferences;
-    SharedPreferences.Editor editor;
+    SharedPreferences.Editor editor, notifications;
     TextView name, email;
     CircleImageView circleImageView;
 
@@ -105,17 +106,57 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void subscribeForNotification() {
-        FirebaseMessaging.getInstance().subscribeToTopic("alumnus")
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        String msg = getString(R.string.msg_subscribed);
-                        if (!task.isSuccessful()) {
-                            msg = getString(R.string.msg_subscribe_failed);
+        notifications= PreferenceManager.getDefaultSharedPreferences(this).edit();
+        if (!preferences.getBoolean(Constant.SUBSCRIBE_NOTIFICATION, false)) {
+            FirebaseMessaging.getInstance().subscribeToTopic("alumnus")
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            String msg = getString(R.string.msg_subscribed);
+                            if (!task.isSuccessful()) {
+                                msg = getString(R.string.msg_subscribe_failed);
+                            }
+                            Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
                         }
-                        Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
-                    }
-                });
+                    });
+            if (preferences.getBoolean(Constant.LOGIN_STATUS, false)) {
+                String rollno = preferences.getString(Constant.ROLLNO, "");
+
+                String batch = getBatch(rollno);
+                String department = getDepartment(rollno);
+                FirebaseMessaging.getInstance().subscribeToTopic(batch);
+                FirebaseMessaging.getInstance().subscribeToTopic(department);
+            }
+        }
+        notifications.putBoolean(Constant.SUBSCRIBE_NOTIFICATION,true);
+        notifications.apply();
+        Toast.makeText(MainActivity.this, getString(R.string.msg_subscribed), Toast.LENGTH_SHORT).show();
+        Timber.d("Subscribed to notification.");
+    }
+
+    private String getDepartment(String rollno) {
+        String year = rollno.substring(0, 2);
+        String dept = rollno.substring(4, 6);
+        return dept + year;
+    }
+
+    private String getBatch(String rollno) {
+        String year = rollno.substring(0, 2);
+        String category = rollno.substring(2, 4);
+        String value= null;
+
+        if (category.equals("01")) {
+            value= "btech" + year;
+        } else if (category.equals("21")) {
+            value= "phd" + year;
+        } else if (category.equals("11")) {
+            value= "mtech" + year;
+        } else if (category.equals("12")) {
+            value= "msc" + year;
+        }else {
+            value="unknown";
+        }
+        return value;
     }
 
     private void showHomeFragment() {
@@ -143,7 +184,7 @@ public class MainActivity extends AppCompatActivity
         getMenuInflater().inflate(R.menu.main, menu);
         MenuItem login = menu.findItem(R.id.action_login_signup);
         MenuItem logout = menu.findItem(R.id.action_logout);
-        MenuItem change_email=menu.findItem(R.id.action_change_email);
+        MenuItem change_email = menu.findItem(R.id.action_change_email);
         if (preferences.getBoolean(Constant.LOGIN_STATUS, false)) {
             //user is logged in
             login.setVisible(false);
@@ -177,7 +218,7 @@ public class MainActivity extends AppCompatActivity
                         public void onClick(DialogInterface dialog, int which) {
                             clearData();
                             finish();
-                            startActivity(new Intent(MainActivity.this,LoginSignupActivity.class));
+                            startActivity(new Intent(MainActivity.this, LoginSignupActivity.class));
                         }
                     })
                     .setNegativeButton("No", new DialogInterface.OnClickListener() {
