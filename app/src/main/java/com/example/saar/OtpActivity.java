@@ -9,7 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,7 +42,7 @@ public class OtpActivity extends AppCompatActivity {
     private int counter;
     Pinview pinview;
     FloatingActionButton sendOTP;
-    String otpValue, rollno;
+    String otpValue = "", rollno;
     ProgressDialog progressDialog;
 
     @Override
@@ -66,16 +65,16 @@ public class OtpActivity extends AppCompatActivity {
         timer = (TextView) findViewById(R.id.timer);
         resend = (Button) findViewById(R.id.resend_button);
 
-        setUpTimer();
-
         //Test case if user wants to verify after some time
         if (getIntent().hasExtra("rollno")) {
             rollno = getIntent().getStringExtra("rollno");
             getIntent().removeExtra("rollno");
             otpRollNo.setVisibility(View.INVISIBLE);
             otpRollNo.setText(rollno);
+            setUpTimer();
         } else {
             otpRollNo.setVisibility(View.VISIBLE);
+            resend.setVisibility(View.VISIBLE);
         }
 
         //Action to be performed when the sending otp button is pressed
@@ -93,6 +92,73 @@ public class OtpActivity extends AppCompatActivity {
             }
         });
 
+        resend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                resendOTP();
+            }
+        });
+
+    }
+
+    private void resendOTP() {
+        rollno = otpRollNo.getText().toString();
+
+        if (rollno.isEmpty()) {
+            Toast.makeText(this, getString(R.string.rollno_otp), Toast.LENGTH_LONG).show();
+        } else {
+            final ProgressDialog resendProgressDialog = new ProgressDialog(this);
+            resendProgressDialog.setMessage("Resending....");
+            resendProgressDialog.show();
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, Constant.RESEND_OTP_URL, new Response.Listener<String>() {
+
+                @Override
+                public void onResponse(String response) {
+                    Timber.d(response);
+                    resendProgressDialog.dismiss();
+                    resend.setVisibility(View.GONE);
+                    setUpTimer();
+                    try {
+                        JSONObject jsonObject = new JSONObject(response);
+                        int status = Integer.parseInt(jsonObject.getString("status"));
+                        if (status == 201) {
+                            Timber.d(getString(R.string.otp_verified));
+                            Toast.makeText(OtpActivity.this, getString(R.string.resend_otp_succesfull), Toast.LENGTH_LONG).show();
+                            otpRollNo.setVisibility(View.GONE);
+
+                        } else {
+
+                            JSONArray jsonArray = jsonObject.getJSONArray("messages");
+                            Toast.makeText(OtpActivity.this, jsonArray.toString(), Toast.LENGTH_LONG).show();
+                            Timber.d(jsonArray.toString());
+                        }
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    resendProgressDialog.dismiss();
+                    Timber.d(error.toString());
+                }
+
+            }) {
+                protected Map<String, String> getParams() throws AuthFailureError {
+                    Map<String, String> params = new HashMap<String, String>();
+                    params.put("rollno", rollno);
+                    return params;
+                }
+            };
+            stringRequest.setRetryPolicy(new DefaultRetryPolicy(
+                    10000,
+                    DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                    DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+
+            RequestQueue requestQueue = Volley.newRequestQueue(OtpActivity.this);
+            Request<String> data = requestQueue.add(stringRequest);
+        }
     }
 
     private void setUpTimer() {
@@ -122,7 +188,7 @@ public class OtpActivity extends AppCompatActivity {
     }
 
     private void verifyOTP() {
-        progressDialog = new ProgressDialog(getBaseContext());
+        progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Verifying....");
         progressDialog.show();
         StringRequest stringRequest = new StringRequest(Request.Method.POST, Constant.OTP_URL, new Response.Listener<String>() {

@@ -125,7 +125,7 @@
     <string name="skip_login">Skip Login</string>
     <string name="saar_login">SAAR  Login</string>
     <string name="saar_signup">SAAR  Sign Up</string>
-    <string name="verify_email">Verify your Email ID</string>
+    <string name="verify_email">Verify your OTP</string>
     <string name="credential_empty">Email or password field cannot be empty.</string>
     <string name="loggedin">You have succesfully logged in.</string>
     <string name="error_loggingin">Failed to log in.</string>
@@ -234,6 +234,9 @@
     <string name="otp_verification_failed">Failed to verify otp. Please retry.</string>
     <string name="signup_successfull">Successfully registered your account. Please verify your email by entering the OTP send in email.</string>
     <string name="signup_failed">Failed to register you. Please correct the errors and try again.</string>
+    <string name="rollno_otp">Roll No field cannot be empty.</string>
+    <string name="resend_otp_succesfull">Succesfully sent the OTP in your email. Please check your email.</string>
+    <string name="resend_otp_failure">Failed to resend the otp.</string>
 
     <!--Profile Page-->
     <string name="old_password">Old Password</string>
