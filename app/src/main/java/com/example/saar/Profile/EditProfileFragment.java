@@ -2,6 +2,7 @@ package com.example.saar.Profile;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
@@ -18,6 +19,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.util.Base64;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +27,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -70,6 +73,7 @@ public class EditProfileFragment extends Fragment {
     private static Integer RECORD_REQUEST_CODE = 101;
     Bitmap myBitmap;
     ProgressDialog progressDialog;
+    ProgressBar progressBar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -115,7 +119,6 @@ public class EditProfileFragment extends Fragment {
             }
         });
 
-
         return rootView;
     }
 
@@ -133,6 +136,7 @@ public class EditProfileFragment extends Fragment {
         state_view = rootView.findViewById(R.id.edit_state);
         achievements_view = rootView.findViewById(R.id.edit_achievements);
         change_photo_button = rootView.findViewById(R.id.profile_fab);
+        progressBar=rootView.findViewById(R.id.edit_profile_photo_progress);
     }
 
     //Function that fills the views with the datas
@@ -351,15 +355,14 @@ public class EditProfileFragment extends Fragment {
     }
 
     private void uploadFile() {
-
-        progressDialog = new ProgressDialog(getActivity());
-        progressDialog.setMessage("Uploading image....");
-        progressDialog.show();
+        progressBar.setVisibility(View.VISIBLE);
+        change_photo_button.hide();
         StringRequest stringRequest = new StringRequest(Request.Method.POST, Constant.UPDATE_PROFILE_IMAGE, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
-                progressDialog.dismiss();
+                progressBar.setVisibility(View.INVISIBLE);
+                change_photo_button.show();
                 Toast.makeText(getActivity(), response, Toast.LENGTH_LONG).show();
 
                 try {
@@ -394,7 +397,8 @@ public class EditProfileFragment extends Fragment {
 
             @Override
             public void onErrorResponse(VolleyError error) {
-                progressDialog.dismiss();
+                progressBar.setVisibility(View.INVISIBLE);
+                change_photo_button.show();
                 Toast.makeText(getActivity(), error.toString(), Toast.LENGTH_LONG).show();
             }
 
