@@ -16,6 +16,7 @@ public class Constant {
     public static final String UPDATE_PROFILE_URL = "https://saar-server.000webhostapp.com/functions/updateProfile.php";
     public static final String UPDATE_PROFILE_IMAGE_URL = "https://saar-server.000webhostapp.com/functions/profile_image.php";
     public static final String CHANGE_PASSWORD_URL = "https://saar-server.000webhostapp.com/functions/changePassword.php";
+    public static final String RESEND_OTP_URL = "https://saar-server.000webhostapp.com/functions/resendOTP.php";
 
     //Store user profile data
     public static final String LOGIN_STATUS = "login_status";
