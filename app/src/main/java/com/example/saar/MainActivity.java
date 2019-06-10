@@ -263,6 +263,8 @@ public class MainActivity extends AppCompatActivity
             Glide.with(this)
                     .load(preferences.getString(Constant.IMG_URL, ""))
                     .centerCrop()
+                    .diskCacheStrategy(DiskCacheStrategy.NONE)
+                    .skipMemoryCache(true)
                     .placeholder(R.drawable.ic_account_circle_black_48dp)
                     .into(circleImageView);
         } else {
