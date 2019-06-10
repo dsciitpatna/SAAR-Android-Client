@@ -119,6 +119,37 @@ public class EditProfileFragment extends Fragment {
             }
         });
 
+        rootView.setFocusableInTouchMode(true);
+        rootView.requestFocus();
+
+        rootView.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (event.getAction() == KeyEvent.ACTION_DOWN) {
+                    if (keyCode == KeyEvent.KEYCODE_BACK) {
+                        AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+                        alert.setMessage("Do you want to exit without saving changes?").setCancelable(false)
+                                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        FragmentTransaction ft = getFragmentManager().beginTransaction();
+                                        ft.replace(R.id.fragment_profile_container, new ViewProfileFragment());
+                                        ft.commit();
+                                    }
+                                })
+                                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.cancel();
+                                    }
+                                }).show();
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
+
         return rootView;
     }
 
@@ -136,7 +167,7 @@ public class EditProfileFragment extends Fragment {
         state_view = rootView.findViewById(R.id.edit_state);
         achievements_view = rootView.findViewById(R.id.edit_achievements);
         change_photo_button = rootView.findViewById(R.id.profile_fab);
-        progressBar=rootView.findViewById(R.id.edit_profile_photo_progress);
+        progressBar = rootView.findViewById(R.id.edit_profile_photo_progress);
     }
 
     //Function that fills the views with the datas
@@ -373,7 +404,7 @@ public class EditProfileFragment extends Fragment {
                         Toast.makeText(getActivity(), getString(R.string.img_upload_success), Toast.LENGTH_LONG).show();
                         JSONObject mJsonObject = jsonObject.getJSONObject("messages");
                         SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(getActivity()).edit();
-                        editor.putString(Constant.IMG_URL,mJsonObject.getString(Constant.IMG_URL));
+                        editor.putString(Constant.IMG_URL, mJsonObject.getString(Constant.IMG_URL));
                         editor.apply();
                         Glide.with(getActivity())
                                 .load(preferences.getString(Constant.IMG_URL, ""))
@@ -383,7 +414,7 @@ public class EditProfileFragment extends Fragment {
                                 .placeholder(R.drawable.ic_account_circle_black_48dp)
                                 .into(profile_image_view);
 
-                    }else{
+                    } else {
                         Toast.makeText(getActivity(), getString(R.string.img_upload_failure), Toast.LENGTH_LONG).show();
                         Timber.d(response);
                     }
