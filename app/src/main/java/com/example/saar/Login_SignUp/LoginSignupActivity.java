@@ -40,9 +40,6 @@ public class LoginSignupActivity extends AppCompatActivity implements BottomNavi
             BottomNavigationView navigation = findViewById(R.id.bottom_navigation);
             navigation.setOnNavigationItemSelectedListener(this);
 
-            //setting back button in toolbar
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
     }
 
@@ -73,13 +70,6 @@ public class LoginSignupActivity extends AppCompatActivity implements BottomNavi
             return true;
         }
         return false;
-    }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        //handle back button action
-        onBackPressed();
-        return true;
     }
 
     @Override
