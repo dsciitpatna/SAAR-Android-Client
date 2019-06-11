@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -111,8 +110,10 @@ public class LoginFragment extends Fragment {
 
         if (email.isEmpty() || password.isEmpty()) {
             Toast.makeText(getContext(), getString(R.string.credential_empty), Toast.LENGTH_LONG).show();
-        } else {
+        } else if (Utils.isNetworkConnected(getContext())) {
             login();
+        } else {
+            Toast.makeText(getContext(), getString(R.string.no_internet), Toast.LENGTH_LONG).show();
         }
 
     }

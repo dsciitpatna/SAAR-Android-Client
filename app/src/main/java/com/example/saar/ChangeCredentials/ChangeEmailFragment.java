@@ -25,6 +25,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.saar.Constant;
 import com.example.saar.OtpActivity;
 import com.example.saar.R;
+import com.example.saar.Utils.Utils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -46,11 +47,11 @@ public class ChangeEmailFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_change_email, container, false);
-        old_email=rootView.findViewById(R.id.old_email_text);
-        new_email=rootView.findViewById(R.id.new_email_text);
-        password=rootView.findViewById(R.id.password_text);
-        rollno=rootView.findViewById(R.id.roll_text);
-        emailChangeButton=rootView.findViewById(R.id.email_change_button);
+        old_email = rootView.findViewById(R.id.old_email_text);
+        new_email = rootView.findViewById(R.id.new_email_text);
+        password = rootView.findViewById(R.id.password_text);
+        rollno = rootView.findViewById(R.id.roll_text);
+        emailChangeButton = rootView.findViewById(R.id.email_change_button);
         return rootView;
     }
 
@@ -62,7 +63,11 @@ public class ChangeEmailFragment extends Fragment {
         emailChangeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                requestEmailChange();
+                if (Utils.isNetworkConnected(getContext())) {
+                    requestEmailChange();
+                } else {
+                    Toast.makeText(getContext(), getString(R.string.no_internet), Toast.LENGTH_LONG).show();
+                }
             }
         });
     }
@@ -77,7 +82,7 @@ public class ChangeEmailFragment extends Fragment {
             public void onResponse(String response) {
                 progressDialog.dismiss();
                 Timber.d(response);
-                Log.d("KHANKI","Response - " +response);
+                Log.d("KHANKI", "Response - " + response);
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     int status = Integer.parseInt(jsonObject.getString("status"));

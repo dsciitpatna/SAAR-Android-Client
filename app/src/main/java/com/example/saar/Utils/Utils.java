@@ -3,7 +3,8 @@ package com.example.saar.Utils;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.util.Log;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
@@ -78,5 +79,15 @@ public class Utils {
             FirebaseMessaging.getInstance().unsubscribeFromTopic(getBatch(rollno));
             FirebaseMessaging.getInstance().unsubscribeFromTopic(getDepartment(rollno));
         }
+    }
+
+    //Function that returns whether the phone is connected to internet or not
+    public static boolean isNetworkConnected(Context context) {
+
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        boolean isConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
+
+        return isConnected;
     }
 }
