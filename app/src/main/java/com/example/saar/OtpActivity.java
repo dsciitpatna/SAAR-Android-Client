@@ -50,6 +50,9 @@ public class OtpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_otp);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         pinview = (Pinview) findViewById(R.id.otpView);
 
         pinview.setPinViewEventListener(new Pinview.PinViewEventListener() {
