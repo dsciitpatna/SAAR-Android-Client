@@ -16,7 +16,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,6 +31,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.saar.Constant;
 import com.example.saar.OtpActivity;
 import com.example.saar.R;
+import com.example.saar.Utils.Utils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -41,6 +41,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
+import okhttp3.internal.Util;
 import timber.log.Timber;
 
 public class SignUpFragment extends Fragment {
@@ -212,7 +213,12 @@ public class SignUpFragment extends Fragment {
         city = city_text.getText().toString();
         achievements = achievements_text.getText().toString();
 
-        registerUser();
+        if (Utils.isNetworkConnected(getContext())){
+            registerUser();
+        }else{
+            Toast.makeText(getContext(),getString(R.string.no_internet),Toast.LENGTH_LONG).show();
+        }
+
     }
 
     private void registerUser() {

@@ -53,7 +53,7 @@ public class ChangePasswordFragment extends Fragment {
         confirm_new_password = rootView.findViewById(R.id.chng_confirm_new_password);
         reset_password = rootView.findViewById(R.id.password_reset_button);
         preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        editor=PreferenceManager.getDefaultSharedPreferences(getContext()).edit();
+        editor = PreferenceManager.getDefaultSharedPreferences(getContext()).edit();
         return rootView;
     }
 
@@ -65,7 +65,11 @@ public class ChangePasswordFragment extends Fragment {
         reset_password.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                resetPassword();
+                if (Utils.isNetworkConnected(getContext())) {
+                    resetPassword();
+                } else {
+                    Toast.makeText(getContext(), getString(R.string.no_internet), Toast.LENGTH_LONG).show();
+                }
             }
         });
     }
@@ -85,8 +89,8 @@ public class ChangePasswordFragment extends Fragment {
                     int status = Integer.parseInt(jsonObject.getString("status"));
                     if (status == 207) {
                         Toast.makeText(getContext(), getString(R.string.change_password_succesfull), Toast.LENGTH_LONG).show();
-                        Utils.unsuscribeFromNotification(preferences.getString(Constant.ROLLNO,""));
-                        Utils.logout(editor,getContext());
+                        Utils.unsuscribeFromNotification(preferences.getString(Constant.ROLLNO, ""));
+                        Utils.logout(editor, getContext());
                     } else {
 
                         JSONArray jsonArray = jsonObject.getJSONArray("messages");
