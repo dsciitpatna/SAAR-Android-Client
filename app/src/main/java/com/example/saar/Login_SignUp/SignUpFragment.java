@@ -185,9 +185,6 @@ public class SignUpFragment extends Fragment {
         signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                progressDialog = new ProgressDialog(getContext());
-                progressDialog.setMessage("Registering....");
-                progressDialog.show();
                 getDatas();
             }
         });
@@ -213,15 +210,23 @@ public class SignUpFragment extends Fragment {
         city = city_text.getText().toString();
         achievements = achievements_text.getText().toString();
 
-        if (Utils.isNetworkConnected(getContext())){
+        if (rollno.isEmpty() || first_name.isEmpty() || email.isEmpty() || phone.isEmpty() ||
+                password.isEmpty() || confirm_password.isEmpty()) {
+            Toast.makeText(getContext(), getResources().getString(R.string.empty_edittext_in_signup), Toast.LENGTH_LONG).show();
+        } else if (Utils.isNetworkConnected(getContext())) {
             registerUser();
-        }else{
-            Toast.makeText(getContext(),getString(R.string.no_internet),Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(getContext(), getString(R.string.no_internet), Toast.LENGTH_LONG).show();
         }
 
     }
 
     private void registerUser() {
+        //closing soft Keyboard using Utils class method
+        Utils.closeKeyboard(getView(), getContext());
+        progressDialog = new ProgressDialog(getContext());
+        progressDialog.setMessage("Registering....");
+        progressDialog.show();
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, Constant.SIGNUP_URL, new Response.Listener<String>() {
 
