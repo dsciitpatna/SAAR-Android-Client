@@ -130,6 +130,7 @@
     <string name="error_loggingin">Failed to log in.</string>
 
     <!--Sign Up Fragment-->
+    <string name="empty_edittext_in_signup">Please fill all necessary fields for registration</string>
     <string name="college_roll_number">College Roll Number</string>
     <string name="name">Name</string>
     <string name="first_name">First Name</string>
