@@ -210,9 +210,8 @@ public class SignUpFragment extends Fragment {
         city = city_text.getText().toString();
         achievements = achievements_text.getText().toString();
 
-        if (dob.isEmpty() || rollno.isEmpty() || first_name.isEmpty() || last_name.isEmpty() || email.isEmpty() || phone.isEmpty() ||
-                password.isEmpty() || confirm_password.isEmpty() || present_employer.isEmpty() || designation.isEmpty() || address.isEmpty() ||
-                country.isEmpty() || state.isEmpty() || city.isEmpty() || achievements.isEmpty()) {
+        if (rollno.isEmpty() || first_name.isEmpty() || email.isEmpty() || phone.isEmpty() ||
+                password.isEmpty() || confirm_password.isEmpty()) {
             Toast.makeText(getContext(), getResources().getString(R.string.empty_edittext_in_signup), Toast.LENGTH_LONG).show();
         } else if (Utils.isNetworkConnected(getContext())) {
             registerUser();
