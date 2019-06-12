@@ -58,6 +58,7 @@ public class EditProfileFragment extends Fragment {
 
     Spinner spinnerEmploymentType;
     String employment_type;
+    Integer employment_type_position;
     FloatingActionButton change_photo_button;
     SharedPreferences preferences;
     SharedPreferences.Editor sharedPreferenceEditor;
@@ -83,6 +84,8 @@ public class EditProfileFragment extends Fragment {
 
         preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
         sharedPreferenceEditor = PreferenceManager.getDefaultSharedPreferences(getActivity()).edit();
+
+        employment_type_position= spinnerEmploymentTypeArrayAdapter.getPosition(preferences.getString(Constant.EMPLOYEMENT_TYPE,""));
 
         setupViews(rootView);
         setUpUi();
@@ -186,6 +189,7 @@ public class EditProfileFragment extends Fragment {
         city_view.setText(preferences.getString(Constant.CITY, ""));
         state_view.setText(preferences.getString(Constant.STATE, ""));
         achievements_view.setText(preferences.getString(Constant.ACHIEVEMENTS, ""));
+        spinnerEmploymentType.setSelection(employment_type_position);
     }
 
 
