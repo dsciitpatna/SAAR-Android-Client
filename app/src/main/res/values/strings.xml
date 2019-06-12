@@ -140,6 +140,7 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="dob">Date of Birth</string>
     <string name="present_employer_educational_inst">Present Employer/ Educational Inst.</string>
+    <string name="employment_type">Employment Type</string>
     <string name="designation">Designation</string>
     <string name="address">Address</string>
     <string name="country">Country</string>
