@@ -20,6 +20,8 @@
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Gallery.FullScreenImageActivity"
+            android:label="@string/photo"/>
         <activity
             android:name=".Login_SignUp.LoginSignupActivity"
             android:windowSoftInputMode="adjustPan">

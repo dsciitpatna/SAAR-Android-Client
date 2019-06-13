@@ -1,6 +1,7 @@
 package com.example.saar.Gallery;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -15,7 +16,7 @@ import java.util.List;
 
 public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryViewHolder> {
 
-    private List<Gallery> photoList;
+    private static List<Gallery> photoList;
     private Context context;
 
     public GalleryAdapter(List<Gallery> photoList) {
@@ -53,6 +54,15 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryV
         public GalleryViewHolder(View view) {
             super(view);
             imageView = view.findViewById(R.id.imageview_gallery);
+
+            imageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, FullScreenImageActivity.class);
+                    intent.putExtra("image_url", GalleryAdapter.photoList.get(getLayoutPosition()).getImage_url());
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 }
