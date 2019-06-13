@@ -65,7 +65,15 @@ public class ChangePasswordFragment extends Fragment {
         reset_password.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (Utils.isNetworkConnected(getContext())) {
+                String old_password_text = old_password.getText().toString();
+                String new_password_text = new_password.getText().toString();
+                String confirm_new_password_text = confirm_new_password.getText().toString();
+
+                if (old_password_text.isEmpty() || new_password_text.isEmpty() || confirm_new_password_text.isEmpty())
+                    Toast.makeText(getContext(), getResources().getString(R.string.enter_all_fields), Toast.LENGTH_LONG).show();
+                else if (!(new_password_text.equals(confirm_new_password_text)))
+                    Toast.makeText(getContext(), getResources().getString(R.string.password_mismatch), Toast.LENGTH_LONG).show();
+                else if (Utils.isNetworkConnected(getContext())) {
                     resetPassword();
                 } else {
                     Toast.makeText(getContext(), getString(R.string.no_internet), Toast.LENGTH_LONG).show();
@@ -75,6 +83,7 @@ public class ChangePasswordFragment extends Fragment {
     }
 
     private void resetPassword() {
+        Utils.closeKeyboard(getView(), getContext());
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage("Resetting....");
         progressDialog.show();
