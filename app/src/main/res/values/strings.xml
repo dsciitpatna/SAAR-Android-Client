@@ -149,6 +149,8 @@
     <string name="state">State</string>
     <string name="city">City</string>
     <string name="achievements">Achievements after Graduation</string>
+    <string name="signup_ok">OK</string>
+    <string name="signup_error">Error</string>
     <string-array name="graduation_year_array">
         <item>2012</item>
         <item>2013</item>
