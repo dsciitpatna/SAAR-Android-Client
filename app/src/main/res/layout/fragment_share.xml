@@ -1,32 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:orientation="vertical">
+    android:layout_height="match_parent"
+    android:background="@color/fragments_activities_background_color"
+    tools:context=".Share.ShareFragment">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="wrap_content">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/padding_medium"
+            android:paddingStart="@dimen/padding_big"
+            android:paddingEnd="@dimen/padding_big"
+            android:paddingBottom="@dimen/share_margin_bottom">
 
             <TextView
+                android:id="@+id/connect_with_us_text"
+                android:layout_centerHorizontal="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="@dimen/header_margin_bottom"
+                android:layout_marginTop="@dimen/margin_50dp"
+                android:layout_marginBottom="@dimen/margin_big"
                 android:text="@string/connect_with_us"
                 android:textSize="@dimen/header_textsize" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
+                android:layout_below="@id/connect_with_us_text"
+                android:layout_centerHorizontal="true"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
+                android:id="@+id/fb_instagram"
                 android:orientation="horizontal">
 
                 <ImageButton
@@ -57,12 +64,15 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/line_width"
+                android:layout_below="@id/fb_instagram"
                 android:background="@color/colorLine" />
 
             <LinearLayout
+                android:layout_below="@id/fb_instagram"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/twitter_linkedin"
                 android:orientation="horizontal">
 
                 <ImageButton
@@ -89,15 +99,20 @@
                     android:src="@drawable/social_linkedin" />
 
             </LinearLayout>
+
             <View
                 android:layout_width="match_parent"
+                android:layout_below="@id/twitter_linkedin"
+                android:layout_centerHorizontal="true"
                 android:layout_height="@dimen/line_width"
                 android:background="@color/colorLine" />
 
             <LinearLayout
+                android:id="@+id/youtube_web"
+                android:layout_below="@id/twitter_linkedin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
+                android:layout_centerHorizontal="true"
                 android:orientation="horizontal">
 
                 <ImageButton
@@ -125,6 +140,6 @@
 
             </LinearLayout>
 
-        </LinearLayout>
+        </RelativeLayout>
     </ScrollView>
-</LinearLayout>
+</RelativeLayout>

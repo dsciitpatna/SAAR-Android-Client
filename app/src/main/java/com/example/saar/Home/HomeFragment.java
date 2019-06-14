@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.saar.About.AboutUsFragment;
+import com.example.saar.ChangeCredentials.ForgotPasswordFragment;
 import com.example.saar.Contact.ContactFragment;
 import com.example.saar.Donate.DonateFragment;
 import com.example.saar.Gallery.GalleryFragment;
