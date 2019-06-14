@@ -63,7 +63,14 @@ public class ChangeEmailFragment extends Fragment {
         emailChangeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (Utils.isNetworkConnected(getContext())) {
+                String old_email_text = old_email.getText().toString();
+                String new_email_text = new_email.getText().toString();
+                String password_text = password.getText().toString();
+                String roll_text = rollno.getText().toString();
+
+                if (old_email_text.isEmpty() || new_email_text.isEmpty() || password_text.isEmpty() || roll_text.isEmpty())
+                    Toast.makeText(getContext(), getResources().getString(R.string.enter_all_fields), Toast.LENGTH_LONG).show();
+                else if (Utils.isNetworkConnected(getContext())) {
                     requestEmailChange();
                 } else {
                     Toast.makeText(getContext(), getString(R.string.no_internet), Toast.LENGTH_LONG).show();
@@ -73,6 +80,7 @@ public class ChangeEmailFragment extends Fragment {
     }
 
     private void requestEmailChange() {
+        Utils.closeKeyboard(getView(), getContext());
         progressDialog = new ProgressDialog(getActivity());
         progressDialog.setMessage("Sending request....");
         progressDialog.show();

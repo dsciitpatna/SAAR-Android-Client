@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity
     SharedPreferences.Editor editor, notifications;
     TextView name, email;
     CircleImageView circleImageView;
+    NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +66,7 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
         Menu nav_item = navigationView.getMenu();
         if (preferences.getBoolean(Constant.LOGIN_STATUS, false))
             nav_item.findItem(R.id.nav_profile).setVisible(true);
@@ -124,6 +125,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void showHomeFragment() {
+        navigationView.setCheckedItem(R.id.nav_home);
         fragment = new HomeFragment();
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.content_frame, fragment);

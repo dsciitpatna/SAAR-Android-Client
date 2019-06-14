@@ -52,7 +52,9 @@ public class ProfileActivity extends AppCompatActivity {
 
         if (id == android.R.id.home) {
             if (fragment instanceof ViewProfileFragment) {
-                onBackPressed();
+                Intent parentIntent1 = new Intent(this, MainActivity.class);
+                parentIntent1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(parentIntent1);
                 return true;
             } else if (fragment instanceof EditProfileFragment) {
                 AlertDialog.Builder alert = new AlertDialog.Builder(this);
