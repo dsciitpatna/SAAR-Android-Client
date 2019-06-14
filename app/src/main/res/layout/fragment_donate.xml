@@ -3,56 +3,57 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Donate.DonateFragment"
     android:orientation="vertical"
-    android:padding="@dimen/padding_medium">
+    tools:context=".Donate.DonateFragment">
 
-   <ScrollView
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content">
-      <LinearLayout
-          android:layout_width="match_parent"
-          android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-         <LinearLayout
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/padding_medium"
+            android:paddingStart="@dimen/padding_medium"
+            android:paddingEnd="@dimen/padding_medium"
+            android:paddingBottom="@dimen/donate_padding"
+            android:orientation="vertical">
+
             <android.support.v7.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="@string/how_to_donate"
-                android:textSize="@dimen/textsize_big"
-                android:fontFamily="sans-serif"
-                android:textColor="@color/black"
                 android:layout_marginTop="@dimen/margin_medium"
-                android:layout_marginBottom="@dimen/margin_medium" />
+                android:layout_marginBottom="@dimen/margin_medium"
+                android:fontFamily="sans-serif"
+                android:text="@string/how_to_donate"
+                android:textColor="@color/black"
+                android:textSize="@dimen/textsize_big" />
 
             <android.support.v7.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="@string/donate_steps"
-                android:textSize="@dimen/textsize_medium"
+                android:layout_margin="@dimen/margin_medium"
                 android:fontFamily="sans-serif"
+                android:text="@string/donate_steps"
                 android:textColor="@color/black"
-                android:layout_margin="@dimen/margin_medium"/>
+                android:textSize="@dimen/textsize_medium" />
 
             <android.support.v7.widget.AppCompatButton
+                android:id="@+id/donate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="@string/donate_now"
-                android:textSize="@dimen/textsize_medium"
                 android:background="@drawable/round_button"
-                android:textColor="@color/white"
-                android:padding="@dimen/padding_medium"
                 android:fontFamily="sans-serif"
-                android:id="@+id/donate"/>
-         </LinearLayout>
-      </LinearLayout>
- 
-  </ScrollView>
+                android:padding="@dimen/padding_medium"
+                android:text="@string/donate_now"
+                android:textColor="@color/white"
+                android:textSize="@dimen/textsize_medium" />
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

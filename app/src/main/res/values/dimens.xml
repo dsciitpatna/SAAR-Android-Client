@@ -21,7 +21,7 @@
     <dimen name="image_button_padding">25dp</dimen>
     <dimen name="line_width">1dp</dimen>
     <dimen name="header_textsize">32sp</dimen>
-    <dimen name="header_margin_bottom">56dp</dimen>
+    <dimen name="share_margin_bottom">56dp</dimen>
 
     <!--Login Fragment-->
     <dimen name="view_height">250dp</dimen>
@@ -32,6 +32,7 @@
     <dimen name="margin_5dp">5dp</dimen>
     <dimen name="margin_10dp">10dp</dimen>
     <dimen name="margin_30dp">30dp</dimen>
+    <dimen name="login_card_margin">128dp</dimen>
 
     <!--Signup Fragment-->
     <dimen name="ok_button_height">32dp</dimen>
@@ -77,5 +78,11 @@
 
     <!--Nav Header-->
     <dimen name="nav_header_profile_image_dimen">80dp</dimen>
+
+    <!--Change Credentials-->
+    <dimen name="change_email_margin">100dp</dimen>
+
+    <!--Donate Page-->
+    <dimen name="donate_padding">32dp</dimen>
 
 </resources>
