@@ -22,6 +22,7 @@
     <string name="change_password_fragment">Change Password</string>
     <string name="no_internet">No Internet Connection Found.\nCheck Your Connection</string>
     <string name="saar_email">saar@iitp.ac.in</string>
+    <string name="enter_all_fields">Please enter all fields</string>
 
     <!--Team Page-->
     <string name="member_1">Vivek Garg</string>
@@ -269,5 +270,6 @@
     <!-- Change Password -->
     <string name="change_password_succesfull">Succesfully changed the password.</string>
     <string name="change_password_failure">Failed to change the password. Please try again later.</string>
+    <string name="password_mismatch">New password and Confirm password does not match</string>
 
 </resources>
