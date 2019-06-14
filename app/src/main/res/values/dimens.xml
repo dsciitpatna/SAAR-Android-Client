@@ -32,6 +32,10 @@
     <dimen name="margin_5dp">5dp</dimen>
     <dimen name="margin_10dp">10dp</dimen>
     <dimen name="margin_30dp">30dp</dimen>
+
+    <!--Signup Fragment-->
+    <dimen name="ok_button_height">32dp</dimen>
+    <dimen name="error_card_width">300dp</dimen>
     
     <!--Team Page-->
     <dimen name="textview_padding">8dp</dimen>
