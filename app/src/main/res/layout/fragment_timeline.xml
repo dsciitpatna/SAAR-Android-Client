@@ -21,8 +21,8 @@
         android:id="@+id/recycler_view_timeline"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/padding_medium"
+        android:paddingStart="@dimen/padding_medium"
+        android:paddingEnd="@dimen/padding_medium"
         tools:listitem="@layout/event_list_row" />
-
 
 </LinearLayout>

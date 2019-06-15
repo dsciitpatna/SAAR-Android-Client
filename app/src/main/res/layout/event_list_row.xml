@@ -1,74 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?android:attr/selectableItemBackground"
     android:clickable="true"
     android:focusable="true"
     android:orientation="horizontal"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/parent_layout">
+    android:paddingStart="@dimen/margin_5dp"
+    android:paddingEnd="@dimen/margin_5dp">
 
     <com.github.vipulasri.timelineview.TimelineView
+        android:id="@+id/timeline"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:id="@+id/timeline"
-        app:startLineColor="@color/colorAccent"
-        app:endLineColor="@color/colorAccent"
+        app:endLineColor="@color/colorPrimary"
         app:lineWidth="@dimen/timeline_line_width"
-        app:markerSize="@dimen/timeline_marker_size" />
+        app:marker="@drawable/marker"
+        app:markerSize="@dimen/timeline_marker_size"
+        app:startLineColor="@color/colorPrimary" />
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="@dimen/padding_medium"
+        android:background="@color/white"
+        android:foreground="?android:selectableItemBackground"
         android:elevation="@dimen/card_elevation"
         android:padding="@dimen/padding_medium"
-        app:cardCornerRadius="@dimen/card_radius"
-        android:background="@color/white">
+        app:cardCornerRadius="@dimen/card_radius">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="@dimen/padding_medium">
+            android:paddingStart="@dimen/timeline_padding_horizontal"
+            android:paddingTop="@dimen/padding_medium"
+            android:paddingEnd="@dimen/timeline_padding_horizontal"
+            android:paddingBottom="@dimen/timeline_padding_horizontal">
 
             <TextView
                 android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="sans-serif"
+                android:paddingBottom="@dimen/margin_5dp"
                 android:textColor="@color/black"
                 android:textSize="@dimen/textsize_big"
-                android:fontFamily="sans-serif"
                 android:textStyle="bold"
-                tools:text="Title"
-                android:ellipsize="end"/>
+                tools:text="Title" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/location"
-                android:layout_width="@dimen/no_margin"
-                android:layout_weight="2"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                tools:text="Kolkata"
-                android:ellipsize="end"
-                android:gravity="start"/>
+                <TextView
+                    android:id="@+id/location"
+                    android:layout_width="@dimen/no_margin"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:ellipsize="end"
+                    android:gravity="start"
+                    android:textColor="@color/black"
+                    tools:text="Kolkata" />
 
-            <TextView
-                android:id="@+id/date"
-                android:layout_width="@dimen/no_margin"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                tools:text="24-05-2019"
-                android:ellipsize="end"
-                android:gravity="end" />
+                <TextView
+                    android:id="@+id/date"
+                    android:layout_width="@dimen/no_margin"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:gravity="end"
+                    android:textColor="@color/black"
+                    tools:text="24-05-2019" />
 
             </LinearLayout>
         </LinearLayout>

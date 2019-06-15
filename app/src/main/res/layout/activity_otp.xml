@@ -81,7 +81,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/margin_30dp"
             android:background="@drawable/round_button"
-            android:padding="@dimen/padding_medium"
+            android:padding="@dimen/padding_big"
             android:text="@string/resend"
             android:textColor="@color/white"
             android:textSize="@dimen/textsize_medium"

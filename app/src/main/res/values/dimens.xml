@@ -48,8 +48,9 @@
     <dimen name="textsize_contact">20sp</dimen>
 
     <!--Timeline Page-->
-    <dimen name="timeline_line_width">3dp</dimen>
-    <dimen name="timeline_marker_size">20dp</dimen>
+    <dimen name="timeline_line_width">2dp</dimen>
+    <dimen name="timeline_marker_size">15dp</dimen>
+    <dimen name="timeline_padding_horizontal">12dp</dimen>
 
     <!--Home Page-->
     <dimen name="card_height">200dp</dimen>
