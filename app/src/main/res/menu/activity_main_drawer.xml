@@ -37,9 +37,9 @@
             android:title="Share" />
 
         <item
-            android:id="@+id/nav_map"
-            android:icon="@drawable/ic_place_black_24dp"
-            android:title="Map" />
+            android:id="@+id/nav_videos"
+            android:icon="@drawable/ic_ondemand_video_black_24dp"
+            android:title="Videos" />
 
         <item
             android:id="@+id/nav_contact_us"

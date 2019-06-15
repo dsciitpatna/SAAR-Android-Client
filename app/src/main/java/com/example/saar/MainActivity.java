@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
@@ -36,6 +35,7 @@ import com.example.saar.Share.ShareFragment;
 import com.example.saar.Team.TeamFragment;
 import com.example.saar.Timeline_Events.TimelineFragment;
 import com.example.saar.Utils.Utils;
+import com.example.saar.Video.VideosFragment;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -245,11 +245,9 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_share:
                 fragment = new ShareFragment();
                 break;
-            case R.id.nav_map:
-                //opens map app to display IIT Patna Administration Building
-                Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
-                        Uri.parse("geo:0,0?q=" + getResources().getString(R.string.admin_block)));
-                startActivity(intent);
+            case R.id.nav_videos:
+                fragment = new VideosFragment();
+                break;
             case R.id.nav_contact_us:
                 fragment = new ContactFragment();
                 break;
