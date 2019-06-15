@@ -60,7 +60,6 @@ public class OtpActivity extends AppCompatActivity {
         pinview.setPinViewEventListener(new Pinview.PinViewEventListener() {
             @Override
             public void onDataEntered(Pinview pinview, boolean fromUser) {
-                Toast.makeText(getApplicationContext(), pinview.getValue(), Toast.LENGTH_SHORT).show();
                 otpValue = pinview.getValue();
             }
         });
