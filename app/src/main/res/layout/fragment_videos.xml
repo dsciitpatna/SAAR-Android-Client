@@ -3,13 +3,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@color/fragments_activities_background_color"
     tools:context=".Video.VideosFragment">
 
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="Videos" />
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/video_1"
+                android:layout_width="@dimen/width_video"
+                android:layout_height="@dimen/height_video"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/video_img1"
+                android:layout_marginTop="@dimen/margin_big"
+                android:textAlignment="center" />
+
+            <ImageView
+                android:id="@+id/video_2"
+                android:layout_width="@dimen/width_video"
+                android:layout_height="@dimen/height_video"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/video_img2"
+                android:layout_marginTop="@dimen/margin_big"
+                android:textAlignment="center" />
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>
