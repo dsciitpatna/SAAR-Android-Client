@@ -8,7 +8,7 @@ public class Constant {
     public static final String YOUTUBE_LINK = "https://www.youtube.com/channel/UCoAb1YggffbfgVxQyXaZB-g";
     public static final String WEBSITE_LINK = "https://saar.iitp.ac.in/";
     public static final String DONATE_LINK = "https://www.onlinesbi.com/sbicollect/icollecthome.htm";
-    public static final String BASE_URL = "https://atm1504.in";
+    public static final String BASE_URL = "https://saar-server.000webhostapp.com";
     public static final String LOGIN_URL = "https://saar-server.000webhostapp.com/functions/login.php";
     public static final String OTP_URL = "https://saar-server.000webhostapp.com/functions/verifyOTP.php";
     public static final String SIGNUP_URL = "https://saar-server.000webhostapp.com/functions/signup.php";
