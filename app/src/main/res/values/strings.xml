@@ -270,6 +270,9 @@
     <string name="forgot_password">Forgot Password?</string>
     <string name="forgot_password_details">We just need your registered email id and college roll number to send you password reset instructions</string>
     <string name="reset_password">Reset Password</string>
+    <string name="error_Forgot_password">Error requesting to reset your password.</string>
+    <string name="success_forgot_password_request">Successfully requested to initiate forgot password. </string>
+    <string name="forgot_password_success">We have succesfully verified you. You can now change your password.</string>
 
     <!-- Change Password -->
     <string name="change_password_succesfull">Succesfully changed the password.</string>

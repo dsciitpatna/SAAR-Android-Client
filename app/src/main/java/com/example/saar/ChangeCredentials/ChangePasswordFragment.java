@@ -1,6 +1,7 @@
 package com.example.saar.ChangeCredentials;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -23,6 +24,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.saar.Constant;
+import com.example.saar.Login_SignUp.LoginSignupActivity;
 import com.example.saar.R;
 import com.example.saar.Utils.Utils;
 
@@ -42,6 +44,8 @@ public class ChangePasswordFragment extends Fragment {
     ProgressDialog progressDialog;
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
+    Boolean forgot_password = false;
+    String rollno;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -61,6 +65,13 @@ public class ChangePasswordFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         getActivity().setTitle(R.string.change_password_fragment);
+
+        if(getActivity().getIntent().hasExtra("rollno")){
+            forgot_password=true;
+            old_password.setText("Dummy");
+            old_password.setVisibility(View.GONE);
+            rollno=getActivity().getIntent().getStringExtra("rollno");
+        }
 
         reset_password.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,8 +109,14 @@ public class ChangePasswordFragment extends Fragment {
                     int status = Integer.parseInt(jsonObject.getString("status"));
                     if (status == 207) {
                         Toast.makeText(getContext(), getString(R.string.change_password_succesfull), Toast.LENGTH_LONG).show();
-                        Utils.unsuscribeFromNotification(preferences.getString(Constant.ROLLNO, ""));
-                        Utils.logout(editor, getContext());
+                        if(preferences.getBoolean(Constant.LOGIN_STATUS,false)){
+                            Utils.unsuscribeFromNotification(preferences.getString(Constant.ROLLNO, ""));
+                            Utils.logout(editor, getContext());
+                        }else{
+                            Intent intent = new Intent(getContext(), LoginSignupActivity.class);
+                            startActivity(intent);
+                        }
+
                     } else {
 
                         JSONArray jsonArray = jsonObject.getJSONArray("messages");
@@ -121,10 +138,16 @@ public class ChangePasswordFragment extends Fragment {
         }) {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("rollno", preferences.getString(Constant.ROLLNO, ""));
+
                 params.put("old_password", old_password.getText().toString());
                 params.put("new_password", new_password.getText().toString());
                 params.put("confirm_password", confirm_new_password.getText().toString());
+                if(forgot_password){
+                    params.put("forgot_password","forgot_password");
+                    params.put("rollno",rollno);
+                }else{
+                    params.put("rollno", preferences.getString(Constant.ROLLNO, ""));
+                }
                 return params;
             }
         };

@@ -20,6 +20,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.saar.ChangeCredentials.ChangeCredentialsActivity;
 import com.example.saar.Login_SignUp.LoginSignupActivity;
 import com.goodiebag.pinview.Pinview;
 
@@ -44,6 +45,7 @@ public class OtpActivity extends AppCompatActivity {
     FloatingActionButton sendOTP;
     String otpValue = "", rollno;
     ProgressDialog progressDialog;
+    Boolean forgot_password = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +82,11 @@ public class OtpActivity extends AppCompatActivity {
             resend.setVisibility(View.VISIBLE);
         }
 
+        if(getIntent().hasExtra("forgot_password")){
+            forgot_password=true;
+        }else{
+            forgot_password=false;
+        }
         //Action to be performed when the sending otp button is pressed
         sendOTP = (FloatingActionButton) findViewById(R.id.otp_next);
         sendOTP.setOnClickListener(new View.OnClickListener() {
@@ -210,6 +217,13 @@ public class OtpActivity extends AppCompatActivity {
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
 
+                    }else if(status == 208) {
+                        Timber.d(getString(R.string.forgot_password_success));
+                        Intent intent = new Intent(OtpActivity.this, ChangeCredentialsActivity.class);
+                        intent.putExtra("EXTRA", "openChangePassword");
+                        intent.putExtra("rollno", rollno);
+                        startActivity(intent);
+
                     } else {
 
                         JSONArray jsonArray = jsonObject.getJSONArray("messages");
@@ -233,6 +247,9 @@ public class OtpActivity extends AppCompatActivity {
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("rollno", rollno);
                 params.put("verification_code", otpValue);
+                if(forgot_password){
+                    params.put("forgot_password","forgot_password");
+                }
                 return params;
             }
         };
