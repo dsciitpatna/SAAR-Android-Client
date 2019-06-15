@@ -177,7 +177,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_big"
                     android:layout_marginBottom="@dimen/margin_big"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:id="@+id/fb_link_layout">
 
                     <android.support.v7.widget.AppCompatTextView
                         android:layout_width="match_parent"
@@ -197,14 +198,16 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/line_width"
-                    android:background="@color/colorLine" />
+                    android:background="@color/colorLine"
+                    android:id="@+id/fb_link_line"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_big"
                     android:layout_marginBottom="@dimen/margin_big"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:id="@+id/linkedin_link_layout">
 
                     <android.support.v7.widget.AppCompatTextView
                         android:layout_width="match_parent"
@@ -224,14 +227,16 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/line_width"
-                    android:background="@color/colorLine" />
+                    android:background="@color/colorLine"
+                    android:id="@+id/linkedin_link_line"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_big"
                     android:layout_marginBottom="@dimen/margin_big"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:id="@+id/employment_type_layout">
 
                     <android.support.v7.widget.AppCompatTextView
                         android:layout_width="match_parent"
@@ -251,14 +256,16 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/line_width"
-                    android:background="@color/colorLine" />
+                    android:background="@color/colorLine"
+                    android:id="@+id/employment_type_line"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_big"
                     android:layout_marginBottom="@dimen/margin_big"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:id="@+id/present_employer_layout">
 
                     <android.support.v7.widget.AppCompatTextView
                         android:layout_width="match_parent"
@@ -278,14 +285,16 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/line_width"
-                    android:background="@color/colorLine" />
+                    android:background="@color/colorLine"
+                    android:id="@+id/present_employer_line"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_big"
                     android:layout_marginBottom="@dimen/margin_big"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:id="@+id/designation_layout">
 
                     <android.support.v7.widget.AppCompatTextView
                         android:layout_width="match_parent"
@@ -305,14 +314,16 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/line_width"
-                    android:background="@color/colorLine" />
+                    android:background="@color/colorLine"
+                    android:id="@+id/designation_line"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_big"
                     android:layout_marginBottom="@dimen/margin_big"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:id="@+id/address_layout">
 
                     <android.support.v7.widget.AppCompatTextView
                         android:layout_width="match_parent"
@@ -332,14 +343,16 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/line_width"
-                    android:background="@color/colorLine" />
+                    android:background="@color/colorLine"
+                    android:id="@+id/address_line"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_big"
                     android:layout_marginBottom="@dimen/margin_big"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:id="@+id/country_layout">
 
                     <android.support.v7.widget.AppCompatTextView
                         android:layout_width="match_parent"
@@ -359,14 +372,16 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/line_width"
-                    android:background="@color/colorLine" />
+                    android:background="@color/colorLine"
+                    android:id="@+id/country_line"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_big"
                     android:layout_marginBottom="@dimen/margin_big"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:id="@+id/state_layout">
 
                     <android.support.v7.widget.AppCompatTextView
                         android:layout_width="match_parent"
@@ -386,14 +401,16 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/line_width"
-                    android:background="@color/colorLine" />
+                    android:background="@color/colorLine"
+                    android:id="@+id/state_line"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_big"
                     android:layout_marginBottom="@dimen/margin_big"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:id="@+id/city_layout">
 
                     <android.support.v7.widget.AppCompatTextView
                         android:layout_width="match_parent"
@@ -413,14 +430,16 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/line_width"
-                    android:background="@color/colorLine" />
+                    android:background="@color/colorLine"
+                    android:id="@+id/city_line"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_big"
                     android:layout_marginBottom="@dimen/margin_big"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:id="@+id/achievements_layout">
 
                     <android.support.v7.widget.AppCompatTextView
                         android:layout_width="match_parent"
