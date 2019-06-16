@@ -42,8 +42,7 @@ public class Constant {
     public static final String ACHIEVEMENTS = "achievements";
     public static final String IMG_URL = "img_url";
 
-    //Utilities
+    //Notification service
     public static final String SUBSCRIBE_NOTIFICATION = "subscribe_notification";
-    public static final String SKIP_LOGIN = "skip_login";
 
 }

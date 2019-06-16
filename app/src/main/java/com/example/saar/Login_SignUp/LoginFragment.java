@@ -46,7 +46,6 @@ public class LoginFragment extends Fragment {
     Button loginButton;
     String email, password;
     SharedPreferences.Editor sharedPreferenceEditor;
-    SharedPreferences preferences;
     ProgressDialog progressDialog;
 
     @Override
@@ -61,7 +60,6 @@ public class LoginFragment extends Fragment {
         skipLogin = rootView.findViewById(R.id.skip_login);
         loginButton = rootView.findViewById(R.id.login_button);
         sharedPreferenceEditor = PreferenceManager.getDefaultSharedPreferences(getContext()).edit();
-        preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
         return rootView;
     }
 
@@ -70,13 +68,6 @@ public class LoginFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         //you can set the title for your toolbar here for different fragments different titles
         getActivity().setTitle(R.string.saar_login);
-
-        if (preferences.getBoolean(Constant.SKIP_LOGIN, false)) {
-            Intent intent = new Intent(getActivity(), MainActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
-            getActivity().finish();
-        }
 
         verifyOTP.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,8 +87,6 @@ public class LoginFragment extends Fragment {
         skipLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sharedPreferenceEditor.putBoolean(Constant.SKIP_LOGIN, true);
-                sharedPreferenceEditor.apply();
                 Intent intent = new Intent(getActivity(), MainActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
