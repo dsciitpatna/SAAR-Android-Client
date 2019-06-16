@@ -87,7 +87,6 @@
     <dimen name="donate_padding">32dp</dimen>
 
     <!-- Video Page-->
-    <dimen name="width_video">300dp</dimen>
-    <dimen name="height_video">190dp</dimen>
+    <dimen name="play_dimen">40dp</dimen>
 
 </resources>

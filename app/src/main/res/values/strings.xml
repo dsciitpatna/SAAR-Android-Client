@@ -279,4 +279,10 @@
     <string name="change_password_failure">Failed to change the password. Please try again later.</string>
     <string name="password_mismatch">New password and Confirm password does not match</string>
 
+    <!--Videos Fragment-->
+    <string name="video_remi_title">Reminiscence : The\nJourney of SAAR, IIT Patna</string>
+    <string name="video_remi_description">A throwback to all what has been done and a way to express our gratitude for all the love you’ve showered upon us with your support and well wishes.</string>
+    <string name="video_auRev_title">Au Revoir - Class of 2019</string>
+    <string name="video_auRev_description">Here’s the batch of 2019 celebrating their farewell in their own rocking andaaz!</string>
+
 </resources>

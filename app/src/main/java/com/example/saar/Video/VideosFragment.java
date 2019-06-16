@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +15,7 @@ import com.example.saar.R;
 
 public class VideosFragment extends Fragment {
 
-    ImageView video_1, video_2;
+    FloatingActionButton video_1, video_2;
     String video1Id= "1aW5r8-d2jQ";
     String video2Id = "WdR0v0pJ4vY";
     @Override
