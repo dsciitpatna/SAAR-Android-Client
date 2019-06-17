@@ -320,6 +320,4 @@ public class SignUpFragment extends Fragment {
         });
         dialog.show();
     }
-
-
 }
