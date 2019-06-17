@@ -30,7 +30,7 @@
                 android:layout_marginStart="@dimen/margin_big"
                 android:layout_marginTop="@dimen/login_card_margin"
                 android:layout_marginEnd="@dimen/margin_big"
-                android:layout_marginBottom="@dimen/margin_50dp"
+                android:layout_marginBottom="@dimen/margin_30dp"
                 android:background="@color/white"
                 app:cardCornerRadius="@dimen/card_login_radius"
                 app:cardElevation="@dimen/card_login_elevation">
@@ -116,7 +116,8 @@
                 android:padding="@dimen/padding_medium"
                 android:text="@string/verify_email"
                 android:textColor="@color/colorPrimary"
-                android:textSize="@dimen/textsize_medium" />
+                android:textSize="@dimen/textsize_medium"
+                android:layout_marginBottom="@dimen/margin_medium"/>
 
             <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/skip_login"
@@ -135,7 +136,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/skip_login"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/margin_big"
+                android:layout_marginTop="@dimen/margin_medium"
                 android:layout_marginBottom="@dimen/margin_big"
                 android:padding="@dimen/padding_medium"
                 android:text="@string/forgot_password"

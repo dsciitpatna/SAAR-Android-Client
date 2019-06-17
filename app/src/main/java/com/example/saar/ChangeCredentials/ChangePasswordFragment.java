@@ -69,7 +69,7 @@ public class ChangePasswordFragment extends Fragment {
         if(getActivity().getIntent().hasExtra("rollno")){
             forgot_password=true;
             old_password.setText("Dummy");
-            old_password.setVisibility(View.GONE);
+            view.findViewById(R.id.oldPasswordInputLayout).setVisibility(View.GONE);
             rollno=getActivity().getIntent().getStringExtra("rollno");
         }
 

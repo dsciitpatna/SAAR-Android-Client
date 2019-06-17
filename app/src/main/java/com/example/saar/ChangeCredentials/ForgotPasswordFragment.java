@@ -46,9 +46,9 @@ public class ForgotPasswordFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_forgot_password, container, false);
-        email=rootView.findViewById(R.id.email_text_forgot_password);
-        rollno=rootView.findViewById(R.id.roll_text_forgot_password);
-        forgotPassword=rootView.findViewById(R.id.forgot_password_button);
+        email = rootView.findViewById(R.id.email_text_forgot_password);
+        rollno = rootView.findViewById(R.id.roll_text_forgot_password);
+        forgotPassword = rootView.findViewById(R.id.forgot_password_button);
         return rootView;
     }
 
@@ -60,7 +60,14 @@ public class ForgotPasswordFragment extends Fragment {
         forgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                requestDatas();
+                String email_text = email.getText().toString();
+                String rollno_text = rollno.getText().toString();
+                if (email_text.isEmpty() || rollno_text.isEmpty())
+                    Toast.makeText(getContext(), getResources().getString(R.string.enter_all_fields), Toast.LENGTH_LONG).show();
+                else if (Utils.isNetworkConnected(getContext()))
+                    requestDatas();
+                else
+                    Toast.makeText(getContext(), getString(R.string.no_internet), Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -85,8 +92,8 @@ public class ForgotPasswordFragment extends Fragment {
                         Toast.makeText(getContext(), getString(R.string.success_forgot_password_request), Toast.LENGTH_LONG).show();
 
                         Intent intent = new Intent(getContext(), OtpActivity.class);
-                        intent.putExtra("rollno",rollno.getText().toString());
-                        intent.putExtra("forgot_password","forgot_password");
+                        intent.putExtra("rollno", rollno.getText().toString());
+                        intent.putExtra("forgot_password", "forgot_password");
                         startActivity(intent);
                     } else {
                         Timber.d(getString(R.string.error_Forgot_password));
