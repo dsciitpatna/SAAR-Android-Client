@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -81,10 +82,10 @@ public class OtpActivity extends AppCompatActivity {
             resend.setVisibility(View.VISIBLE);
         }
 
-        if(getIntent().hasExtra("forgot_password")){
-            forgot_password=true;
-        }else{
-            forgot_password=false;
+        if (getIntent().hasExtra("forgot_password")) {
+            forgot_password = true;
+        } else {
+            forgot_password = false;
         }
         //Action to be performed when the sending otp button is pressed
         sendOTP = (FloatingActionButton) findViewById(R.id.otp_next);
@@ -116,6 +117,9 @@ public class OtpActivity extends AppCompatActivity {
         if (rollno.isEmpty()) {
             Toast.makeText(this, getString(R.string.rollno_otp), Toast.LENGTH_LONG).show();
         } else {
+            for (int i = 0; i < pinview.getPinLength(); i++) {
+                pinview.onKey(pinview.getFocusedChild(), KeyEvent.KEYCODE_DEL, new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_DEL));
+            }
             final ProgressDialog resendProgressDialog = new ProgressDialog(this);
             resendProgressDialog.setMessage("Resending....");
             resendProgressDialog.show();
@@ -172,11 +176,13 @@ public class OtpActivity extends AppCompatActivity {
 
     private void setUpTimer() {
 
-        new CountDownTimer(30000, 1000) {
+        new CountDownTimer(60000, 1000) {
             public void onTick(long millisUntilFinished) {
                 int time = valueOf(counter);
-                time = 30 - time;
-                if (time >= 10)
+                time = 60 - time;
+                if (time == 60)
+                    timer.setText("1:00");
+                else if (time >= 10)
                     timer.setText("0:" + time);
                 else
                     timer.setText("0:0" + time);
@@ -193,7 +199,7 @@ public class OtpActivity extends AppCompatActivity {
             public void run() {
                 resend.setVisibility(View.VISIBLE);
             }
-        }, 30000);
+        }, 60000);
     }
 
     private void verifyOTP() {
@@ -216,7 +222,7 @@ public class OtpActivity extends AppCompatActivity {
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
 
-                    }else if(status == 208) {
+                    } else if (status == 208) {
                         Timber.d(getString(R.string.forgot_password_success));
                         Intent intent = new Intent(OtpActivity.this, ChangeCredentialsActivity.class);
                         intent.putExtra("EXTRA", "openChangePassword");
@@ -228,6 +234,9 @@ public class OtpActivity extends AppCompatActivity {
                         JSONArray jsonArray = jsonObject.getJSONArray("messages");
                         Toast.makeText(OtpActivity.this, jsonArray.toString(), Toast.LENGTH_LONG).show();
                         Timber.d(jsonArray.toString());
+                        for (int i = 0; i < pinview.getPinLength(); i++) {
+                            pinview.onKey(pinview.getFocusedChild(), KeyEvent.KEYCODE_DEL, new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_DEL));
+                        }
                     }
 
                 } catch (JSONException e) {
@@ -246,8 +255,8 @@ public class OtpActivity extends AppCompatActivity {
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("rollno", rollno);
                 params.put("verification_code", otpValue);
-                if(forgot_password){
-                    params.put("forgot_password","forgot_password");
+                if (forgot_password) {
+                    params.put("forgot_password", "forgot_password");
                 }
                 return params;
             }
