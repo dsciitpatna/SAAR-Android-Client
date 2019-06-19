@@ -84,6 +84,7 @@ public class MainActivity extends AppCompatActivity
         LinearLayout header = (LinearLayout) headerview.findViewById(R.id.nav_layout);
         name = headerview.findViewById(R.id.nav_header_name);
         email = headerview.findViewById(R.id.nav_header_email);
+        header.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
         circleImageView = headerview.findViewById(R.id.nav_header_image);
         setHeaderData();
         header.setOnClickListener(new View.OnClickListener() {

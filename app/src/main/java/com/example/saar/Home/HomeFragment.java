@@ -25,7 +25,10 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_home, container, false);
+        rootView.findViewById(R.id.homepage_abhinav_civ).setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        rootView.findViewById(R.id.homepage_vivek_civ).setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        return rootView;
     }
 
     @Override

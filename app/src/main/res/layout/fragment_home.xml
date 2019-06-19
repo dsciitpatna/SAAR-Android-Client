@@ -115,7 +115,8 @@
                     android:layout_width="@dimen/no_margin"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:id="@+id/homepage_abhinav_civ">
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_width="@dimen/circular_image_dimension"
@@ -127,7 +128,8 @@
                     android:layout_width="@dimen/no_margin"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:id="@+id/homepage_vivek_civ">
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_width="@dimen/circular_image_dimension"

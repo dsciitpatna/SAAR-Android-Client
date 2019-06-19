@@ -39,7 +39,8 @@ public class TeamFragment extends Fragment {
 
         for (int position = 0; position < IMAGE_ID.length; position++) {
             CircleImageView circleImageView = rootView.findViewById(IMAGE_VIEW_ID[position]);
-            circleImageView.setImageResource(IMAGE_ID[position]);
+            //circleImageView.setImageResource(IMAGE_ID[position]);
+            circleImageView.setImageBitmap(decodeSampledBitmapFromResource(getResources(), IMAGE_ID[position], 70, 70));
         }
 
 
