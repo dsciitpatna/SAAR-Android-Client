@@ -5,9 +5,11 @@ import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -16,6 +18,7 @@ import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.util.Base64;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -85,7 +88,7 @@ public class EditProfileFragment extends Fragment {
         preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
         sharedPreferenceEditor = PreferenceManager.getDefaultSharedPreferences(getActivity()).edit();
 
-        employment_type_position= spinnerEmploymentTypeArrayAdapter.getPosition(preferences.getString(Constant.EMPLOYEMENT_TYPE,""));
+        employment_type_position = spinnerEmploymentTypeArrayAdapter.getPosition(preferences.getString(Constant.EMPLOYEMENT_TYPE, ""));
 
         setupViews(rootView);
         setUpUi();
@@ -343,13 +346,23 @@ public class EditProfileFragment extends Fragment {
     }
 
     private void getPhotoFromCamera() {
-        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(intent, CAMERA);
+        if (ContextCompat.checkSelfPermission(getActivity().getApplicationContext(), Manifest.permission.CAMERA)
+                == PackageManager.PERMISSION_DENIED)
+            makeRequest();
+        else {
+            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            startActivityForResult(intent, CAMERA);
+        }
     }
 
     private void choosePhotoFromGallery() {
-        Intent galIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        startActivityForResult(galIntent, GALLERY);
+        if (ContextCompat.checkSelfPermission(getActivity().getApplicationContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                == PackageManager.PERMISSION_DENIED)
+            makeRequest();
+        else {
+            Intent galIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            startActivityForResult(galIntent, GALLERY);
+        }
     }
 
     @Override
