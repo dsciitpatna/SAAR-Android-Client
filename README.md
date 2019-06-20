@@ -5,11 +5,11 @@ Android app for [Students' Association for Alumni Relations](https://saar.iitp.a
 The SAAR app is an android application to bring together all alumni and former faculties of IIT Patna to share their experiences with each other and with the current students and faculties. The app will maintain and update the database of all alumni of the college. SAAR aims to provide guidance to the present students in their endeavour for better employment and higher studies, improve campus placements with the help of the alumni working in reputed industries in India and abroad, organise seminars, debates, workshops as well as cultural and social welfare programs and publish periodical magazines or bulletins with valuable information useful to the members and students. The SAAR app would ease the process of collecting donations for alumni affairs and it would also send notifications for varios events.
 
 ## TODO
-- [ ] Create the basic UI of the app
-- [ ] Build a perfect login and signup system
-- [ ] Create a well maintained alumni database
-- [ ] Send notifications for various events
-- [ ] A working payment gateway to collect donations
+- [x] Create the basic UI of the app
+- [x] Build a perfect login and signup system
+- [x] Create a well maintained alumni database
+- [x] Send notifications for various events
+- [x] A working payment gateway to collect donations
 
 ## Built With
 - Client side
