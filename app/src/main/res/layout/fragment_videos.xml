@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fragments_activities_background_color"
+    android:orientation="vertical"
+    tools:context=".Video.VideosFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_big">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_10dp"
+                android:layout_marginBottom="@dimen/margin_10dp"
+                android:background="@color/white"
+                android:elevation="@dimen/card_login_elevation"
+                app:cardCornerRadius="@dimen/card_login_radius">
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/video_pic_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/video_img1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/video_title_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/padding_medium"
+                        android:text="@string/video_remi_title"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textsize_big"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/video_pic_1" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/video_description_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="@dimen/padding_medium"
+                        android:paddingEnd="@dimen/padding_medium"
+                        android:paddingBottom="@dimen/padding_medium"
+                        android:text="@string/video_remi_description"
+                        app:layout_constraintTop_toBottomOf="@id/video_title_1" />
+
+                    <android.support.design.widget.FloatingActionButton
+                        android:id="@+id/video_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin_10dp"
+                        android:src="@drawable/ic_play_arrow_black_24dp"
+                        android:tint="@color/white"
+                        app:fabSize="auto"
+                        app:layout_constraintBottom_toTopOf="@id/video_title_1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/video_pic_1"
+                        app:maxImageSize="@dimen/play_dimen" />
+
+                </android.support.constraint.ConstraintLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_10dp"
+                android:layout_marginBottom="@dimen/margin_10dp"
+                android:background="@color/white"
+                android:elevation="@dimen/card_login_elevation"
+                app:cardCornerRadius="@dimen/card_login_radius">
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/video_pic_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/video_img2"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/video_title_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/padding_medium"
+                        android:text="@string/video_auRev_title"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textsize_big"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/video_pic_2" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/video_description_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="@dimen/padding_medium"
+                        android:paddingEnd="@dimen/padding_medium"
+                        android:paddingBottom="@dimen/padding_medium"
+                        android:text="@string/video_auRev_description"
+                        app:layout_constraintTop_toBottomOf="@id/video_title_2" />
+
+
+                    <android.support.design.widget.FloatingActionButton
+                        android:id="@+id/video_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_margin="@dimen/margin_10dp"
+                        android:src="@drawable/ic_play_arrow_black_24dp"
+                        app:fabSize="auto"
+                        app:layout_constraintBottom_toTopOf="@id/video_title_2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/video_pic_2"
+                        app:maxImageSize="@dimen/play_dimen" />
+
+                </android.support.constraint.ConstraintLayout>
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

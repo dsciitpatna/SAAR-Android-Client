@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +24,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.saar.Constant;
 import com.example.saar.OtpActivity;
 import com.example.saar.R;
+import com.example.saar.Utils.Utils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -46,11 +46,11 @@ public class ChangeEmailFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_change_email, container, false);
-        old_email=rootView.findViewById(R.id.old_email_text);
-        new_email=rootView.findViewById(R.id.new_email_text);
-        password=rootView.findViewById(R.id.password_text);
-        rollno=rootView.findViewById(R.id.roll_text);
-        emailChangeButton=rootView.findViewById(R.id.email_change_button);
+        old_email = rootView.findViewById(R.id.old_email_text);
+        new_email = rootView.findViewById(R.id.new_email_text);
+        password = rootView.findViewById(R.id.password_text);
+        rollno = rootView.findViewById(R.id.roll_text);
+        emailChangeButton = rootView.findViewById(R.id.email_change_button);
         return rootView;
     }
 
@@ -62,12 +62,24 @@ public class ChangeEmailFragment extends Fragment {
         emailChangeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                requestEmailChange();
+                String old_email_text = old_email.getText().toString();
+                String new_email_text = new_email.getText().toString();
+                String password_text = password.getText().toString();
+                String roll_text = rollno.getText().toString();
+
+                if (old_email_text.isEmpty() || new_email_text.isEmpty() || password_text.isEmpty() || roll_text.isEmpty())
+                    Toast.makeText(getContext(), getResources().getString(R.string.enter_all_fields), Toast.LENGTH_LONG).show();
+                else if (Utils.isNetworkConnected(getContext())) {
+                    requestEmailChange();
+                } else {
+                    Toast.makeText(getContext(), getString(R.string.no_internet), Toast.LENGTH_LONG).show();
+                }
             }
         });
     }
 
     private void requestEmailChange() {
+        Utils.closeKeyboard(getView(), getContext());
         progressDialog = new ProgressDialog(getActivity());
         progressDialog.setMessage("Sending request....");
         progressDialog.show();
@@ -77,7 +89,6 @@ public class ChangeEmailFragment extends Fragment {
             public void onResponse(String response) {
                 progressDialog.dismiss();
                 Timber.d(response);
-                Log.d("KHANKI","Response - " +response);
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     int status = Integer.parseInt(jsonObject.getString("status"));

@@ -5,9 +5,11 @@ import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -16,15 +18,16 @@ import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.util.Base64;
-import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -40,7 +43,6 @@ import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.saar.Constant;
-import com.example.saar.OtpActivity;
 import com.example.saar.R;
 
 import org.json.JSONArray;
@@ -59,6 +61,7 @@ public class EditProfileFragment extends Fragment {
 
     Spinner spinnerEmploymentType;
     String employment_type;
+    Integer employment_type_position;
     FloatingActionButton change_photo_button;
     SharedPreferences preferences;
     SharedPreferences.Editor sharedPreferenceEditor;
@@ -70,6 +73,7 @@ public class EditProfileFragment extends Fragment {
     private static Integer RECORD_REQUEST_CODE = 101;
     Bitmap myBitmap;
     ProgressDialog progressDialog;
+    ProgressBar progressBar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -83,6 +87,8 @@ public class EditProfileFragment extends Fragment {
 
         preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
         sharedPreferenceEditor = PreferenceManager.getDefaultSharedPreferences(getActivity()).edit();
+
+        employment_type_position = spinnerEmploymentTypeArrayAdapter.getPosition(preferences.getString(Constant.EMPLOYEMENT_TYPE, ""));
 
         setupViews(rootView);
         setUpUi();
@@ -115,6 +121,36 @@ public class EditProfileFragment extends Fragment {
             }
         });
 
+        rootView.setFocusableInTouchMode(true);
+        rootView.requestFocus();
+
+        rootView.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (event.getAction() == KeyEvent.ACTION_DOWN) {
+                    if (keyCode == KeyEvent.KEYCODE_BACK) {
+                        AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+                        alert.setMessage("Do you want to exit without saving changes?").setCancelable(false)
+                                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        FragmentTransaction ft = getFragmentManager().beginTransaction();
+                                        ft.replace(R.id.fragment_profile_container, new ViewProfileFragment());
+                                        ft.commit();
+                                    }
+                                })
+                                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.cancel();
+                                    }
+                                }).show();
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
 
         return rootView;
     }
@@ -133,6 +169,7 @@ public class EditProfileFragment extends Fragment {
         state_view = rootView.findViewById(R.id.edit_state);
         achievements_view = rootView.findViewById(R.id.edit_achievements);
         change_photo_button = rootView.findViewById(R.id.profile_fab);
+        progressBar = rootView.findViewById(R.id.edit_profile_photo_progress);
     }
 
     //Function that fills the views with the datas
@@ -155,6 +192,7 @@ public class EditProfileFragment extends Fragment {
         city_view.setText(preferences.getString(Constant.CITY, ""));
         state_view.setText(preferences.getString(Constant.STATE, ""));
         achievements_view.setText(preferences.getString(Constant.ACHIEVEMENTS, ""));
+        spinnerEmploymentType.setSelection(employment_type_position);
     }
 
 
@@ -308,13 +346,23 @@ public class EditProfileFragment extends Fragment {
     }
 
     private void getPhotoFromCamera() {
-        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(intent, CAMERA);
+        if (ContextCompat.checkSelfPermission(getActivity().getApplicationContext(), Manifest.permission.CAMERA)
+                == PackageManager.PERMISSION_DENIED)
+            makeRequest();
+        else {
+            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            startActivityForResult(intent, CAMERA);
+        }
     }
 
     private void choosePhotoFromGallery() {
-        Intent galIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        startActivityForResult(galIntent, GALLERY);
+        if (ContextCompat.checkSelfPermission(getActivity().getApplicationContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                == PackageManager.PERMISSION_DENIED)
+            makeRequest();
+        else {
+            Intent galIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            startActivityForResult(galIntent, GALLERY);
+        }
     }
 
     @Override
@@ -351,15 +399,14 @@ public class EditProfileFragment extends Fragment {
     }
 
     private void uploadFile() {
-
-        progressDialog = new ProgressDialog(getActivity());
-        progressDialog.setMessage("Uploading image....");
-        progressDialog.show();
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, Constant.UPDATE_PROFILE_IMAGE, new Response.Listener<String>() {
+        progressBar.setVisibility(View.VISIBLE);
+        change_photo_button.hide();
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, Constant.UPDATE_PROFILE_IMAGE_URL, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
-                progressDialog.dismiss();
+                progressBar.setVisibility(View.INVISIBLE);
+                change_photo_button.show();
                 Toast.makeText(getActivity(), response, Toast.LENGTH_LONG).show();
 
                 try {
@@ -370,7 +417,7 @@ public class EditProfileFragment extends Fragment {
                         Toast.makeText(getActivity(), getString(R.string.img_upload_success), Toast.LENGTH_LONG).show();
                         JSONObject mJsonObject = jsonObject.getJSONObject("messages");
                         SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(getActivity()).edit();
-                        editor.putString(Constant.IMG_URL,mJsonObject.getString(Constant.IMG_URL));
+                        editor.putString(Constant.IMG_URL, mJsonObject.getString(Constant.IMG_URL));
                         editor.apply();
                         Glide.with(getActivity())
                                 .load(preferences.getString(Constant.IMG_URL, ""))
@@ -380,7 +427,7 @@ public class EditProfileFragment extends Fragment {
                                 .placeholder(R.drawable.ic_account_circle_black_48dp)
                                 .into(profile_image_view);
 
-                    }else{
+                    } else {
                         Toast.makeText(getActivity(), getString(R.string.img_upload_failure), Toast.LENGTH_LONG).show();
                         Timber.d(response);
                     }
@@ -394,7 +441,8 @@ public class EditProfileFragment extends Fragment {
 
             @Override
             public void onErrorResponse(VolleyError error) {
-                progressDialog.dismiss();
+                progressBar.setVisibility(View.INVISIBLE);
+                change_photo_button.show();
                 Toast.makeText(getActivity(), error.toString(), Toast.LENGTH_LONG).show();
             }
 

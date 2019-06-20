@@ -5,9 +5,11 @@
     <color name="colorAccent">#ff6b01</color>
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
-    <color name="fragments_activities_background_color">#ffffff</color>
+    <color name="fragments_activities_background_color">#f4f4f4</color>
     <color name="colorLine">#d9dfe2</color>
     <color name="light_grey">#f4f4f4</color>
     <color name="profile_gradient_start">#00edff</color>
     <color name="profile_gradient_end">#006fff</color>
+    <color name="signupError">#ff001d</color>
+    <color name="event_icon">#b0b1b7</color>
 </resources>

@@ -4,10 +4,8 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.design.widget.NavigationView;
@@ -36,11 +34,12 @@ import com.example.saar.Profile.ProfileActivity;
 import com.example.saar.Share.ShareFragment;
 import com.example.saar.Team.TeamFragment;
 import com.example.saar.Timeline_Events.TimelineFragment;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import com.example.saar.Utils.Utils;
+import com.example.saar.Video.VideosFragment;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import timber.log.Timber;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -48,9 +47,10 @@ public class MainActivity extends AppCompatActivity
     //creating fragment object
     Fragment fragment = null;
     SharedPreferences preferences;
-    SharedPreferences.Editor editor;
+    SharedPreferences.Editor editor, notifications;
     TextView name, email;
     CircleImageView circleImageView;
+    NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,13 +60,18 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+
+        if(!preferences.getBoolean(Constant.LOGIN_STATUS,false) && !preferences.getBoolean(Constant.SKIP_LOGIN,false)){
+            startActivity(new Intent(this, LoginSignupActivity.class));
+        }
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
         Menu nav_item = navigationView.getMenu();
         if (preferences.getBoolean(Constant.LOGIN_STATUS, false))
             nav_item.findItem(R.id.nav_profile).setVisible(true);
@@ -84,6 +89,7 @@ public class MainActivity extends AppCompatActivity
         LinearLayout header = (LinearLayout) headerview.findViewById(R.id.nav_layout);
         name = headerview.findViewById(R.id.nav_header_name);
         email = headerview.findViewById(R.id.nav_header_email);
+        header.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
         circleImageView = headerview.findViewById(R.id.nav_header_image);
         setHeaderData();
         header.setOnClickListener(new View.OnClickListener() {
@@ -105,20 +111,27 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void subscribeForNotification() {
-        FirebaseMessaging.getInstance().subscribeToTopic("alumnus")
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        String msg = getString(R.string.msg_subscribed);
-                        if (!task.isSuccessful()) {
-                            msg = getString(R.string.msg_subscribe_failed);
-                        }
-                        Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
-                    }
-                });
+        notifications = PreferenceManager.getDefaultSharedPreferences(this).edit();
+        if (!preferences.getBoolean(Constant.SUBSCRIBE_NOTIFICATION, false)) {
+            FirebaseMessaging.getInstance().subscribeToTopic("alumnus");
+            if (preferences.getBoolean(Constant.LOGIN_STATUS, false)) {
+                String rollno = preferences.getString(Constant.ROLLNO, "");
+
+                String batch = Utils.getBatch(rollno);
+                String department = Utils.getDepartment(rollno);
+                FirebaseMessaging.getInstance().subscribeToTopic(batch);
+                FirebaseMessaging.getInstance().subscribeToTopic(department);
+            }
+
+            notifications.putBoolean(Constant.SUBSCRIBE_NOTIFICATION, true);
+            notifications.apply();
+            Toast.makeText(MainActivity.this, getString(R.string.msg_subscribed), Toast.LENGTH_SHORT).show();
+            Timber.d("Subscribed to notification.");
+        }
     }
 
     private void showHomeFragment() {
+        navigationView.setCheckedItem(R.id.nav_home);
         fragment = new HomeFragment();
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.content_frame, fragment);
@@ -143,17 +156,20 @@ public class MainActivity extends AppCompatActivity
         getMenuInflater().inflate(R.menu.main, menu);
         MenuItem login = menu.findItem(R.id.action_login_signup);
         MenuItem logout = menu.findItem(R.id.action_logout);
-        MenuItem change_email=menu.findItem(R.id.action_change_email);
+        MenuItem change_email = menu.findItem(R.id.action_change_email);
+        MenuItem change_password = menu.findItem(R.id.action_change_password);
         if (preferences.getBoolean(Constant.LOGIN_STATUS, false)) {
             //user is logged in
             login.setVisible(false);
             logout.setVisible(true);
             change_email.setVisible(true);
+            change_password.setVisible(true);
         } else {
             //user is not logged in
             login.setVisible(true);
             logout.setVisible(false);
             change_email.setVisible(false);
+            change_password.setVisible(false);
         }
         return true;
     }
@@ -175,9 +191,11 @@ public class MainActivity extends AppCompatActivity
                     .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            clearData();
+                            editor = preferences.edit();
+                            Utils.unsuscribeFromNotification(preferences.getString(Constant.ROLLNO, ""));
+                            Utils.logout(editor, MainActivity.this);
                             finish();
-                            startActivity(new Intent(MainActivity.this,LoginSignupActivity.class));
+
                         }
                     })
                     .setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -190,6 +208,10 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.action_change_email) {
             Intent intent = new Intent(this, ChangeCredentialsActivity.class);
             intent.putExtra("EXTRA", "openChangeEmail");
+            startActivity(intent);
+        } else if (id == R.id.action_change_password) {
+            Intent intent = new Intent(this, ChangeCredentialsActivity.class);
+            intent.putExtra("EXTRA", "openChangePassword");
             startActivity(intent);
         }
 
@@ -229,11 +251,9 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_share:
                 fragment = new ShareFragment();
                 break;
-            case R.id.nav_map:
-                //opens map app to display IIT Patna Administration Building
-                Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
-                        Uri.parse("geo:0,0?q=" + getResources().getString(R.string.admin_block)));
-                startActivity(intent);
+            case R.id.nav_videos:
+                fragment = new VideosFragment();
+                break;
             case R.id.nav_contact_us:
                 fragment = new ContactFragment();
                 break;
@@ -263,6 +283,8 @@ public class MainActivity extends AppCompatActivity
             Glide.with(this)
                     .load(preferences.getString(Constant.IMG_URL, ""))
                     .centerCrop()
+                    .diskCacheStrategy(DiskCacheStrategy.NONE)
+                    .skipMemoryCache(true)
                     .placeholder(R.drawable.ic_account_circle_black_48dp)
                     .into(circleImageView);
         } else {
@@ -271,35 +293,5 @@ public class MainActivity extends AppCompatActivity
             email.setText(getResources().getString(R.string.saar_email));
             circleImageView.setImageResource(R.drawable.ic_account_circle_black_48dp);
         }
-    }
-
-    private void clearData() {
-        editor = preferences.edit();
-        if (preferences.getBoolean(Constant.LOGIN_STATUS, false)) {
-            //user is logged in and wants to log out
-            editor.putBoolean(Constant.LOGIN_STATUS, false);
-            editor.putString(Constant.ROLLNO, "");
-            editor.putString(Constant.FIRST_NAME, "");
-            editor.putString(Constant.LAST_NAME, "");
-            editor.putString(Constant.EMAIL, "");
-            editor.putString(Constant.PHONE, "");
-            editor.putString(Constant.FB_LINK, "");
-            editor.putString(Constant.LINKEDIN_LINK, "");
-            editor.putString(Constant.DOB, "");
-            editor.putString(Constant.GRADUATION_YEAR, "");
-            editor.putString(Constant.DEGREE, "");
-            editor.putString(Constant.DEPARTMENT, "");
-            editor.putString(Constant.EMPLOYEMENT_TYPE, "");
-            editor.putString(Constant.PRESENT_EMPLOYER, "");
-            editor.putString(Constant.DESIGNATION, "");
-            editor.putString(Constant.ADDRESS, "");
-            editor.putString(Constant.COUNTRY, "");
-            editor.putString(Constant.CITY, "");
-            editor.putString(Constant.STATE, "");
-            editor.putString(Constant.ACHIEVEMENTS, "");
-            editor.apply();
-            Toast.makeText(this, "Logged Out", Toast.LENGTH_LONG).show();
-        } else
-            Toast.makeText(this, "Not Logged In", Toast.LENGTH_LONG).show();
     }
 }

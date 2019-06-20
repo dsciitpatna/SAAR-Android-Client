@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +28,7 @@ import com.example.saar.Constant;
 import com.example.saar.MainActivity;
 import com.example.saar.OtpActivity;
 import com.example.saar.R;
+import com.example.saar.Utils.Utils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -87,6 +87,8 @@ public class LoginFragment extends Fragment {
         skipLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                sharedPreferenceEditor.putBoolean(Constant.SKIP_LOGIN,true);
+                sharedPreferenceEditor.apply();
                 Intent intent = new Intent(getActivity(), MainActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
@@ -110,13 +112,17 @@ public class LoginFragment extends Fragment {
 
         if (email.isEmpty() || password.isEmpty()) {
             Toast.makeText(getContext(), getString(R.string.credential_empty), Toast.LENGTH_LONG).show();
-        } else {
+        } else if (Utils.isNetworkConnected(getContext())) {
             login();
+        } else {
+            Toast.makeText(getContext(), getString(R.string.no_internet), Toast.LENGTH_LONG).show();
         }
 
     }
 
     private void login() {
+        //closing soft Keyboard using Utils class method
+        Utils.closeKeyboard(getView(), getContext());
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage("Logging in....");
         progressDialog.show();

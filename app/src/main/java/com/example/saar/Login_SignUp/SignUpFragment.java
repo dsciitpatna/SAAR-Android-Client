@@ -1,7 +1,9 @@
 package com.example.saar.Login_SignUp;
 
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -11,12 +13,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,6 +34,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.saar.Constant;
 import com.example.saar.OtpActivity;
 import com.example.saar.R;
+import com.example.saar.Utils.Utils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -41,6 +44,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
+import okhttp3.internal.Util;
 import timber.log.Timber;
 
 public class SignUpFragment extends Fragment {
@@ -50,7 +54,7 @@ public class SignUpFragment extends Fragment {
     TextView errorsDisplay;
     Spinner spinnerGraduationYear, spinnerEmploymentType, spinnerDegree, spinnerDepartment;
     DatePickerDialog.OnDateSetListener setListener;
-    Button signupButton;
+    Button signupButton, errorOkButton;
     int year, month, day;
     String rollno, first_name, last_name, email, phone, fb_link, linkedin_link, password, confirm_password, dob, graduation_year, degree, department;
     String employment_type, present_employer, designation, address, country, state, city, achievements;
@@ -107,9 +111,6 @@ public class SignUpFragment extends Fragment {
         state_text = rootView.findViewById(R.id.state_edit);
         city_text = rootView.findViewById(R.id.city_edit);
         achievements_text = rootView.findViewById(R.id.achievements_edit);
-
-        errorsDisplay = rootView.findViewById(R.id.signup_errors);
-        errorsDisplay.setVisibility(View.GONE);
 
         return rootView;
     }
@@ -184,9 +185,6 @@ public class SignUpFragment extends Fragment {
         signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                progressDialog = new ProgressDialog(getContext());
-                progressDialog.setMessage("Registering....");
-                progressDialog.show();
                 getDatas();
             }
         });
@@ -212,10 +210,23 @@ public class SignUpFragment extends Fragment {
         city = city_text.getText().toString();
         achievements = achievements_text.getText().toString();
 
-        registerUser();
+        if (rollno.isEmpty() || first_name.isEmpty() || email.isEmpty() || phone.isEmpty() ||
+                password.isEmpty() || confirm_password.isEmpty()) {
+            Toast.makeText(getContext(), getResources().getString(R.string.empty_edittext_in_signup), Toast.LENGTH_LONG).show();
+        } else if (Utils.isNetworkConnected(getContext())) {
+            registerUser();
+        } else {
+            Toast.makeText(getContext(), getString(R.string.no_internet), Toast.LENGTH_LONG).show();
+        }
+
     }
 
     private void registerUser() {
+        //closing soft Keyboard using Utils class method
+        Utils.closeKeyboard(getView(), getContext());
+        progressDialog = new ProgressDialog(getContext());
+        progressDialog.setMessage("Registering....");
+        progressDialog.show();
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, Constant.SIGNUP_URL, new Response.Listener<String>() {
 
@@ -239,9 +250,7 @@ public class SignUpFragment extends Fragment {
 
                         JSONArray jsonArray = jsonObject.getJSONArray("messages");
                         Timber.d(getString(R.string.signup_failed));
-                        Toast.makeText(getContext(), getString(R.string.signup_failed), Toast.LENGTH_LONG).show();
-                        errorsDisplay.setVisibility(View.VISIBLE);
-                        errorsDisplay.setText(jsonArray.toString());
+                        showDialog(getActivity(), jsonArray.toString());
                     }
 
                 } catch (JSONException e) {
@@ -291,5 +300,24 @@ public class SignUpFragment extends Fragment {
 
         RequestQueue requestQueue = Volley.newRequestQueue(getContext());
         Request<String> data = requestQueue.add(stringRequest);
+    }
+
+    public void showDialog(Context context, String mssg) {
+        final Dialog dialog = new Dialog(context);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setCancelable(false);
+        dialog.setContentView(R.layout.signup_error_dialog);
+
+        errorsDisplay = dialog.findViewById(R.id.signup_error_text);
+        errorsDisplay.setText(mssg);
+
+        errorOkButton = dialog.findViewById(R.id.dialog_ok);
+        errorOkButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
     }
 }
