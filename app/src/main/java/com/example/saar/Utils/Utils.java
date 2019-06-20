@@ -44,6 +44,7 @@ public class Utils {
         editor.putString(Constant.CITY, "");
         editor.putString(Constant.STATE, "");
         editor.putString(Constant.ACHIEVEMENTS, "");
+        editor.putBoolean(Constant.SKIP_LOGIN,false);
         editor.apply();
         Toast.makeText(context, "Logged Out", Toast.LENGTH_LONG).show();
         context.startActivity(new Intent(context, LoginSignupActivity.class));

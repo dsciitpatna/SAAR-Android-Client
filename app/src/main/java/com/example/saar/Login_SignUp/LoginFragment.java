@@ -87,6 +87,8 @@ public class LoginFragment extends Fragment {
         skipLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                sharedPreferenceEditor.putBoolean(Constant.SKIP_LOGIN,true);
+                sharedPreferenceEditor.apply();
                 Intent intent = new Intent(getActivity(), MainActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);

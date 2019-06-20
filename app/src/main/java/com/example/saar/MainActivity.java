@@ -60,6 +60,11 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+
+        if(!preferences.getBoolean(Constant.LOGIN_STATUS,false) && !preferences.getBoolean(Constant.SKIP_LOGIN,false)){
+            startActivity(new Intent(this, LoginSignupActivity.class));
+        }
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
