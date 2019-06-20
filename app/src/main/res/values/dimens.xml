@@ -24,7 +24,7 @@
     <dimen name="share_margin_bottom">56dp</dimen>
 
     <!--Login Fragment-->
-    <dimen name="view_height">250dp</dimen>
+    <dimen name="view_height">200dp</dimen>
     <dimen name="card_login_radius">10dp</dimen>
     <dimen name="card_login_elevation">10dp</dimen>
     <dimen name="padding_login_big">20dp</dimen>
@@ -32,7 +32,7 @@
     <dimen name="margin_5dp">5dp</dimen>
     <dimen name="margin_10dp">10dp</dimen>
     <dimen name="margin_30dp">30dp</dimen>
-    <dimen name="login_card_margin">128dp</dimen>
+    <dimen name="login_card_margin">100dp</dimen>
 
     <!--Signup Fragment-->
     <dimen name="ok_button_height">32dp</dimen>

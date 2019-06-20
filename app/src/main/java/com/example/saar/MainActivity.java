@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity
 
         preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
-        if(!preferences.getBoolean(Constant.LOGIN_STATUS,false) && !preferences.getBoolean(Constant.SKIP_LOGIN,false)){
+        if (!preferences.getBoolean(Constant.LOGIN_STATUS, false) && !preferences.getBoolean(Constant.SKIP_LOGIN, false)) {
             startActivity(new Intent(this, LoginSignupActivity.class));
         }
 
@@ -131,7 +131,6 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void showHomeFragment() {
-        navigationView.setCheckedItem(R.id.nav_home);
         fragment = new HomeFragment();
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.content_frame, fragment);
@@ -140,10 +139,11 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
+        Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.content_frame);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else if (fragment instanceof HomeFragment) {
+        } else if (currentFragment instanceof HomeFragment) {
             super.onBackPressed();
         } else {
             showHomeFragment();
