@@ -131,6 +131,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void showHomeFragment() {
+        navigationView.setCheckedItem(R.id.nav_home);
         fragment = new HomeFragment();
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.content_frame, fragment);
