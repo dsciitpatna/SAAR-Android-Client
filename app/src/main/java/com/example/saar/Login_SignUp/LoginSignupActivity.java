@@ -18,11 +18,13 @@ import com.example.saar.R;
 
 public class LoginSignupActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
     SharedPreferences preferences;
+    SharedPreferences.Editor sharedPreferenceEditor;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        sharedPreferenceEditor = preferences.edit();
         if (preferences.getBoolean(Constant.LOGIN_STATUS, false)) {
             //user logged in
             Intent intent = new Intent(this, MainActivity.class);
@@ -75,6 +77,8 @@ public class LoginSignupActivity extends AppCompatActivity implements BottomNavi
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        sharedPreferenceEditor.putBoolean(Constant.SKIP_LOGIN, true);
+        sharedPreferenceEditor.apply();
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
