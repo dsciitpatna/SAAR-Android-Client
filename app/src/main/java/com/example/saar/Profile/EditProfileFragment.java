@@ -98,14 +98,14 @@ public class EditProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
-                alert.setMessage("Save changes?").setCancelable(true)
-                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                alert.setMessage(getString(R.string.alert_profile_message)).setCancelable(true)
+                        .setPositiveButton(getString(R.string.alert_positive), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 updateDatas();
                             }
                         })
-                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        .setNegativeButton(getString(R.string.alert_negative), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 dialog.cancel();
@@ -130,8 +130,8 @@ public class EditProfileFragment extends Fragment {
                 if (event.getAction() == KeyEvent.ACTION_DOWN) {
                     if (keyCode == KeyEvent.KEYCODE_BACK) {
                         AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
-                        alert.setMessage("Do you want to exit without saving changes?").setCancelable(false)
-                                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        alert.setMessage(getString(R.string.exit_profile_alert)).setCancelable(false)
+                                .setPositiveButton(getString(R.string.alert_positive), new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
                                         FragmentTransaction ft = getFragmentManager().beginTransaction();
@@ -139,7 +139,7 @@ public class EditProfileFragment extends Fragment {
                                         ft.commit();
                                     }
                                 })
-                                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                .setNegativeButton(getString(R.string.alert_negative), new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
                                         dialog.cancel();
@@ -223,7 +223,7 @@ public class EditProfileFragment extends Fragment {
     //Upload the datas to the server
     private void updateDatas() {
         progressDialog = new ProgressDialog(getActivity());
-        progressDialog.setMessage("Updating profile info....");
+        progressDialog.setMessage(getString(R.string.edit_profile_progress));
         progressDialog.show();
         StringRequest stringRequest = new StringRequest(Request.Method.POST, Constant.UPDATE_PROFILE_URL, new Response.Listener<String>() {
 

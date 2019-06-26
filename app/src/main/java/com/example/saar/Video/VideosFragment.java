@@ -16,8 +16,9 @@ import com.example.saar.R;
 public class VideosFragment extends Fragment {
 
     FloatingActionButton video_1, video_2;
-    String video1Id= "1aW5r8-d2jQ";
+    String video1Id = "1aW5r8-d2jQ";
     String video2Id = "WdR0v0pJ4vY";
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -50,7 +51,7 @@ public class VideosFragment extends Fragment {
 
     }
 
-    public void openYoutube(String videoId){
+    public void openYoutube(String videoId) {
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube://" + videoId));
         startActivity(intent);
     }

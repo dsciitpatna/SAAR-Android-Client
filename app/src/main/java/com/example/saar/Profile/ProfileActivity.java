@@ -58,8 +58,8 @@ public class ProfileActivity extends AppCompatActivity {
                 return true;
             } else if (fragment instanceof EditProfileFragment) {
                 AlertDialog.Builder alert = new AlertDialog.Builder(this);
-                alert.setMessage("Do you want to exit without saving changes?").setCancelable(false)
-                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                alert.setMessage(getString(R.string.exit_profile_alert)).setCancelable(false)
+                        .setPositiveButton(getString(R.string.alert_positive), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 FragmentTransaction ft = getFragmentManager().beginTransaction();
@@ -67,7 +67,7 @@ public class ProfileActivity extends AppCompatActivity {
                                 ft.commit();
                             }
                         })
-                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        .setNegativeButton(getString(R.string.alert_negative), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 dialog.cancel();

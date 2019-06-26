@@ -45,7 +45,7 @@ public class GalleryFragment extends Fragment {
             no_internet.setVisibility(View.GONE);
             recyclerView = rootView.findViewById(R.id.recycler_view_gallery);
             progressDialog = new ProgressDialog(rootView.getContext());
-            progressDialog.setMessage("Loading....");
+            progressDialog.setMessage(getString(R.string.gallery_image_loading));
             progressDialog.show();
 
             /*Create handle for the RetrofitInstance interface*/
@@ -61,7 +61,7 @@ public class GalleryFragment extends Fragment {
                 @Override
                 public void onFailure(Call<List<Gallery>> call, Throwable t) {
                     progressDialog.dismiss();
-                    Toast.makeText(rootView.getContext(), "Please Check Internet Connection", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(rootView.getContext(), getString(R.string.check_internet), Toast.LENGTH_SHORT).show();
                 }
             });
         }

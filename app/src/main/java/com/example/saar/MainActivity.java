@@ -188,8 +188,8 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.action_logout) {
 
             AlertDialog.Builder alert = new AlertDialog.Builder(this);
-            alert.setMessage("Are you sure you want to logout?").setCancelable(true)
-                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            alert.setMessage(getString(R.string.logout_confirm_alert)).setCancelable(true)
+                    .setPositiveButton(getString(R.string.alert_positive), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             editor = preferences.edit();
@@ -199,7 +199,7 @@ public class MainActivity extends AppCompatActivity
 
                         }
                     })
-                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    .setNegativeButton(getString(R.string.alert_negative), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.cancel();

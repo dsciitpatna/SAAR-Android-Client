@@ -25,6 +25,9 @@
     <string name="photo">Photo</string>
     <string name="enter_all_fields">Please enter all fields</string>
     <string name="videos">Videos</string>
+    <string name="alert_positive">Yes</string>
+    <string name="alert_negative">No</string>
+    <string name="logout_confirm_alert">Are you sure you want to logout?</string>
 
     <!--Team Page-->
     <string name="member_1">Vivek Garg</string>
@@ -70,6 +73,7 @@
     <string name="committee_3">Public and Alumni Relations</string>
     <string name="committee_4">Events and Management</string>
     <string name="committee_5">Web and App</string>
+    <string name="team_fb_intent_error">Something Went Wrong</string>
 
     <!--About Us Page-->
     <string name="about_us_fragment">About Us fragment</string>
@@ -129,8 +133,9 @@
     <string name="saar_signup">SAAR  Sign Up</string>
     <string name="verify_email">Verify your OTP</string>
     <string name="credential_empty">Email or password field cannot be empty.</string>
-    <string name="loggedin">You have succesfully logged in.</string>
+    <string name="loggedin">You have successfully logged in.</string>
     <string name="error_loggingin">Failed to log in.</string>
+    <string name="login_progress">Logging in...</string>
 
     <!--Sign Up Fragment-->
     <string name="empty_edittext_in_signup">Please fill all necessary fields for registration</string>
@@ -153,6 +158,7 @@
     <string name="achievements">Achievements after Graduation</string>
     <string name="signup_ok">OK</string>
     <string name="signup_error">Error</string>
+    <string name="signup_progress">Registering...</string>
     <string-array name="graduation_year_array">
         <item>2012</item>
         <item>2013</item>
@@ -207,6 +213,11 @@
 
     <!--Timeline Page-->
     <string name="timeline">Timeline</string>
+    <string name="timeline_progress">Loading...</string>
+
+    <!--Gallery Page-->
+    <string name="gallery_image_loading">Loading...</string>
+    <string name="check_internet">Please check your internet connection</string>
 
     <!--Event Details Page-->
     <string name="event_details">Event Details</string>
@@ -241,8 +252,10 @@
     <string name="signup_successfull">Successfully registered your account. Please verify your email by entering the OTP send in email.</string>
     <string name="signup_failed">Failed to register you. Please correct the errors and try again.</string>
     <string name="rollno_otp">Roll No field cannot be empty.</string>
-    <string name="resend_otp_succesfull">Succesfully sent the OTP in your email. Please check your email.</string>
+    <string name="resend_otp_succesfull">Successfully sent the OTP in your email. Please check your email.</string>
     <string name="resend_otp_failure">Failed to resend the otp.</string>
+    <string name="resend_otp_request">Resending...</string>
+    <string name="verify_otp">Verifying...</string>
 
     <!--Profile Page-->
     <string name="old_password">Old Password</string>
@@ -250,21 +263,25 @@
     <string name="save">Save changes</string>
     <string name="fb_profile">Fb Profile Link</string>
     <string name="linkedin_profile">LinkedIn Profile Link</string>
-    <string name="profile_update_success">Succesfully updated your profile information</string>
+    <string name="profile_update_success">Successfully updated your profile information</string>
     <string name="profile_update_failue">Failed to update your profile</string>
     <string name="profile_img_alert_title">Update Profile Image</string>
     <string name="profile_img_alert_message">Select the method to get the Photo</string>
     <string name="gallery">GALLERY</string>
     <string name="camera">CAMERA</string>
-    <string name="img_upload_success">Succesfully updated your profile picture</string>
+    <string name="img_upload_success">Successfully updated your profile picture</string>
     <string name="img_upload_failure">Failed to upload your profile picture</string>
+    <string name="alert_profile_message">Save changes?</string>
+    <string name="exit_profile_alert">Do you want to exit without saving changes?</string>
+    <string name="edit_profile_progress">Updating profile info...</string>
 
     <!--Change Email Fragment-->
     <string name="change_email">Change Email</string>
     <string name="old_email">Old Email</string>
     <string name="new_email">New Email</string>
-    <string name="change_email_success">Chnage email request has succesfully been sent.</string>
+    <string name="change_email_success">Chnage email request has successfully been sent.</string>
     <string name="change_email_failure">Change email request has failed to sent.</string>
+    <string name="change_email_request">Sending request...</string>
 
     <!--Forgot Password Fragment-->
     <string name="forgot_password">Forgot Password?</string>
@@ -272,12 +289,14 @@
     <string name="reset_password">Reset Password</string>
     <string name="error_Forgot_password">Error requesting to reset your password.</string>
     <string name="success_forgot_password_request">Successfully requested to initiate forgot password. </string>
-    <string name="forgot_password_success">We have succesfully verified you. You can now change your password.</string>
+    <string name="forgot_password_success">We have successfully verified you. You can now change your password.</string>
+    <string name="forgot_password_request">Requesting...</string>
 
     <!-- Change Password -->
-    <string name="change_password_succesfull">Succesfully changed the password.</string>
+    <string name="change_password_succesfull">Successfully changed the password.</string>
     <string name="change_password_failure">Failed to change the password. Please try again later.</string>
     <string name="password_mismatch">New password and Confirm password does not match</string>
+    <string name="change_password_reset">Resetting your password...</string>
 
     <!--Videos Fragment-->
     <string name="video_remi_title">Reminiscence : The\nJourney of SAAR, IIT Patna</string>

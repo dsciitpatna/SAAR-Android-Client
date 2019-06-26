@@ -81,7 +81,7 @@ public class ChangeEmailFragment extends Fragment {
     private void requestEmailChange() {
         Utils.closeKeyboard(getView(), getContext());
         progressDialog = new ProgressDialog(getActivity());
-        progressDialog.setMessage("Sending request....");
+        progressDialog.setMessage(getString(R.string.change_email_request));
         progressDialog.show();
         StringRequest stringRequest = new StringRequest(Request.Method.POST, Constant.CHANGE_EMAIL_URL, new Response.Listener<String>() {
 

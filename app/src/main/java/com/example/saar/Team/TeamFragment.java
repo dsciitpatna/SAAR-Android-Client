@@ -291,7 +291,7 @@ public class TeamFragment extends Fragment {
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(id));
             startActivity(intent);
         } catch (ActivityNotFoundException e) {
-            Toast.makeText(getActivity(), "Something Went Wrong.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), getString(R.string.team_fb_intent_error), Toast.LENGTH_SHORT).show();
         }
     }
 }
