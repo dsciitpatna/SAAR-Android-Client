@@ -42,7 +42,7 @@ public class TimelineFragment extends Fragment {
             no_internet.setVisibility(View.GONE);
             recyclerView = rootView.findViewById(R.id.recycler_view_timeline);
             progressDialog = new ProgressDialog(rootView.getContext());
-            progressDialog.setMessage("Loading....");
+            progressDialog.setMessage(getString(R.string.timeline_progress));
             progressDialog.show();
 
             /*Create handle for the RetrofitInstance interface*/
@@ -58,7 +58,7 @@ public class TimelineFragment extends Fragment {
                 @Override
                 public void onFailure(Call<List<Event>> call, Throwable t) {
                     progressDialog.dismiss();
-                    Toast.makeText(rootView.getContext(), "Please Check Internet Connection", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(rootView.getContext(), getString(R.string.check_internet), Toast.LENGTH_SHORT).show();
                 }
             });
         }

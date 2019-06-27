@@ -121,7 +121,7 @@ public class OtpActivity extends AppCompatActivity {
                 pinview.onKey(pinview.getFocusedChild(), KeyEvent.KEYCODE_DEL, new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_DEL));
             }
             final ProgressDialog resendProgressDialog = new ProgressDialog(this);
-            resendProgressDialog.setMessage("Resending....");
+            resendProgressDialog.setMessage(getString(R.string.resend_otp_request));
             resendProgressDialog.show();
             StringRequest stringRequest = new StringRequest(Request.Method.POST, Constant.RESEND_OTP_URL, new Response.Listener<String>() {
 
@@ -204,7 +204,7 @@ public class OtpActivity extends AppCompatActivity {
 
     private void verifyOTP() {
         progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Verifying....");
+        progressDialog.setMessage(getString(R.string.verify_otp));
         progressDialog.show();
         StringRequest stringRequest = new StringRequest(Request.Method.POST, Constant.OTP_URL, new Response.Listener<String>() {
 

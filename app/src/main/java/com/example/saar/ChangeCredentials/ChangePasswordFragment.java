@@ -96,7 +96,7 @@ public class ChangePasswordFragment extends Fragment {
     private void resetPassword() {
         Utils.closeKeyboard(getView(), getContext());
         progressDialog = new ProgressDialog(getContext());
-        progressDialog.setMessage("Resetting....");
+        progressDialog.setMessage(getString(R.string.change_password_reset));
         progressDialog.show();
         StringRequest stringRequest = new StringRequest(Request.Method.POST, Constant.CHANGE_PASSWORD_URL, new Response.Listener<String>() {
 

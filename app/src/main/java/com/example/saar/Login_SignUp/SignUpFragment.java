@@ -225,7 +225,7 @@ public class SignUpFragment extends Fragment {
         //closing soft Keyboard using Utils class method
         Utils.closeKeyboard(getView(), getContext());
         progressDialog = new ProgressDialog(getContext());
-        progressDialog.setMessage("Registering....");
+        progressDialog.setMessage(getString(R.string.signup_progress));
         progressDialog.show();
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, Constant.SIGNUP_URL, new Response.Listener<String>() {

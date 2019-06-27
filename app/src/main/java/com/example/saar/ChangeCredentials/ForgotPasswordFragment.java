@@ -75,7 +75,7 @@ public class ForgotPasswordFragment extends Fragment {
     private void requestDatas() {
         Utils.closeKeyboard(getView(), getContext());
         progressDialog = new ProgressDialog(getContext());
-        progressDialog.setMessage("Requesting....");
+        progressDialog.setMessage(getString(R.string.forgot_password_request));
         progressDialog.show();
         StringRequest stringRequest = new StringRequest(Request.Method.POST, Constant.FORGOT_PASSWORD_URL, new Response.Listener<String>() {
 
